@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6350 64-bit) (preloaded format=pdflatex 2017.6.3)  15 JUL 2017 13:06
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6350 64-bit) (preloaded format=pdflatex 2017.6.3)  15 JUL 2017 14:29
 entering extended mode
 **./Lmain.tex
 (Lmain.tex
@@ -251,34 +251,41 @@ Package xcolor Info: Model `Gray' substituted by `gray' on input line 1370.
 Package xcolor Info: Model `wave' substituted by `hsb' on input line 1371.
 ) (Lmain.aux
 (appendix1.aux) (Chapters/1-intro.aux) (Chapters/2-background.aux)
-(Chapters/4-Implementation.aux) (Chapters/5-Expiraments.aux
+(Chapters/3-methodology.aux) (Chapters/4-Implementation.aux
 
-LaTeX Warning: Label `my-label' multiply defined.
+LaTeX Warning: Label `fig:counting-methods' multiply defined.
 
+
+LaTeX Warning: Label `fig:counting-methods' multiply defined.
+
+
+LaTeX Warning: Label `fig:counting-methods' multiply defined.
+
+) (Chapters/5-Expiraments.aux
 
 LaTeX Warning: Label `my-label' multiply defined.
 
 ) (Chapters/6-Conclusions.aux) (appendix1.aux))
 \openout1 = `Lmain.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 85.
-LaTeX Font Info:    ... okay on input line 85.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 85.
-LaTeX Font Info:    ... okay on input line 85.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 85.
-LaTeX Font Info:    ... okay on input line 85.
-LaTeX Font Info:    Checking defaults for OMS/pzccm/m/n on input line 85.
-LaTeX Font Info:    Try loading font information for OMS+pzccm on input line 85
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 87.
+LaTeX Font Info:    ... okay on input line 87.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 87.
+LaTeX Font Info:    ... okay on input line 87.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 87.
+LaTeX Font Info:    ... okay on input line 87.
+LaTeX Font Info:    Checking defaults for OMS/pzccm/m/n on input line 87.
+LaTeX Font Info:    Try loading font information for OMS+pzccm on input line 87
 .
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\psnfss\omspzccm.fd"
 File: omspzccm.fd 2000/01/03 Fontinst v1.801 font definitions for OMS/pzccm.
 )
-LaTeX Font Info:    ... okay on input line 85.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 85.
-LaTeX Font Info:    ... okay on input line 85.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 85.
-LaTeX Font Info:    ... okay on input line 85.
+LaTeX Font Info:    ... okay on input line 87.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 87.
+LaTeX Font Info:    ... okay on input line 87.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 87.
+LaTeX Font Info:    ... okay on input line 87.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -372,27 +379,27 @@ G,.JBIG2,.JB2,.eps]
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: End \AtBeginDocument code.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <20.74> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 91.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 93.
 LaTeX Font Info:    Font shape `OT1/phv/bx/n' in size <20.74> not available
-(Font)              Font shape `OT1/phv/b/n' tried instead on input line 91.
+(Font)              Font shape `OT1/phv/b/n' tried instead on input line 93.
 LaTeX Font Info:    Font shape `OT1/phv/b/n' will be
-(Font)              scaled to size 18.66588pt on input line 91.
+(Font)              scaled to size 18.66588pt on input line 93.
 
 <eushield-normal.pdf, id=1, 369.38pt x 373.395pt>
 File: eushield-normal.pdf Graphic file (type pdf)
  <use eushield-normal.pdf>
-Package pdftex.def Info: eushield-normal.pdf used on input line 91.
+Package pdftex.def Info: eushield-normal.pdf used on input line 93.
 (pdftex.def)             Requested size: 369.37909pt x 373.39409pt.
 
 [1
 
 {C:/ProgramData/MiKTeX/2.9/pdftex/config/pdftex.map} <./eushield-normal.pdf>]
 LaTeX Font Info:    Font shape `OT1/phv/m/n' will be
-(Font)              scaled to size 10.79993pt on input line 91.
+(Font)              scaled to size 10.79993pt on input line 93.
 LaTeX Font Info:    Font shape `OT1/phv/bx/n' in size <12> not available
-(Font)              Font shape `OT1/phv/b/n' tried instead on input line 91.
+(Font)              Font shape `OT1/phv/b/n' tried instead on input line 93.
 LaTeX Font Info:    Font shape `OT1/phv/b/n' will be
-(Font)              scaled to size 10.79993pt on input line 91.
+(Font)              scaled to size 10.79993pt on input line 93.
 Missing character: There is no ‚ in font ptmr7t!
 Missing character: There is no Ä in font ptmr7t!
 Missing character: There is no ô in font ptmr7t!
@@ -451,17 +458,13 @@ LaTeX Font Info:    Font shape `OT1/phv/bx/n' in size <17.28> not available
 (Font)              Font shape `OT1/phv/b/n' tried instead on input line 2.
 LaTeX Font Info:    Font shape `OT1/phv/b/n' will be
 (Font)              scaled to size 15.55188pt on input line 2.
-<Images/db_architecture.jpg, id=25, 643.40375pt x 682.55pt>
-File: Images/db_architecture.jpg Graphic file (type jpg)
+<Images/Chapter1/db_arch.png, id=25, 512.91624pt x 643.40375pt>
+File: Images/Chapter1/db_arch.png Graphic file (type png)
 
-<use Images/db_architecture.jpg>
-Package pdftex.def Info: Images/db_architecture.jpg used on input line 11.
-(pdftex.def)             Requested size: 412.56497pt x 437.68452pt.
-
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-) [1
+<use Images/Chapter1/db_arch.png>
+Package pdftex.def Info: Images/Chapter1/db_arch.png used on input line 10.
+(pdftex.def)             Requested size: 412.56497pt x 517.53151pt.
+ [1
 
 
 
@@ -469,14 +472,20 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 
 ]
 LaTeX Font Info:    Font shape `OT1/phv/m/it' in size <12> not available
-(Font)              Font shape `OT1/phv/m/sl' tried instead on input line 126.
+(Font)              Font shape `OT1/phv/m/sl' tried instead on input line 20.
 LaTeX Font Info:    Font shape `OT1/phv/m/sl' will be
-(Font)              scaled to size 10.79993pt on input line 126.
- [2 <./Images/db_architecture.jpg>] [3]
+(Font)              scaled to size 10.79993pt on input line 20.
+ [2 <./Images/Chapter1/db_arch.png>])
+[3]
 \openout2 = `Chapters/2-background.aux'.
 
  (Chapters/2-background.tex
 Chapter 2.
+[4
+
+
+
+]
 Missing character: There is no ‚ in font ptmr7t!
 Missing character: There is no Ä in font ptmr7t!
 Missing character: There is no ú in font ptmr7t!
@@ -485,24 +494,60 @@ Missing character: There is no Ä in font ptmr7t!
 Missing character: There is no ù in font ptmr7t!
 Missing character: There is no Œ in font ptmr7t!
 Missing character: There is no ô in font ptmr7t!
-[4
+) [5]
+\openout2 = `Chapters/3-methodology.aux'.
 
-
-
-]) [5]
-\openout2 = `Chapters/4-Implementation.aux'.
-
- (Chapters/4-Implementation.tex
+ (Chapters/3-methodology.tex
 Chapter 3.
+Missing character: There is no ‚ in font ptmr7t!
+Missing character: There is no Ä in font ptmr7t!
+Missing character: There is no ô in font ptmr7t!
+Missing character: There is no ‚ in font ptmr7t!
+Missing character: There is no Ä in font ptmr7t!
+Missing character: There is no ô in font ptmr7t!
 [6
 
 
 
-] [7]) [8]
+]) [7]
+\openout2 = `Chapters/4-Implementation.aux'.
+
+ (Chapters/4-Implementation.tex
+Chapter 4.
+<Images/Chapter4/1-implemen_detail.png, id=51, 544.0325pt x 414.54875pt>
+File: Images/Chapter4/1-implemen_detail.png Graphic file (type png)
+
+<use Images/Chapter4/1-implemen_detail.png>
+Package pdftex.def Info: Images/Chapter4/1-implemen_detail.png used on input li
+ne 10.
+(pdftex.def)             Requested size: 412.56497pt x 314.38348pt.
+ [8
+
+
+
+] [9 <./Images/Chapter4/1-implemen_detail.png>] [10] [11]
+<Images/Chapter4/2-ComparisonTool.png, id=66, 433.62pt x 283.0575pt>
+File: Images/Chapter4/2-ComparisonTool.png Graphic file (type png)
+
+<use Images/Chapter4/2-ComparisonTool.png>
+Package pdftex.def Info: Images/Chapter4/2-ComparisonTool.png used on input lin
+e 52.
+(pdftex.def)             Requested size: 412.56497pt x 269.32635pt.
+
+<Images/Chapter4/3-ComparisonTool.png, id=67, 333.245pt x 294.09875pt>
+File: Images/Chapter4/3-ComparisonTool.png Graphic file (type png)
+
+<use Images/Chapter4/3-ComparisonTool.png>
+Package pdftex.def Info: Images/Chapter4/3-ComparisonTool.png used on input lin
+e 61.
+(pdftex.def)             Requested size: 412.56497pt x 364.1267pt.
+ [12 <./Images/Chapter4/2-ComparisonTool.png>] [13 <./Images/Chapter4/3-Compari
+sonTool.png>]) [14]
 \openout2 = `Chapters/5-Expiraments.aux'.
 
- (Chapters/5-Expiraments.tex
-Chapter 4.
+
+(Chapters/5-Expiraments.tex
+Chapter 5.
 
 Overfull \hbox (1.76192pt too wide) in paragraph at lines 29--29
 []|\OT1/ptm/m/n/12 PostgreSQL| 
@@ -516,7 +561,7 @@ Overfull \hbox (10.97357pt too wide) in paragraph at lines 24--34
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[9
+[15
 
 
 
@@ -525,12 +570,12 @@ Overfull \hbox (232.83743pt too wide) in paragraph at lines 53--63
  [][] 
  []
 
-) [10] [11]
+) [16] [17]
 \openout2 = `Chapters/6-Conclusions.aux'.
 
  (Chapters/6-Conclusions.tex
-Chapter 5.
-) [12
+Chapter 6.
+) [18
 
 
 
@@ -539,35 +584,36 @@ Chapter 5.
 
 
 No file appendix1.tex.
-(Lmain.bbl) [13
+(Lmain.bbl) [19
 
 
 
 
 ] (Lmain.aux (appendix1.aux) (Chapters/1-intro.aux)
-(Chapters/2-background.aux) (Chapters/4-Implementation.aux)
-(Chapters/5-Expiraments.aux) (Chapters/6-Conclusions.aux) (appendix1.aux))
+(Chapters/2-background.aux) (Chapters/3-methodology.aux)
+(Chapters/4-Implementation.aux) (Chapters/5-Expiraments.aux)
+(Chapters/6-Conclusions.aux) (appendix1.aux))
 
 LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 5293 strings out of 493323
- 75740 string characters out of 3139067
- 156423 words of memory out of 3000000
- 8685 multiletter control sequences out of 15000+200000
- 34021 words of font info for 62 fonts, out of 3000000 for 9000
+ 5313 strings out of 493323
+ 76490 string characters out of 3139067
+ 159974 words of memory out of 3000000
+ 8698 multiletter control sequences out of 15000+200000
+ 32313 words of font info for 59 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 43i,11n,41p,1514b,283s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 43i,11n,41p,1394b,281s stack positions out of 5000i,500n,10000p,200000b,50000s
 {C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/base/8r.enc}<C:/Program Files/Mi
 KTeX 2.9/fonts/type1/urw/helvetic/uhvb8a.pfb><C:/Program Files/MiKTeX 2.9/fonts
 /type1/urw/helvetic/uhvr8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/hel
 vetic/uhvro8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmb8a.pfb
 ><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmr8a.pfb><C:/Program File
 s/MiKTeX 2.9/fonts/type1/urw/times/utmri8a.pfb>
-Output written on Lmain.pdf (18 pages, 173723 bytes).
+Output written on Lmain.pdf (24 pages, 200410 bytes).
 PDF statistics:
- 89 PDF objects out of 1000 (max. 8388607)
+ 116 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 11 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 26 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -1,24 +1,29 @@
 
 \chapter{Background}
 
-SQL is a domain specific language that is used in many DBMSs for accessing and storing data. SQL is extremely popular because it offers two capabilities. Firstly, it can access many tuples using just one command and secondly it does not need to specify how to reach a tuple, for example by using an index or not. In that way, it is an easy language for managing data. Moreover, SQL is divided into three parts such as data definition language, data manipulation language and data control language. In this project, our attention will be on data manipulation language as we want to investigate whether current DBMSs use the language in the same way. 
+\section{Background}
+SQL is a domain specific language that is used primarily in many DBMSs for accessing and storing data. SQL is extremely popular as it offers two capabilities. Firstly, it can access many tuples using just one command and secondly it does not need to specify how to reach a tuple, for example by using an index or not. SQL operations are in the form of commands written as statements known as SQL statement. In that way, it is an easy language for managing data. Moreover, SQL is divided into three parts such as data definition language, data manipulation language and data control language. 
+	The standard language for relational database management system (RDMS) is SQL. The first appearance of SQL was in 1970 where IBM developed the first prototype of RDMS and it becomes a standard by American National Standard Institute (ANSI) in 1986 and by ISO in 1987 for being use as a base with most DBMSs. Since then different flavors of the standard have been emerged for revising previous versions or for adding new features such as SQL-87, SQL-89, ANSI/ISO SQL-92,ANSI/ISO SQL: 1999 and many more. The new ANSI SQL standards is divided into nine parts where for our project the most important part is the SQL/Foundation. This part contains central elements SQL. It can be easily understand that DBMSs cannot follow exactly the standard. The reason for that is based on the fact that standard is considerably complex and it is not practical to implement the whole standard. In addition, each vendor need to distinguish its product among other and as a result it adds extensions.
+In this project, our attention will be on SQL/Foundation part as we want to investigate whether current DBMSs use the language in the same way. 
 Albeit the existence of SQL standards, it worthy mentioning that SQL code is not completely portable between current DBMS without changing the code. SQL implementations are not compatible between different DBMSs as most vendors do not completely follow the SQL standards in the same way. Nevertheless, PostgreSQL tries to follow the SQL standard [10]. 
 
 
  
- 
+
 Below is provided an example which illustrates that SQL code is not completely portable.
- 
- 
-Example 1:
- 
+
+\textbf{Example:}
 For example the SQL query below does not return identical results on both PostgreSQL and Oracle.   
- 
+
 Q1: SELECT * 
           FROM ( SELECT S.A, S.A FROM S ) R
 
 
 While we expect Q1 to return identical results independently on which systems is executed on, this is not the case. It can be observed that Q1 will output a table with two columns named “A” in PostgreSQL. On the other hand, in Oracle database, the SQL query will return an compile-time error. Ιndisputably, there are differences between current DBMSs [1]. 
 It can supposed that in most of the cases these differences are minor but if we take into account that these systems are used in many different fields, then we can quickly realise that small differences might be critical for some companies. The key idea is to be conducted an experimental evaluation of current DBMSs. For achieving that we need to designed and implemented many tools, namely random SQL generator engine, execute and compare results tool. In addition, an open-source tool will be used to generate realistic random data sets of the DBMS. That is, store the same data in all DBMSs and execute thousands of queries on them in order to identify whether there are differences or not. Apparently, we are expecting in all of the cases the query results to be identical. On the contrary, we have provided a concrete example that the results are not always identical in different DBMSs, even though the SQL query was exactly the same. Therefore, this work intends to provide concrete evidence of these differences.
+
+
+
+
 
  
