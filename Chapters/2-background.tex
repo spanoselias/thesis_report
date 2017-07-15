@@ -1,0 +1,24 @@
+
+\chapter{Background}
+
+SQL is a domain specific language that is used in many DBMSs for accessing and storing data. SQL is extremely popular because it offers two capabilities. Firstly, it can access many tuples using just one command and secondly it does not need to specify how to reach a tuple, for example by using an index or not. In that way, it is an easy language for managing data. Moreover, SQL is divided into three parts such as data definition language, data manipulation language and data control language. In this project, our attention will be on data manipulation language as we want to investigate whether current DBMSs use the language in the same way. 
+Albeit the existence of SQL standards, it worthy mentioning that SQL code is not completely portable between current DBMS without changing the code. SQL implementations are not compatible between different DBMSs as most vendors do not completely follow the SQL standards in the same way. Nevertheless, PostgreSQL tries to follow the SQL standard [10]. 
+
+
+ 
+ 
+Below is provided an example which illustrates that SQL code is not completely portable.
+ 
+ 
+Example 1:
+ 
+For example the SQL query below does not return identical results on both PostgreSQL and Oracle.   
+ 
+Q1: SELECT * 
+          FROM ( SELECT S.A, S.A FROM S ) R
+
+
+While we expect Q1 to return identical results independently on which systems is executed on, this is not the case. It can be observed that Q1 will output a table with two columns named “A” in PostgreSQL. On the other hand, in Oracle database, the SQL query will return an compile-time error. Ιndisputably, there are differences between current DBMSs [1]. 
+It can supposed that in most of the cases these differences are minor but if we take into account that these systems are used in many different fields, then we can quickly realise that small differences might be critical for some companies. The key idea is to be conducted an experimental evaluation of current DBMSs. For achieving that we need to designed and implemented many tools, namely random SQL generator engine, execute and compare results tool. In addition, an open-source tool will be used to generate realistic random data sets of the DBMS. That is, store the same data in all DBMSs and execute thousands of queries on them in order to identify whether there are differences or not. Apparently, we are expecting in all of the cases the query results to be identical. On the contrary, we have provided a concrete example that the results are not always identical in different DBMSs, even though the SQL query was exactly the same. Therefore, this work intends to provide concrete evidence of these differences.
+
+ 

@@ -58,7 +58,7 @@
 \RequirePackage{ifthen,%  
     graphics,%
     xspace,
-    class/eushield}
+    eushield}
 
 
 %%%% The following packages are also used but are included further on rather
@@ -555,10 +555,6 @@ Computer Science}}
 
 \newenvironment{declaration}
    {\renewcommand{\abstractname}{Declaration}\begin{mainabs}}
-   {\end{mainabs}\renewcommand{\abstractname}{Abstract}}
-
-\newenvironment{preface}
-   {\renewcommand{\abstractname}{Preface}\begin{mainabs}}
    {\end{mainabs}\renewcommand{\abstractname}{Abstract}}   
 
 \newcommand{\standarddeclaration}{
