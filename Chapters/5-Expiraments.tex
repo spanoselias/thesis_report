@@ -7,15 +7,13 @@ We conduct all the experiments on Windows 8 with i7 CPU, 12GB Ram and solid stat
 \section{Experiment Results}
 In this section we present our findings by illustrates the differences that we have detected and give an explanation about those differences
 
-\subsubsection{Difference 1}
+\subsection{Dif 1}
 
-\fbox{\begin{minipage}{30em}
+\begin{mdframed}[backgroundcolor=gray!20] 
 SELECT r41.A AS A0
 \\FROM r4 AS r41
 \\WHERE 1*1
-\end{minipage}}
-
- 
+\end{mdframed}
 
 \begin{table}[h]
 \centering
@@ -37,20 +35,19 @@ DB2           & {\color[HTML]{009901} \textbf{Works}}                           
 Mysql and IBM DB2 work properly if there are arithmetic calculations in the where clause such as 1*1. Even though expressions in the where clause should be evaluated to true or false, these two DBMSs convert the arithmetic expression to boolean type. Nevertheless, the rest three DBMSs do not do that, as a result, they throw an exception while they executing the query.    
 
 
-\subsubsection{Difference 2}
-\fbox{\begin{minipage}{30em}
+\subsection{Dif 2}
+  
+\begin{mdframed}[backgroundcolor=gray!20] 
 SELECT r21.A AS A0, r21.B AS A1, r21.B AS A1
 \\FROM r2 AS r21
 \\WHERE true
-\end{minipage}}
-
-
+\end{mdframed}
 
 \begin{table}[h]
 \centering
 \caption{My caption}
 \label{my-label}
-\begin{tabular}{|l|l|}
+\begin{tabular}{|p{2cm}|p{12cm}|}
 \hline
 \multicolumn{2}{|c|}{\textbf{Difference 1}}                                                                                                                             \\ \hline
 \textbf{DBMS} & \textbf{Result}                                                                                                                                         \\ \hline
@@ -63,3 +60,24 @@ DB2           & {\color[HTML]{009901} \textbf{Works}}                           
 \end{table}
 
 DBMSs evaluate each expression in the where clause to a boolean type. Thus, instead of having an expression, it can be specified the true/false keyword which is a boolean type. Nevertheless, not all the DBMSs support this. MS server and Oracle do not support this keyword.
+
+\section{Summarize features}
+The below table summarizes the main features of SQL language and illustrated which of them are not supported by all popular DBMSs. These findings have been discovered by conducting experiments using the random generator query tool and the comparison tool. We have generated a huge number of SQL queries in order to identify lot of cases where DBMSs behave differently. It is worthy mentioning that the process of conducting experiments is fully automated and in case where a difference is found, it is recorded in a log file with some useful explanation.    
+
+
+
+\begin{table}[]
+\centering
+\caption{My caption}
+\label{my-label}
+\begin{tabular}{|l|l|l|l|l|l|}
+\hline
+Operation     & Mysql & PostgreSQL & MS Server & Oracle & IBM DB2 \\ \hline
+INTERSECT ALL &  \multicolumn{1}{c|}{\text{\sffamily X}}     &    \multicolumn{1}{c|}{\ding{52}}      &           &        &         \\ \hline
+AS in FROM    &       &            &           &        &         \\ \hline
+EXCEPT ALL    &       &            &           &        &         \\ \hline
+              &       &            &           &        &         \\ \hline
+\end{tabular}
+\end{table}
+
+

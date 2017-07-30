@@ -63,6 +63,12 @@
 \usepackage{array}
 \usepackage{multirow}
 \usepackage[table,xcdraw]{xcolor}
+
+%%Package for tick icon in the experiments chapter
+\usepackage{pifont}
+
+\usepackage{xcolor}
+\usepackage{mdframed}
  
 %% Information about the title, etc.
 \title{ Testing SQL-compliance of current DBMSs}
@@ -79,7 +85,6 @@
 \abstract{%
 Database Management Systems (DBMSs) are widely used in various fields such as in banking and financial sectors. Hence, the correct and efficient operation of such systems are crucial. As the demand for these systems have been increased rapidly in recent years, different implementations have been proposed and implemented. For example, different companies have been implemented their own system, and inevitably there are significant differences between these systems regarding their internal implementation and architecture. For making easier the transition between these systems a common language was adopted. More precisely, SQL is a database language which is used to manipulate and retrieve data and is supported by all current DBMSs. Albeit different system’s implementations are exist, in principle, they should follow the SQL standards in the same manner. A crucial question that will be investigated by conducting this project is whether DBMSs have been implemented the SQL standards in the same way. The SQL language should pledge that identical SQL code should always return identical answers when it is evaluated on the same database independently of which DBMS is running on. However, there are indications that this is not the case, as SQL standards are interpreted and implemented differently so that identical SQL queries do not always retrieve the same answers.
 The aim of this project is the implementation of a random SQL query generator and a comparison tool for investigating and highlighting the differences that may exist among current DBMSs. Further, we aim to provide a detailed explanation in regards to SQL standards of potential differences and explain how they might affect the transition between current DBMSs. 
-
  
 }
 

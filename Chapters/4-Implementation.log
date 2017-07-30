@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6350 64-bit) (preloaded format=pdflatex 2017.6.3)  15 JUL 2017 14:29
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6350 64-bit) (preloaded format=pdflatex 2017.6.3)  15 JUL 2017 15:46
 entering extended mode
 **./4-Implementation.tex
 (4-Implementation.tex
@@ -491,7 +491,7 @@ or  <return>  to continue without it.
 
 ! Undefined control sequence.
 l.10       \includegraphics
-                           [width=\textwidth]{Images/Chapter4/1-implemen_det...
+                           [width=\textwidth,height=6cm]{Images/Chapter4/1-i...
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
 misspelled it (e.g., `\hobx'), type `I' and the correct
@@ -506,7 +506,7 @@ Type  H <return>  for immediate help.
  ...                                              
                                                   
 l.10       \includegraphics[
-                            width=\textwidth]{Images/Chapter4/1-implemen_det...
+                            width=\textwidth,height=6cm]{Images/Chapter4/1-i...
 
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
@@ -518,20 +518,11 @@ Missing character: There is no d in font nullfont!
 Missing character: There is no t in font nullfont!
 Missing character: There is no h in font nullfont!
 Missing character: There is no = in font nullfont!
-! Missing number, treated as zero.
-<to be read again> 
-                   ]
-l.10       \includegraphics[width=\textwidth]
-                                             {Images/Chapter4/1-implemen_det...
-A number should have been here; I inserted `0'.
-(If you can't figure out why I needed to see a number,
-look up `weird error' in the index to The TeXbook.)
-
 ! Illegal unit of measure (pt inserted).
 <to be read again> 
-                   ]
-l.10       \includegraphics[width=\textwidth]
-                                             {Images/Chapter4/1-implemen_det...
+                   h
+l.10       \includegraphics[width=\textwidth,h
+                                              eight=6cm]{Images/Chapter4/1-i...
 Dimensions can be in units of em, ex, in, pt, pc,
 cm, mm, dd, cc, nd, nc, bp, or sp; but yours is a new one!
 I'll assume that you meant to say pt, for printer's points.
@@ -539,6 +530,16 @@ To recover gracefully from this error, it's best to
 delete the erroneous units; e.g., type `2' to delete
 two letters. (See Chapter 27 of The TeXbook.)
 
+Missing character: There is no h in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no g in font nullfont!
+Missing character: There is no h in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no = in font nullfont!
+Missing character: There is no 6 in font nullfont!
+Missing character: There is no c in font nullfont!
+Missing character: There is no m in font nullfont!
 Missing character: There is no ] in font nullfont!
 Missing character: There is no I in font nullfont!
 Missing character: There is no m in font nullfont!
@@ -569,7 +570,7 @@ Missing character: There is no n in font nullfont!
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.10 ...th=\textwidth]{Images/Chapter4/1-implemen_
+l.10 ...th,height=6cm]{Images/Chapter4/1-implemen_
                                                   detail}
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
@@ -579,7 +580,7 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <5> on input line 10.
 ! Extra }, or forgotten $.
-l.10 ...twidth]{Images/Chapter4/1-implemen_detail}
+l.10 ...ht=6cm]{Images/Chapter4/1-implemen_detail}
                                                   
 I've deleted a group-closing symbol because it seems to be
 spurious, as in `$x}$'. But perhaps the } is legitimate and
@@ -640,7 +641,7 @@ Overfull \hbox (187.75215pt too wide) in paragraph at lines 10--14
  []
 
 ! Undefined control sequence.
-l.16 \subsubsection
+l.15 \subsubsection
                    {Random SQL generator engine}
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -655,7 +656,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.16 \subsubsection{R
+l.15 \subsubsection{R
                      andom SQL generator engine}
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
@@ -3494,7 +3495,7 @@ Missing character: There is no e in font nullfont!
 Missing character: There is no d in font nullfont!
 Missing character: There is no . in font nullfont!
 
-Overfull \hbox (20.0pt too wide) in paragraph at lines 16--20
+Overfull \hbox (20.0pt too wide) in paragraph at lines 15--19
 []
  []
 
@@ -3505,7 +3506,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.21 I
+l.20 I
       t can be seen from the configuration file that we can control many par...
 
 You're in trouble here.  Try typing  <return>  to proceed.
@@ -4011,7 +4012,7 @@ Missing character: There is no o in font nullfont!
 Missing character: There is no w in font nullfont!
 Missing character: There is no : in font nullfont!
 
-Overfull \hbox (20.0pt too wide) in paragraph at lines 21--22
+Overfull \hbox (20.0pt too wide) in paragraph at lines 20--21
 []
  []
 
@@ -4022,7 +4023,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.23 S
+l.22 S
       ELECT r41.A AS A0
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
@@ -4062,7 +4063,7 @@ Missing character: There is no 1 in font nullfont!
 Missing character: There is no > in font nullfont!
 Missing character: There is no 2 in font nullfont!
 
-Overfull \hbox (20.0pt too wide) in paragraph at lines 23--26
+Overfull \hbox (20.0pt too wide) in paragraph at lines 22--25
 []
  []
 
@@ -4073,7 +4074,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.27 W
+l.26 W
       e can specify the probability of having such cases by setting the para...
 
 You're in trouble here.  Try typing  <return>  to proceed.
@@ -4713,7 +4714,7 @@ Missing character: There is no r in font nullfont!
 Missing character: There is no y in font nullfont!
 Missing character: There is no . in font nullfont!
 
-Overfull \hbox (20.0pt too wide) in paragraph at lines 27--29
+Overfull \hbox (20.0pt too wide) in paragraph at lines 26--28
 []
  []
 
@@ -4724,7 +4725,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.34 S
+l.33 S
       ELECT r12.A AS A0, r12.B AS A1, r22.A AS A2
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
@@ -4968,7 +4969,7 @@ Missing character: There is no 4 in font nullfont!
 Missing character: There is no ) in font nullfont!
 Missing character: There is no ) in font nullfont!
 
-Overfull \hbox (20.0pt too wide) in paragraph at lines 34--42
+Overfull \hbox (20.0pt too wide) in paragraph at lines 33--41
 []
  []
 
@@ -4979,7 +4980,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.45 	A
+l.44 	A
        nother important decision that should be taken into account is how we...
 
 You're in trouble here.  Try typing  <return>  to proceed.
@@ -5565,12 +5566,12 @@ Missing character: There is no l in font nullfont!
 Missing character: There is no e in font nullfont!
 Missing character: There is no . in font nullfont!
 
-Overfull \hbox (20.0pt too wide) in paragraph at lines 45--46
+Overfull \hbox (20.0pt too wide) in paragraph at lines 44--45
 []
  []
 
 ! Undefined control sequence.
-l.47 \section
+l.46 \section
              {Comparison Tool}
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -5585,7 +5586,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.47 \section{C
+l.46 \section{C
                omparison Tool}
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
@@ -6104,7 +6105,7 @@ Missing character: There is no o in font nullfont!
 Missing character: There is no l in font nullfont!
 Missing character: There is no . in font nullfont!
 
-Overfull \hbox (20.0pt too wide) in paragraph at lines 47--49
+Overfull \hbox (20.0pt too wide) in paragraph at lines 46--48
 []
  []
 
@@ -6115,15 +6116,15 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.50  \begin{figure}
+l.49  \begin{figure}
                     
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
 ! Undefined control sequence.
-l.52       \includegraphics
-                           [width=\textwidth]{Images/Chapter4/2-ComparisonTool}
+l.51       \includegraphics
+                           [width=\textwidth,height=6cm]{Images/Chapter4/2-C...
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
 misspelled it (e.g., `\hobx'), type `I' and the correct
@@ -6137,8 +6138,8 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.52       \includegraphics[
-                            width=\textwidth]{Images/Chapter4/2-ComparisonTool}
+l.51       \includegraphics[
+                            width=\textwidth,height=6cm]{Images/Chapter4/2-C...
 
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
@@ -6150,20 +6151,11 @@ Missing character: There is no d in font nullfont!
 Missing character: There is no t in font nullfont!
 Missing character: There is no h in font nullfont!
 Missing character: There is no = in font nullfont!
-! Missing number, treated as zero.
-<to be read again> 
-                   ]
-l.52       \includegraphics[width=\textwidth]
-                                             {Images/Chapter4/2-ComparisonTool}
-A number should have been here; I inserted `0'.
-(If you can't figure out why I needed to see a number,
-look up `weird error' in the index to The TeXbook.)
-
 ! Illegal unit of measure (pt inserted).
 <to be read again> 
-                   ]
-l.52       \includegraphics[width=\textwidth]
-                                             {Images/Chapter4/2-ComparisonTool}
+                   h
+l.51       \includegraphics[width=\textwidth,h
+                                              eight=6cm]{Images/Chapter4/2-C...
 Dimensions can be in units of em, ex, in, pt, pc,
 cm, mm, dd, cc, nd, nc, bp, or sp; but yours is a new one!
 I'll assume that you meant to say pt, for printer's points.
@@ -6171,6 +6163,16 @@ To recover gracefully from this error, it's best to
 delete the erroneous units; e.g., type `2' to delete
 two letters. (See Chapter 27 of The TeXbook.)
 
+Missing character: There is no h in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no g in font nullfont!
+Missing character: There is no h in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no = in font nullfont!
+Missing character: There is no 6 in font nullfont!
+Missing character: There is no c in font nullfont!
+Missing character: There is no m in font nullfont!
 Missing character: There is no ] in font nullfont!
 Missing character: There is no I in font nullfont!
 Missing character: There is no m in font nullfont!
@@ -6211,7 +6213,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.53       \caption
+l.52       \caption
                    {Simple Architecture of Comparison Tool}
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
@@ -6257,7 +6259,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.55   \end{figure}
+l.54   \end{figure}
                    
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
@@ -6270,7 +6272,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.57 W
+l.56 W
       e have implemented the CT in Java programming language in order to com...
 
 You're in trouble here.  Try typing  <return>  to proceed.
@@ -7386,7 +7388,7 @@ Missing character: There is no e in font nullfont!
 Missing character: There is no m in font nullfont!
 Missing character: There is no . in font nullfont!
 
-Overfull \hbox (20.0pt too wide) in paragraph at lines 57--58
+Overfull \hbox (20.0pt too wide) in paragraph at lines 56--57
 []
  []
 
@@ -7397,15 +7399,15 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.59  \begin{figure}
+l.58  \begin{figure}
                     
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
 ! Undefined control sequence.
-l.61       \includegraphics
-                           [width=\textwidth]{Images/Chapter4/3-ComparisonTool}
+l.60       \includegraphics
+                           [width=\textwidth,height=6cm]{Images/Chapter4/3-C...
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
 misspelled it (e.g., `\hobx'), type `I' and the correct
@@ -7419,8 +7421,8 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.61       \includegraphics[
-                            width=\textwidth]{Images/Chapter4/3-ComparisonTool}
+l.60       \includegraphics[
+                            width=\textwidth,height=6cm]{Images/Chapter4/3-C...
 
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
@@ -7432,20 +7434,11 @@ Missing character: There is no d in font nullfont!
 Missing character: There is no t in font nullfont!
 Missing character: There is no h in font nullfont!
 Missing character: There is no = in font nullfont!
-! Missing number, treated as zero.
-<to be read again> 
-                   ]
-l.61       \includegraphics[width=\textwidth]
-                                             {Images/Chapter4/3-ComparisonTool}
-A number should have been here; I inserted `0'.
-(If you can't figure out why I needed to see a number,
-look up `weird error' in the index to The TeXbook.)
-
 ! Illegal unit of measure (pt inserted).
 <to be read again> 
-                   ]
-l.61       \includegraphics[width=\textwidth]
-                                             {Images/Chapter4/3-ComparisonTool}
+                   h
+l.60       \includegraphics[width=\textwidth,h
+                                              eight=6cm]{Images/Chapter4/3-C...
 Dimensions can be in units of em, ex, in, pt, pc,
 cm, mm, dd, cc, nd, nc, bp, or sp; but yours is a new one!
 I'll assume that you meant to say pt, for printer's points.
@@ -7453,6 +7446,16 @@ To recover gracefully from this error, it's best to
 delete the erroneous units; e.g., type `2' to delete
 two letters. (See Chapter 27 of The TeXbook.)
 
+Missing character: There is no h in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no g in font nullfont!
+Missing character: There is no h in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no = in font nullfont!
+Missing character: There is no 6 in font nullfont!
+Missing character: There is no c in font nullfont!
+Missing character: There is no m in font nullfont!
 Missing character: There is no ] in font nullfont!
 Missing character: There is no I in font nullfont!
 Missing character: There is no m in font nullfont!
@@ -7493,7 +7496,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.62       \caption
+l.61       \caption
                    {Architecture of Comparison Tool}
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
@@ -7533,14 +7536,14 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.64   \end{figure}
+l.63   \end{figure}
                    
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
 ! Undefined control sequence.
-l.67 \section
+l.65 \section
              {Generate data}
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -7555,7 +7558,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.67 \section{G
+l.65 \section{G
                enerate data}
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
@@ -8039,7 +8042,7 @@ Missing character: There is no . in font nullfont!
 Missing character: There is no x in font nullfont!
 Missing character: There is no x in font nullfont!
 
-Overfull \hbox (20.0pt too wide) in paragraph at lines 67--69
+Overfull \hbox (20.0pt too wide) in paragraph at lines 65--67
 []
  []
 
@@ -8050,7 +8053,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.70 A
+l.68 A
       dditionally, more complex parameters can be provided as well, such as ...
 
 You're in trouble here.  Try typing  <return>  to proceed.
@@ -8830,7 +8833,7 @@ Missing character: There is no c in font nullfont!
 Missing character: There is no t in font nullfont!
 Missing character: There is no . in font nullfont!
 
-Overfull \hbox (20.0pt too wide) in paragraph at lines 70--71
+Overfull \hbox (20.0pt too wide) in paragraph at lines 68--69
 []
  []
 
@@ -8841,7 +8844,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.72 I
+l.70 I
       t is important mentioning that the datafiller does not support importi...
 
 You're in trouble here.  Try typing  <return>  to proceed.
@@ -9172,7 +9175,7 @@ Missing character: There is no e in font nullfont!
 Missing character: There is no s in font nullfont!
 Missing character: There is no . in font nullfont!
 
-Overfull \hbox (20.0pt too wide) in paragraph at lines 72--73
+Overfull \hbox (20.0pt too wide) in paragraph at lines 70--71
 []
  []
 

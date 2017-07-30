@@ -7,11 +7,10 @@ The framework is composed by different tools such as random SQL generator engine
 
  \begin{figure} 
       \centering
-      \includegraphics[width=\textwidth]{Images/Chapter4/1-implemen_detail}
+      \includegraphics[width=\textwidth,height=6cm]{Images/Chapter4/1-implemen_detail}
       \caption{Random SQL Generator Architecture}
       \label{fig:counting-methods}
     \end{figure}
-
 
 \subsubsection{Random SQL generator engine}
 One of the most important components of the framework is the random SQL generator tool which can be used to generate thousand of different queries for evaluating the current DBMSs. Obviously SQL language has a strong power expressivity and as a consequence it supports many commands where some of them are simple in terms of their use such as SELECT, FROM, WHERE and some other more trickier such as GROUP BY, HAVING or aggregation functions where we need to care about the proper use of these commands and generating syntactically correct SQL queries. As a result, for achieving that our implementation is composed by various classes where each of them is used for different purpose. It is worthy mentioning that the tool can be used by its own use for other purposes. Thus, in this work, we have designed and implemented this tool from scratch using Java programming language. In addition, the tool has been designed in a way that it is modular and reusable for supporting new DBMSs in the future without the need of changing the whole structure of the tool. Thus, the main idea of the tool is to generate a diversity of queries for testing the DBMSs.  
@@ -49,7 +48,7 @@ As it was mentioned the purpose of the random query generator tool is to generat
 
  \begin{figure} 
       \centering
-      \includegraphics[width=\textwidth]{Images/Chapter4/2-ComparisonTool}
+      \includegraphics[width=\textwidth,height=6cm]{Images/Chapter4/2-ComparisonTool}
       \caption{Simple Architecture of Comparison Tool}
       \label{fig:counting-methods}
   \end{figure}
@@ -58,11 +57,10 @@ We have implemented the CT in Java programming language in order to compare the 
 
  \begin{figure} 
       \centering
-      \includegraphics[width=\textwidth]{Images/Chapter4/3-ComparisonTool}
+      \includegraphics[width=\textwidth,height=6cm]{Images/Chapter4/3-ComparisonTool}
       \caption{Architecture of Comparison Tool}
       \label{fig:counting-methods}
   \end{figure}
-
 
 \section{Generate data}
 Datafiller is a well-known open-source project that provides the capability of generating random data. Thus it will be used in this project for generating a diversity of  data sets in order to evaluate all major DBMSs. More precisely, the datafiller script generates random data, based on a data schema which is given as a parameter, and by taking into account constraints of that schema. For example, it takes into account the domain of each field and if the field should be unique, foreign key or primary key. Another important parameter is the df: null=x.xx% which indicated nullable rates. It will be extremely useful to test the behaviour of current DBMS in a database with nulls and check if there are differences.     
