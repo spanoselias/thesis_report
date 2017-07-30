@@ -1,29 +1,195 @@
 
 \chapter{Background}
 
-\section{Background}
-SQL is a domain specific language that is used primarily in many DBMSs for accessing and storing data. SQL is extremely popular as it offers two capabilities. Firstly, it can access many tuples using just one command and secondly it does not need to specify how to reach a tuple, for example by using an index or not. SQL operations are in the form of commands written as statements known as SQL statement. In that way, it is an easy language for managing data. Moreover, SQL is divided into three parts such as data definition language, data manipulation language and data control language. 
-	The standard language for relational database management system (RDMS) is SQL. The first appearance of SQL was in 1970 where IBM developed the first prototype of RDMS and it becomes a standard by American National Standard Institute (ANSI) in 1986 and by ISO in 1987 for being use as a base with most DBMSs. Since then different flavors of the standard have been emerged for revising previous versions or for adding new features such as SQL-87, SQL-89, ANSI/ISO SQL-92,ANSI/ISO SQL: 1999 and many more. The new ANSI SQL standards is divided into nine parts where for our project the most important part is the SQL/Foundation. This part contains central elements SQL. It can be easily understand that DBMSs cannot follow exactly the standard. The reason for that is based on the fact that standard is considerably complex and it is not practical to implement the whole standard. In addition, each vendor need to distinguish its product among other and as a result it adds extensions.
-In this project, our attention will be on SQL/Foundation part as we want to investigate whether current DBMSs use the language in the same way. 
-Albeit the existence of SQL standards, it worthy mentioning that SQL code is not completely portable between current DBMS without changing the code. SQL implementations are not compatible between different DBMSs as most vendors do not completely follow the SQL standards in the same way. Nevertheless, PostgreSQL tries to follow the SQL standard [10]. 
+\section{The SQL Standard }
+DBMS from its first appearance shows that it will be the dominant trend for managing data. Consequently, different implementations have been emerged from various vendors and inevitable, a standardized language should be implemented in order to provide portability among different systems. If applications were implemented using only SQL commands which are defined in that standard and vendors implemented these commands in exactly the same way, then SQL code could be migrated on any DBMS without the need to be adopted. As it was mentioned, the common language for relational database management system (RDMS) is SQL. 
 
+The first appearance of the SQL language was in 1970 where IBM developed the first prototype of RDMS. Subsequently, the first SQL standard arose in 1986 by American National Standard Institute (ANSI) with the name SQL-86 for bearing conformity among vendors’ implementations. Since then different flavors of the standard have being emerged for revising previous versions or for adding new features such as SQL-87, SQL-89, ANSI/ISO SQL-92 and  ANSI/ISO SQL: 1999 which has been approved also by International Standards Organization (ISO) [11]. SQL standard has been continuously developed with current version being SQL:2016 or ISO/IEC 9075:2016. The ANSI SQL standard is divided into several parts and this project focus on the SQL/Foundation part. This part contains central elements of SQL. Explanations about the findings are explained according to SQL:2016 since it is the newest version of the standard, though this parts  remains the same in comparison with earlier flavors. 
+
+\section{The SQL Language}
+SQL operations are in the form of commands known as SQL statements. More precisely, SQL is consisted primarily by two sublanguages such as data definition language (DDL) and data manipulation language (DML). DDL is a part of SQL language and can be used to create, modify, delete tables and views, and usually DDL statements start with keywords CREATE, DROP and ALTER. Also, it supports a command that give the capability to be defined new domains. Moreover, in general tables and rows are denoted as relations and tuples and sometimes it referred to these terminologies. DML is also a part of the SQL language that is consisted by a family of commands like any programming language and is used for the creation of a query for inserting, modifying and deleting rows in a Database. This sublanguage is consisted by SELECT-FROM-WHERE commands as to be the fundamental for any query. In addition, SQL standard supports more complex rather than just these simple commands for performing various tasks on data. For example, aggregation functions such as Sum, Max, Min, Avg are used with combination with Group By, and Having SQL statements. The purpose of having such commands is to perform a calculation on a specific  columns in order to return a value. An example can be if we want to calculate the average salary of a department. Then, we need to perform a group by based on all the salaries of the employees of that department. 
+Hence, SQL is extremely popular as it offers two capabilities. Firstly, it can access many tuples using just one command and secondly it does not need to specify how to reach a tuple, for example by using an index or not. 
+
+\section{Commands of SQL}
+
+This subsection intends to introduce in a high-level overview the basic commands of SQL which are defined in the SQL standard and it is described briefly the usefulness of each command. As some these commands are used to generate random SQL queries, it is important to provide a basic background of the usage and purpose of each command. 
+
+\textbf{\underline{SQL Basic Structure} }
+ 
+\begin{mdframed}[backgroundcolor=gray!20] 
+SELECT r41.A AS A0
+\\FROM r4 AS r41
+\\WHERE 1*1
+\end{mdframed}
+
+The SQL basic structure is used to retrieve data from a database according to some criterias which are specified in the WHERE clause. Each SQL query should contain at least SELECT and FROM clause and an optional WHERE clause. The main idea of the basic SQL query is to go through all the rows of the tables listed in the FROM Clause, and each row that satisfied the search criteria is selected. Then, only the specified columns of the selected rows are appear in the result. The DISTINCT keyword is optional and it is used to eliminate duplicates rows in the result. Also, instead of having columns\_list in the SELECT clause, it can be used the “\*” keyword which indicates that all the columns will be appeared in the result. Different conditions can appear in the WHERE clause using logical connectivities such as AND, NOT and OR.  
+
+\textbf{\underline{Example:}}
+\begin{mdframed}[backgroundcolor=gray!20] 
+SELECT $St.Student_Name$
+\\FROM Students AS St 
+\\WHERE $St.age >= 20 AND St.age <= 24$
+\end{mdframed}
+
+The above example uses the basic SQL structure to build a query. Thus, it returns all the name of students who are between 20 and 24 year old. 
+
+\textbf{\underline{SQL Basic aggregation Syntax:} }
+\begin{mdframed}[backgroundcolor=gray!20] 
+SELECT         $[DISTINCT]  Columns_list$
+\\FROM         $Tables_list$
+\\WHERE       Condition1 ${AND|OR}$ Condition2
+\\GROUP BY   $ Columns_list$
+\\HAVING     Condition1 ${AND|OR}$ Condition 2
+\end{mdframed}
+
+Queries with aggregation have as goal to perform a calculation on a specific columns in order to return a value. GROUP BY and HAVING are used to perform an aggregation. HAVING is an optional clause, and aggregation can be still perform using aggregate commands in the SELECT clause. A concrete example is given subsequently. 
+
+\begin{table}[h]
+\centering
+\caption{My caption}
+\label{my-label}
+\begin{tabular}{|l|l|}
+\hline
+\multicolumn{2}{|l|}{\textbf{Aggregate Commands}}                                                             \\ \hline
+\textbf{Command}                        & \textbf{Usage}                                                      \\ \hline
+{\color[HTML]{333333} \textbf{MIN()}}   & {\color[HTML]{333333} Finds the minimum value,of a column}          \\ \hline
+{\color[HTML]{333333} \textbf{COUNT()}} & {\color[HTML]{333333} Counts the total number,of rows}              \\ \hline
+{\color[HTML]{333333} \textbf{MAX()}}   & {\color[HTML]{333333} Finds the maximum value,of a column}          \\ \hline
+{\color[HTML]{333333} \textbf{SUM()}}   & {\color[HTML]{333333} Calculates the sum of,values of a column}     \\ \hline
+{\color[HTML]{333333} \textbf{AVG()}}   & {\color[HTML]{333333} Calculates the average of,values of a column} \\ \hline
+\end{tabular}
+\end{table}
+
+
+Aggregate commands can be used both in SELECT and HAVING Clause with a combination with the existence of GROUP BY clause in the SQL query. The below example illustrates the proper use of aggregate commands.
+
+
+\textbf{\underline{Example: :} }
+\begin{mdframed}[backgroundcolor=gray!20][h] 
+SELECT $COUNT(St.student_id), St.Country$
+\\$FROM Students AS St $
+\\$GROUP BY St.Students$
+\\$HAVING COUNT(St.student_id) $>$  3 $
+\end{mdframed}
+
+The above query makes proper uses of the aggregation commands. The concrete query list the number of students in each country where there are more than three students in a specific Country. 
 
  
+\begin{table}[h]
+\centering
+\caption{My caption}
+\label{my-label}
+\begin{tabular}{|l|l|}
+\hline
+\multicolumn{2}{|l|}{\textbf{Commands}}                                                                                                \\ \hline
+\textbf{Command}                       & \textbf{Usage}                                                                                \\ \hline
+{\color[HTML]{333333} \textbf{EXISTS}} & {\color[HTML]{333333} Returns true if there is,at least one row in the subquery}              \\ \hline
+{\color[HTML]{333333} \textbf{Op ALL}} & {\color[HTML]{333333} Returns true if all the,comparisons using an operator OP are true}      \\ \hline
+{\color[HTML]{333333} \textbf{Op ANY}} & {\color[HTML]{333333} Returns true if at least,one comparison using an operator returns true} \\ \hline
+{\color[HTML]{333333} \textbf{Op IN}}  & {\color[HTML]{333333} Returns true if an,element exist in a given set}                        \\ \hline
+{\color[HTML]{333333} \textbf{LIKE}}   & {\color[HTML]{333333} Returns true if an,attribute matches with a pattern}                    \\ \hline
+\end{tabular}
+\end{table}
 
-Below is provided an example which illustrates that SQL code is not completely portable.
 
+
+\textbf{\underline{Example: :} }
+\begin{mdframed}[backgroundcolor=gray!20][h] 
+SELECT *
+\\FROM Students AS St 
+\\WHERE St.Country IN (‘UK’, ‘Cyprus’, ‘Netherland’)
+\end{mdframed}
+
+The above query retrieves all the students who come from UK, Cyprus and Netherland.
+
+ 
+\begin{table}[h]
+\centering
+\caption{My caption}
+\label{my-label}
+\begin{tabular}{|l|l|}
+\hline
+\multicolumn{2}{|l|}{\textbf{SET Commands}}                                                                                                                                \\ \hline
+\textbf{Command}                                    & \textbf{Usage}                                                                                                       \\ \hline
+{\color[HTML]{333333} \textbf{UNION {[}ALL{]}}}     & {\color[HTML]{333333} Returns the combination,of the results of two SQL queries}                                     \\ \hline
+{\color[HTML]{333333} \textbf{INTERSECT {[}ALL{]}}} & {\color[HTML]{333333} Return the combination of,the results of two SQL queries for rows that,appear in both,results} \\ \hline
+{\color[HTML]{333333} \textbf{EXCEPT {[}ALL{]}}}    & {\color[HTML]{333333} Return each row that,appear to the first query but does not appear to the second query}        \\ \hline
+\end{tabular}
+\end{table}
+
+By default SET commands remove duplicates in the SQL result. Nevertheless, if it is needed to have duplicates in the result then the ‘ALL’ keyword is used.  
+
+
+\textbf{\underline{Example: :} }
+\begin{mdframed}[backgroundcolor=gray!20][h] 
+SELECT Country FROM Students 
+\\UNION
+\\SELECT Country  FROM  Professor
+\end{mdframed}
+
+The above query retrieves the Countries where there both Students and professors. 
+
+ 
+\begin{table}[]
+\centering
+\caption{My caption}
+\label{my-label}
+\begin{tabular}{|l|l|}
+\hline
+\multicolumn{2}{|l|}{\textbf{String Commands}}                                                                            \\ \hline
+\textbf{Command}                          & \textbf{Usage}                                                                \\ \hline
+{\color[HTML]{333333} \textbf{TRIM()}}    & {\color[HTML]{333333} Returns the string,without leading/trailing characters} \\ \hline
+{\color[HTML]{333333} \textbf{CONCAT()}}  & {\color[HTML]{333333} Concatenate two or more,strings}                        \\ \hline
+{\color[HTML]{333333} \textbf{REPLACE()}} & {\color[HTML]{333333} Replaces a subset of a,string with another string}      \\ \hline
+\end{tabular}
+\end{table}
+
+
+\textbf{\underline{Example: :} }
+\begin{mdframed}[backgroundcolor=gray!20][h] 
+ SELECT SUBSTRING (“SQLSTANDARD”, 1, 3 ) AS SQLExtraction  
+\end{mdframed}
+
+The above SQL query extract from the string which is given as parameter to the SUBSTRING function the first three characters starting from the position 1. Thus, the results is: “SQL”
+
+\begin{table}[h]
+\centering
+\caption{My caption}
+\label{my-label}
+\begin{tabular}{ll}
+\hline
+\multicolumn{2}{|l|}{\textbf{Data Types}}                                                                                                                                      \\ \hline
+\multicolumn{1}{|l|}{\textbf{Types}}                           & \multicolumn{1}{l|}{\textbf{Description}}                                                                     \\ \hline
+\multicolumn{1}{|l|}{{\color[HTML]{333333} \textbf{SMALLINT}}} & \multicolumn{1}{l|}{{\color[HTML]{333333} Returns the string,without leading/trailing characters}}            \\ \hline
+\multicolumn{1}{|l|}{{\color[HTML]{333333} \textbf{INT}}}      & \multicolumn{1}{l|}{{\color[HTML]{333333} Concatenate two or more,strings}}                                   \\ \hline
+\multicolumn{1}{|l|}{{\color[HTML]{333333} \textbf{BIGINT}}}   & \multicolumn{1}{l|}{{\color[HTML]{333333} Replaces a subset of a,string with another string}}                 \\ \hline
+\multicolumn{1}{|l|}{\textbf{VARCHAR}}                         & \multicolumn{1}{l|}{Takes as input the length,of a variable string which can contains up to 255 characters}   \\ \hline
+\multicolumn{1}{|l|}{\textbf{CHAR}}                            & \multicolumn{1}{l|}{Takes as input the length,of a fixed size string which can contains up to 255 characters} \\ \hline
+                                                               &                                                                                                              
+\end{tabular}
+\end{table}
+
+\subsection{Missing values} 
+
+This section aims to provide a basic background regarding NULLs and introduce the problems that can be arised from having NULLs in a DBMS. In the section of experiments, it is illustrated that many problems can be appeared by using NULLs. SQL uses NULL marker for missing or unknown values in a database and for that reason NULL is a reserved word. It worthy mentioning that NULL should not be confused with a value of zero or an empty string. Nevertheless, Oracle treats the empty string as NULL [12].  An important consideration is that it cannot be tested if a value of a field is NULL using usual comparison operators such as $ <>, = $ and $<$ but instead IS NOT NULL and IS NULL commands are used. In general the existence of NULL is the fundamental source of issues and incompatibilities among current DBMS. For evaluating each comparison with the existence of NULLS a three-valued logic (3VL) is proposed which is an extension of common boolean logic. In boolean logic, there are two values that an expression can be evaluated, namely, TRUE AND FALSE, where the negation evaluate to the opposite values. On the contrary with 3VL, in 3VL there is an addition value called unknown and the opposite of it remains the same. In addition, all comparisons involving NULL should be resulted to be unknown according to SQL Standard. Below it is illustrated a truth table for the different comparisons with the suitable outcomes.    
+
+\subsection{SQL standard issues} 
+
+Below it is provided a few concrete examples which demonstrate that indeed some aspects of the Standard is implemented differently by each vendor. 
+ 
 \textbf{Example:}
-For example the SQL query below does not return identical results on both PostgreSQL and Oracle.   
 
-Q1: SELECT * 
-          FROM ( SELECT S.A, S.A FROM S ) R
+For example the SQL query below does not return identical results on both PostgreSQL and Oracle [14]. 
 
 
-While we expect Q1 to return identical results independently on which systems is executed on, this is not the case. It can be observed that Q1 will output a table with two columns named “A” in PostgreSQL. On the other hand, in Oracle database, the SQL query will return an compile-time error. Ιndisputably, there are differences between current DBMSs [1]. 
-It can supposed that in most of the cases these differences are minor but if we take into account that these systems are used in many different fields, then we can quickly realise that small differences might be critical for some companies. The key idea is to be conducted an experimental evaluation of current DBMSs. For achieving that we need to designed and implemented many tools, namely random SQL generator engine, execute and compare results tool. In addition, an open-source tool will be used to generate realistic random data sets of the DBMS. That is, store the same data in all DBMSs and execute thousands of queries on them in order to identify whether there are differences or not. Apparently, we are expecting in all of the cases the query results to be identical. On the contrary, we have provided a concrete example that the results are not always identical in different DBMSs, even though the SQL query was exactly the same. Therefore, this work intends to provide concrete evidence of these differences.
+\begin{mdframed}[backgroundcolor=gray!20][h] 
+Q1:SELECT * 
+ \\FROM ( SELECT S.A, S.A FROM S ) R
+\end{mdframed}
+
+While it is expected Q1 to return identical results independently on which systems is executed on, this is not the case. It can be observed that Q1 will output a table with two columns named “A” in PostgreSQL. On the other hand, in Oracle database, the SQL query will return an compile-time error. Ιndisputably, there are differences between current DBMSs [1]. 
+It can supposed that in most of the cases these differences are minor but if we take into account that these systems are used in many different fields, then we can quickly realise that small differences might be critical. The key idea is to be conducted an experimental evaluation of current DBMSs. 
 
 
 
 
-
- 

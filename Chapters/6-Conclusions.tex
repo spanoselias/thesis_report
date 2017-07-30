@@ -1,1 +1,15 @@
 \chapter{Conclusions}
+
+\subsection{Conclusions}
+
+In this project it is implemented an entire architecture that can be used to systematically check the SQL-compliance among DBMSs. Furthermore, it is demonstrated that the implemented architecture is competent to reveal crucial differences in the sense that otherwise they will be difficult to be revealed without using a similar tool. Since now there has not been implemented a similar tool and only some documentations exist which show some obvious issues. The goal of the project has successfully been achieved and more than twenty differences have been disclosed which make clear that a significant number of parts of the Standard is implemented differently.
+
+Demonstrating and analyzing these incompatibilities make aware both users and programmers for these issues. Albeit of the beginning of this project some evidences about some incompatibilities and different interpretations of the Standard were notorious, it was somewhat surprisingly that so many differences have been emerged which makes clear that the standard is difficult to be interpreted and implemented in exactly the same way from all DBMSs. In addition, awareness of these differences issues may cause irreversible consequences in companies if we take into account that such systems are utilized in almost every field. Moreover, it is demonstrated that some DBMSs have more incompatibilities than other which makes  the migration process notoriously difficult. 
+
+Aside from the issues which have been detected, the implemented architecture is portable and they can extended efficiently. For example, although it is provided experimental evidences for numbers and strings data types, the random generator tool is implemented in such a way that can track any data type such as Date. In that way, it can be extended efficiently to generate queries with attributes of date as data type. 
+
+\subsection{Summary of the findings}
+
+
+\subsection{Suggestions for future work}
+Several issues have been arisen by testing various databases with integers and strings. As a future work can be to extend the generator tool to generate queries with attribute of data type date. It is important mentioning that the current implementation can hold any data type which make the specific extension quite simple and apparently more issues will be arise using this data type as well. Yet another future extension should be to include new DBMSs for testing the SQL-compliance of them. This extension also will not be quite challenging as the way that the comparison tool is implemented makes the process of adding new systems easy. 

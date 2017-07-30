@@ -64,6 +64,8 @@
 \usepackage{multirow}
 \usepackage[table,xcdraw]{xcolor}
 
+%%Package for bullet
+\usepackage{enumitem }
 %%Package for tick icon in the experiments chapter
 \usepackage{pifont}
 
@@ -83,7 +85,8 @@
 
 %% Specify the abstract here.
 \abstract{%
-Database Management Systems (DBMSs) are widely used in various fields such as in banking and financial sectors. Hence, the correct and efficient operation of such systems are crucial. As the demand for these systems have been increased rapidly in recent years, different implementations have been proposed and implemented. For example, different companies have been implemented their own system, and inevitably there are significant differences between these systems regarding their internal implementation and architecture. For making easier the transition between these systems a common language was adopted. More precisely, SQL is a database language which is used to manipulate and retrieve data and is supported by all current DBMSs. Albeit different system’s implementations are exist, in principle, they should follow the SQL standards in the same manner. A crucial question that will be investigated by conducting this project is whether DBMSs have been implemented the SQL standards in the same way. The SQL language should pledge that identical SQL code should always return identical answers when it is evaluated on the same database independently of which DBMS is running on. However, there are indications that this is not the case, as SQL standards are interpreted and implemented differently so that identical SQL queries do not always retrieve the same answers.
+Database Management Systems (DBMSs) are widely used in various fields such as the financial sector, the academia and other online services and are very crucial in the day to day management of data. The correct and efficient operation of such systems is an important factor when choosing the right DBMS software. In the past few decades, the amount of data has increased exponentially, causing a rapid increase in the demand for software that can store, organise and manipulate such data. With this requirements in mind, databases and DBMSs such as Oracle DB, Microsoft SQL Server, MySQL and PostgreSQL were created, each implementing its own set of rules. However, since these DBMSs have been implemented with a significant amount of differences, a set of standards was set by the American National Standards Institute (ANSI) in 1986 in order to keep all these implementations to a same standard and ensure compatibility for the SQL language adopted in all implementations. Even though, the SQL Standard has been introduced and adopted by most of the implementations, there are some differences that still exist, probably due to different interpretations of or noncompliance to the aforementioned Standards, and also due to other issues regarding performance of their systems.Since there do exist some differences between each implementation, migrations and changes from one DBMS to another might lead to some bottlenecks such as incompatibility or semantic issues. Therefore, there is a need for alleviating such a problem by exposing such issues between DBMSs, offering proposed solutions that have minimal negative effects to the performance of a system and also for evaluating their conformance to the common Standard. This project will investigate five different implementations and evaluate their conformance to the SQL Standard.  A crucial question that will be investigated by conducting this project is whether DBMSs have been implemented the SQL standards in the same way. The SQL language should pledge that identical SQL code should always return identical answers when it is evaluated on the same database independently of which DBMS is running on. 
+
 The aim of this project is the implementation of a random SQL query generator and a comparison tool for investigating and highlighting the differences that may exist among current DBMSs. Further, we aim to provide a detailed explanation in regards to SQL standards of potential differences and explain how they might affect the transition between current DBMSs. 
  
 }
@@ -100,7 +103,8 @@ The aim of this project is the implementation of a random SQL query generator an
 %% Acknowledgements
 \begin{acknowledgements}
  
-I would like to thank my supervisors Paolo Guagliardo and Leonid Libkin who were always willing to advise and help me in order to overcome any difficulty. In addition, I want to thank my family who is always to my side.
+I would like to thank my supervisors Paolo Guagliardo and Leonid Libkin who were always willing to advise me and help me in order to overcome any difficulty. In addition, I want to thank my family who is always by my side 
+
 
 \end{acknowledgements}
 
