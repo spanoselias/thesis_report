@@ -14,32 +14,36 @@ Hence, SQL is extremely popular as it offers two capabilities. Firstly, it can a
 
 This subsection intends to introduce in a high-level overview the basic commands of SQL which are defined in the SQL standard and it is described briefly the usefulness of each command. As some these commands are used to generate random SQL queries, it is important to provide a basic background of the usage and purpose of each command. 
 
-\textbf{\underline{SQL Basic Structure} }
- 
+\noindent\textbf{\underline{SQL Basic Structure}} 
 \begin{mdframed}[backgroundcolor=gray!20] 
-SELECT r41.A AS A0
-\\FROM r4 AS r41
-\\WHERE 1*1
+\begin{lstlisting}
+SELECT [DISTINCT] columns_list
+FROM tables_list
+WHERE Condition1 {AND|OR} Condition 2
+\end{lstlisting}
 \end{mdframed}
-
 The SQL basic structure is used to retrieve data from a database according to some criterias which are specified in the WHERE clause. Each SQL query should contain at least SELECT and FROM clause and an optional WHERE clause. The main idea of the basic SQL query is to go through all the rows of the tables listed in the FROM Clause, and each row that satisfied the search criteria is selected. Then, only the specified columns of the selected rows are appear in the result. The DISTINCT keyword is optional and it is used to eliminate duplicates rows in the result. Also, instead of having columns\_list in the SELECT clause, it can be used the “\*” keyword which indicates that all the columns will be appeared in the result. Different conditions can appear in the WHERE clause using logical connectivities such as AND, NOT and OR.  
 
-\textbf{\underline{Example:}}
+\noindent\textbf{\underline{Example:}}
 \begin{mdframed}[backgroundcolor=gray!20] 
-SELECT $St.Student_Name$
-\\FROM Students AS St 
-\\WHERE $St.age >= 20 AND St.age <= 24$
+\begin{lstlisting}
+SELECT St.Student_Name
+FROM Students AS St 
+WHERE St.age >= 20 AND St.age <= 24
+\end{lstlisting}
 \end{mdframed}
 
 The above example uses the basic SQL structure to build a query. Thus, it returns all the name of students who are between 20 and 24 year old. 
 
-\textbf{\underline{SQL Basic aggregation Syntax:} }
+\noindent\textbf{\underline{SQL Basic aggregation Syntax:} }
 \begin{mdframed}[backgroundcolor=gray!20] 
-SELECT         $[DISTINCT]  Columns_list$
-\\FROM         $Tables_list$
-\\WHERE       Condition1 ${AND|OR}$ Condition2
-\\GROUP BY   $ Columns_list$
-\\HAVING     Condition1 ${AND|OR}$ Condition 2
+\begin{lstlisting}
+SELECT       [DISTINCT]  Columns_list
+FROM         Tables_list
+WHERE        Condition1 {AND|OR} Condition2
+GROUP BY     Columns_list
+HAVING       Condition1 {AND|OR} Condition 2
+\end{lstlisting}
 \end{mdframed}
 
 Queries with aggregation have as goal to perform a calculation on a specific columns in order to return a value. GROUP BY and HAVING are used to perform an aggregation. HAVING is an optional clause, and aggregation can be still perform using aggregate commands in the SELECT clause. A concrete example is given subsequently. 
@@ -64,12 +68,14 @@ Queries with aggregation have as goal to perform a calculation on a specific col
 Aggregate commands can be used both in SELECT and HAVING Clause with a combination with the existence of GROUP BY clause in the SQL query. The below example illustrates the proper use of aggregate commands.
 
 
-\textbf{\underline{Example: :} }
-\begin{mdframed}[backgroundcolor=gray!20][h] 
-SELECT $COUNT(St.student_id), St.Country$
-\\$FROM Students AS St $
-\\$GROUP BY St.Students$
-\\$HAVING COUNT(St.student_id) $>$  3 $
+\noindent\textbf{\underline{Example: :} }
+\begin{mdframed}[backgroundcolor=gray!20] 
+\begin{lstlisting}
+SELECT COUNT(St.student_id), St.Country
+FROM Students AS St 
+GROUP BY St.Students
+HAVING COUNT(St.student_id)  >  3
+\end{lstlisting}
 \end{mdframed}
 
 The above query makes proper uses of the aggregation commands. The concrete query list the number of students in each country where there are more than three students in a specific Country. 
@@ -93,13 +99,14 @@ The above query makes proper uses of the aggregation commands. The concrete quer
 
 
 
-\textbf{\underline{Example: :} }
-\begin{mdframed}[backgroundcolor=gray!20][h] 
+\noindent\textbf{\underline{Example: :} }
+\begin{mdframed}[backgroundcolor=gray!20] 
+\begin{lstlisting}
 SELECT *
-\\FROM Students AS St 
-\\WHERE St.Country IN (‘UK’, ‘Cyprus’, ‘Netherland’)
+FROM Students AS St 
+WHERE St.Country IN (‘UK’, ‘Netherland’)
+\end{lstlisting}
 \end{mdframed}
-
 The above query retrieves all the students who come from UK, Cyprus and Netherland.
 
  
@@ -120,11 +127,13 @@ The above query retrieves all the students who come from UK, Cyprus and Netherla
 By default SET commands remove duplicates in the SQL result. Nevertheless, if it is needed to have duplicates in the result then the ‘ALL’ keyword is used.  
 
 
-\textbf{\underline{Example: :} }
-\begin{mdframed}[backgroundcolor=gray!20][h] 
+\noindent\textbf{\underline{Example: :} } 
+\begin{mdframed}[backgroundcolor=gray!20][h]
+\begin{lstlisting}
 SELECT Country FROM Students 
-\\UNION
-\\SELECT Country  FROM  Professor
+UNION
+SELECT Country  FROM  Professor
+\end{lstlisting}
 \end{mdframed}
 
 The above query retrieves the Countries where there both Students and professors. 
@@ -145,9 +154,11 @@ The above query retrieves the Countries where there both Students and professors
 \end{table}
 
 
-\textbf{\underline{Example: :} }
-\begin{mdframed}[backgroundcolor=gray!20][h] 
- SELECT SUBSTRING (“SQLSTANDARD”, 1, 3 ) AS SQLExtraction  
+\noindent\textbf{\underline{Example: :} }
+\begin{mdframed}[backgroundcolor=gray!20][h]
+\begin{lstlisting}
+SELECT SUBSTRING (“SQLSTANDARD”, 1, 3 ) AS SQLExtraction  
+\end{lstlisting}
 \end{mdframed}
 
 The above SQL query extract from the string which is given as parameter to the SUBSTRING function the first three characters starting from the position 1. Thus, the results is: “SQL”
@@ -177,7 +188,7 @@ This section aims to provide a basic background regarding NULLs and introduce th
 
 Below it is provided a few concrete examples which demonstrate that indeed some aspects of the Standard is implemented differently by each vendor. 
  
-\textbf{Example:}
+\noindent\textbf{Example:}
 
 For example the SQL query below does not return identical results on both PostgreSQL and Oracle [14]. 
 

@@ -1,46 +1,84 @@
 \chapter{Experimental Evaluation}
-In this chapter we will present the procedure that we follow in order to conduct our experiments. Subsequently, we will present our findings and highlight the main differences that we have found. Also, it will be described  the environment and the DBMSs that we have tested.  
+This chapter presents the procedure that it is followed in order to provide the experimental evidences. Subsequently, It is presented the main findings with appropriate explanation according to the Standard. Also, it is described  the environment and the DBMSs that they have been tested. 
 
-\section{Experimental Set Up}
-We conduct all the experiments on Windows 8 with i7 CPU, 12GB Ram and solid state disk. Also, we install the mainstream DBMSs such as MySQL, IBM DB2, Microsoft SQL Server, PostgreSQL and Oracle Database
+\section{The experiment Set-Up}
+The evaluation is carried out on Windows 8 with i7 CPU, 12GB Ram and a solid state disk (SSD). Also, the  following versions of DBMSs have been installed: PostgreSQL Version 9.6, Microsoft SQL Server Express Edition 2016, IBM Db2 Express-C, Oracle Database 12c and  MySQL Community Edition 5.7. 
+Apart of generating huge numbers of SQL queries, it is also checked if new findings can be emerged by conducting the experiments in different schemas with different data types and numbers of relations. As a result, it is checked the following data types:  TEXT, CHAR, VARCHAR, INTEGER, SMALLINT, BIGINT. Moreover, the experiments are conducted in different schemas varying from two to ten relations with two to ten attributes. In addition, it is generated data using different rate of NULLs such as 5%, 10%, 20% and 40% for identify if differences can arise depending on the number of NULLs that a database contains.  Furthermore, the size of instances varied from two to one thousand rows which were generating using data fiiller. Having huge instances decrease the throughput of queries that can be executed per second and thus less queries will be checked. Taking into account that issues and different interpretations can be raised even in small instances, it is end up realized that small instances and schema can still reveal crucial differences. 
+
 
 \section{Experiment Results}
-In this section we present our findings by illustrates the differences that we have detected and give an explanation about those differences
+The implemented architecture is used to conduct the experiments and in that way it is also checked whether the current implementation if is capable to detect any differences among modern DBMSs. The results are provided below with the following format: Firstly,  It is presented  the SQL query that cause an error or a semantic issue on one or more systems. Meaning that some features may not be implemented by all systems or use a different commands or interpret it differently.  Then, a table for each query is provided that demonstrates a raised error of any system, otherwise, the keyword ‘works’ meaning that the SQL query is executed without to raise any error. Thereafter, a comprehensive explanation is given for each problematic query by explaining about the source of the problem and giving an explanation according to the SQL standard.   
 
 \subsection{Dif 1}
 
 \begin{mdframed}[backgroundcolor=gray!20] 
+\begin{lstlisting}
+Q1:
 SELECT r41.A AS A0
-\\FROM r4 AS r41
-\\WHERE 1*1
+FROM r4 AS r41
+WHERE 1*1
+\end{lstlisting}
 \end{mdframed}
 
+% Please add the following required packages to your document preamble:
+% \usepackage[table,xcdraw]{xcolor}
+% If you use beamer only pass "xcolor=table" option, i.e. \documentclass[xcolor=table]{beamer}
 \begin{table}[h]
 \centering
 \caption{My caption}
 \label{my-label}
 \begin{tabular}{|p{2cm}|p{12cm}|}
 \hline
-\multicolumn{2}{|c|}{\textbf{Difference 1}}                                                                                                                             \\ \hline
-\textbf{DBMS} & \textbf{Result}                                                                                                                                         \\ \hline
-Mysql         & {\color[HTML]{009901} \textbf{Works}}                                                                                                                   \\ \hline
-PostgreSQL    & {\color[HTML]{FE0000} \textbf{{[}42804{]} ERROR: argument of WHERE must be type boolean, not type integer}}                                             \\ \hline
-MS Server:    & {\color[HTML]{FE0000} \textbf{{[}S0001{]}{[}4145{]} An expression of non-boolean type specified in a context where a condition is expected, near '1'.}} \\ \hline
-Oracle        & {\color[HTML]{FE0000} \textbf{{[}42000{]}{[}933{]}ORA-00933: SQL command not properly ended}}                                                           \\ \hline
-DB2           & {\color[HTML]{009901} \textbf{Works}}                                                                                                                   \\ \hline
+\multicolumn{2}{|c|}{\textbf{Diff 1}}                                                                                                                                                       \\ \hline
+\textbf{DBMS}                              & \textbf{Result Message}                                                                                                                        \\ \hline
+{\color[HTML]{333333} \textbf{Mysql}}      & {\color[HTML]{333333} Works}                                                                                                                   \\ \hline
+{\color[HTML]{333333} \textbf{PostgreSQL}} & {\color[HTML]{333333} {[}42804{]} ERROR: argument of WHERE must be type boolean, not type integer}                                             \\ \hline
+{\color[HTML]{333333} \textbf{MS Server:}} & {\color[HTML]{333333} {[}S0001{]}{[}4145{]} An expression of non-boolean type specified in a context where a condition is expected, near '1'.} \\ \hline
+\textbf{Oracle}                            & {[}42000{]}{[}933{]} ORA-00933: SQL command not properly ended                                                                                 \\ \hline
+\textbf{IBM DB2}                           & Works                                                                                                                                          \\ \hline
 \end{tabular}
 \end{table}
 
-
-Mysql and IBM DB2 work properly if there are arithmetic calculations in the where clause such as 1*1. Even though expressions in the where clause should be evaluated to true or false, these two DBMSs convert the arithmetic expression to boolean type. Nevertheless, the rest three DBMSs do not do that, as a result, they throw an exception while they executing the query.    
-
+According to SQL standard each expression in the WHERE clause should be evaluated to a boolean type such as True or False. Thus, DBMSs evaluate each row based on the SQL query and if the WHERE clause is evaluated to True, then the specific row appears in the output results. We expect that arithmetic comparisons between two numbers should return an integer type instead of boolean type. Thus, if the query 1 is executed on any DBMSs should raise an error. Nevertheless, Mysql and IBM DB2 execute the query without to raise any error even though there is an arithmetic comparison  in the WHERE clause such as 1*1. Albeit expressions in the WHERE clause should return a boolean type, these two DBMSs convert arithmetic comparison into a boolean type. On the contrary, the rest three DBMSs throw an exception while they executing the query which is something reasonable as they expect a boolean type in the WHERE Clause. 
 
 \subsection{Dif 2}
   
 \begin{mdframed}[backgroundcolor=gray!20] 
-SELECT r21.A AS A0, r21.B AS A1, r21.B AS A1
-\\FROM r2 AS r21
-\\WHERE true
+\textbf{Q2:}
+\begin{lstlisting}
+SELECT r21.A AS A0 
+FROM r2 AS r21
+WHERE true
+\end{lstlisting}
+\end{mdframed}
+ 
+\begin{table}[h]
+\centering
+\caption{My caption}
+\label{my-label}
+\begin{tabular}{|p{2cm}|p{12cm}|}
+\hline
+\multicolumn{2}{|c|}{\textbf{Diff 2}}                                                                                                                                                         \\ \hline
+\textbf{DBMS}                              & \textbf{Result Message}                                                                                                                          \\ \hline
+{\color[HTML]{333333} \textbf{Mysql}}      & {\color[HTML]{333333} Works}                                                                                                                     \\ \hline
+{\color[HTML]{333333} \textbf{PostgreSQL}} & {\color[HTML]{333333} Works}                                                                                                                     \\ \hline
+{\color[HTML]{333333} \textbf{MS Server:}} & {\color[HTML]{333333} {[}S0001{]}{[}4145{]} An expression of non-boolean type specified in a context where a condition is expected, near 'true'} \\ \hline
+\textbf{Oracle}                            & {[}42000{]}{[}920{]} ORA-00920: invalid relational operator                                                                                      \\ \hline
+\textbf{IBM DB2}                           & Works                                                                                                                                            \\ \hline
+\end{tabular}
+\end{table}
+
+As it was mentioned before each expression in the WHERE clause is evaluated to true or false. Thus, instead of having an expression, it can be specified the true/false keyword which is a boolean type. As a consequence, it will be reasonable to have the ‘true’ keyword in the WHERE clause meaning that each row will be included in the results. Nevertheless, not all the DBMSs support this. MS server and Oracle do not support this keyword. With respect to SQL standard there is not explicit mention about the keyword true in the WHERE Clause. 
+
+\subsection{Dif 3}
+  
+\begin{mdframed}[backgroundcolor=gray!20] 
+\textbf{Q3:}
+\begin{lstlisting}
+SELECT  NULL/NULL, 1/2, NULL-NULL
+FROM r2   r21, r4   r41
+WHERE NOT(r21.A < r41.A AND r41.A > r21.A)
+\end{lstlisting}
 \end{mdframed}
 
 \begin{table}[h]
@@ -49,17 +87,560 @@ SELECT r21.A AS A0, r21.B AS A1, r21.B AS A1
 \label{my-label}
 \begin{tabular}{|p{2cm}|p{12cm}|}
 \hline
-\multicolumn{2}{|c|}{\textbf{Difference 1}}                                                                                                                             \\ \hline
-\textbf{DBMS} & \textbf{Result}                                                                                                                                         \\ \hline
-Mysql         & {\color[HTML]{009901} \textbf{Works}}                                                                                                                   \\ \hline
-PostgreSQL    & {\color[HTML]{FE0000} \textbf{{[}42804{]} ERROR: argument of WHERE must be type boolean, not type integer}}                                             \\ \hline
-MS Server:    & {\color[HTML]{FE0000} \textbf{{[}S0001{]}{[}4145{]} An expression of non-boolean type specified in a context where a condition is expected, near '1'.}} \\ \hline
-Oracle        & {\color[HTML]{FE0000} \textbf{{[}42000{]}{[}933{]}ORA-00933: SQL command not properly ended}}                                                           \\ \hline
-DB2           & {\color[HTML]{009901} \textbf{Works}}                                                                                                                   \\ \hline
+\multicolumn{2}{|c|}{\textbf{Diff 3}}                                                                                                                                                                                         \\ \hline
+\textbf{DBMS}                              & \textbf{Result Message}                                                                                                                                                          \\ \hline
+{\color[HTML]{333333} \textbf{Mysql}}      & {\color[HTML]{333333} Works}                                                                                                                                                     \\ \hline
+{\color[HTML]{333333} \textbf{PostgreSQL}} & {\color[HTML]{333333} Works}                                                                                                                                                     \\ \hline
+{\color[HTML]{333333} \textbf{MS Server:}} & {\color[HTML]{333333} {[}42725{]} ERROR: operator is not unique: unknown / unknown Hint: Could not choose a best candidate operator. You might need to add explicit type casts.} \\ \hline
+\textbf{Oracle}                            & Works                                                                                                                                                                            \\ \hline
+\textbf{IBM DB2}                           & Works                                                                                                                                                                            \\ \hline
 \end{tabular}
 \end{table}
 
-DBMSs evaluate each expression in the where clause to a boolean type. Thus, instead of having an expression, it can be specified the true/false keyword which is a boolean type. Nevertheless, not all the DBMSs support this. MS server and Oracle do not support this keyword.
+According to SQL standards boolean data type comprises the distinct truth values True and False. Apart from these values, boolean data type supports the truth value Unknown as the NULL value. As a result, the SQL standard does not make a distinction between NULL value of the boolean data type and the truth value Unknown. It can be seen from the above query that the answer of  the expression NULL/NULL will result to the value Unknown. It worthy mentioning that some DBMSs represent Unknown value as NULL. Nevertheless, the specific expression throw an exception in PostgreSQL, while to the rest DBMSs is executed without any error. 
+
+\subsection{Dif 4}
+  
+\begin{mdframed}[backgroundcolor=gray!20] 
+\textbf{Q4:}
+\begin{lstlisting}
+SELECT  r21.B/3
+FROM  r2 AS r21, r4 AS r41
+WHERE NOT(NOT(r41.A <> 18 ) )  
+\end{lstlisting}
+\end{mdframed}
+
+ 
+\begin{table}[h]
+\centering
+\caption{My caption}
+\label{my-label}
+\begin{tabular}{|p{2cm}|p{12cm}|}
+\hline
+\multicolumn{2}{|c|}{\textbf{Diff 4}}                                     \\ \hline
+\textbf{DBMS}                              & \textbf{Result Message}      \\ \hline
+{\color[HTML]{333333} \textbf{Mysql}}      & {\color[HTML]{333333} Works} \\ \hline
+{\color[HTML]{333333} \textbf{PostgreSQL}} & {\color[HTML]{333333} Works} \\ \hline
+{\color[HTML]{333333} \textbf{MS Server:}} & {\color[HTML]{333333} Works} \\ \hline
+\textbf{Oracle}                            & Works                        \\ \hline
+\textbf{IBM DB2}                           & Works                        \\ \hline
+\end{tabular}
+\end{table}
+
+Even though the Q4 is executed without any error in the current DBMSs, the results differ slightly in terms of their return type. In DB2, PostgreSQL and MS Server the results for the column  r21.B/3  are returned as integer type where on the contrary with MySQL and Oracle db where the results are returned as decimal type. 
+
+\subsection{Dif 5}
+  
+\begin{mdframed}[backgroundcolor=gray!20] 
+\textbf{Q5:}
+\begin{lstlisting}
+SELECT (MIN(r41.B) % AVG(r41.A) ) 
+FROM r4 AS r41
+WHERE (10 >= 19 OR 6 <= 8)   
+GROUP BY r41.A, r41.B
+HAVING MAX(r41.B) > MIN(r41.A) 
+\end{lstlisting}
+\end{mdframed}
+
+% Please add the following required packages to your document preamble:
+% \usepackage[table,xcdraw]{xcolor}
+% If you use beamer only pass "xcolor=table" option, i.e. \documentclass[xcolor=table]{beamer}
+\begin{table}[h]
+\centering
+\caption{My caption}
+\label{my-label}
+\begin{tabular}{|p{2cm}|p{12cm}|}
+\hline
+\multicolumn{2}{|c|}{\textbf{Diff 5}}                                                               \\ \hline
+\textbf{DBMS}                              & \textbf{Result Message}                                \\ \hline
+{\color[HTML]{333333} \textbf{Mysql}}      & {\color[HTML]{333333} Works}                           \\ \hline
+{\color[HTML]{333333} \textbf{PostgreSQL}} & {\color[HTML]{333333} Works}                           \\ \hline
+{\color[HTML]{333333} \textbf{MS Server:}} & {\color[HTML]{333333} Works}                           \\ \hline
+\textbf{Oracle}                            & {[}22019{]}{[}911{]} ORA-00911: invalid ‘\%’ character \\ \hline
+\textbf{IBM DB2}                           & Works                                                  \\ \hline
+\end{tabular}
+\end{table}
+
+It worthy mentioning that arithmetic operations such as addition, multiplications and  subtraction are supported in the SELECT clause. Another important arithmetic operation which is also  supported in the SELECT Clause is the.
+
+\subsection{Dif 6}
+  
+\begin{mdframed}[backgroundcolor=gray!20] 
+\textbf{Q6:}
+\begin{lstlisting}
+SELECT r41.A AS A0
+FROM r4 AS r41
+\end{lstlisting}
+\end{mdframed}
+
+% Please add the following required packages to your document preamble:
+% \usepackage[table,xcdraw]{xcolor}
+% If you use beamer only pass "xcolor=table" option, i.e. \documentclass[xcolor=table]{beamer}
+\begin{table}[h]
+\centering
+\caption{My caption}
+\label{my-label}
+\begin{tabular}{|p{2cm}|p{12cm}|}
+\hline
+\multicolumn{2}{|c|}{\textbf{Diff 6}}                                                                       \\ \hline
+\textbf{DBMS}                              & \textbf{Result Message}                                        \\ \hline
+{\color[HTML]{333333} \textbf{Mysql}}      & {\color[HTML]{333333} Works}                                   \\ \hline
+{\color[HTML]{333333} \textbf{PostgreSQL}} & {\color[HTML]{333333} Works}                                   \\ \hline
+{\color[HTML]{333333} \textbf{MS Server:}} & {\color[HTML]{333333} Works}                                   \\ \hline
+\textbf{Oracle}                            & {[}42000{]}{[}933{]} ORA-00933: SQL command not properly ended \\ \hline
+\textbf{IBM DB2}                           & Works                                                          \\ \hline
+\end{tabular}
+\end{table}
+
+
+With respect to SQL standards alias names can be used both with attributes in the SELECT Clause and for tables in the FROM clause. For defining an alias the keyword ‘AS’ is used. The idea of alias is for renaming relations and columns of the results in order to make them more readable. In addition, it can renamed a subquery in the FROM Clause and subsequently It can be accessed using its alias. Even though almost all DBMSs support alias in the FROM AND SELECT clause, Oracle’s db  allows to use AS when defining column aliases, but it does not allow you to use AS when defining table aliases 
+
+
+
+
+\subsection{Dif 7}
+  
+\begin{mdframed}[backgroundcolor=gray!20] 
+\textbf{Q7:}
+\begin{lstlisting}
+(SELECT r41.A AS A0
+ FROM r4 AS r41
+ WHERE 16 <= 11)
+ 
+EXCEPT ALL
+
+(SELECT r21.A AS A0
+ FROM r2 AS r21, r4 AS r42
+ WHERE r42.A <> r42.B )
+\end{lstlisting}
+\end{mdframed}
+
+% Please add the following required packages to your document preamble:
+% \usepackage[table,xcdraw]{xcolor}
+% If you use beamer only pass "xcolor=table" option, i.e. \documentclass[xcolor=table]{beamer}
+\begin{table}[h]
+\centering
+\caption{My caption}
+\label{my-label}
+\begin{tabular}{|p{2cm}|p{12cm}|}
+\hline
+\multicolumn{2}{|c|}{\textbf{Diff 7}}                                                                       \\ \hline
+\textbf{DBMS}                              & \textbf{Result Message}                                        \\ \hline
+{\color[HTML]{333333} \textbf{Mysql}}      & {\color[HTML]{333333} Works}                                   \\ \hline
+{\color[HTML]{333333} \textbf{PostgreSQL}} & {\color[HTML]{333333} Works}                                   \\ \hline
+{\color[HTML]{333333} \textbf{MS Server:}} & {\color[HTML]{333333} Works}                                   \\ \hline
+\textbf{Oracle}                            & {[}42000{]}{[}933{]} ORA-00933: SQL command not properly ended \\ \hline
+\textbf{IBM DB2}                           & Works                                                          \\ \hline
+\end{tabular}
+\end{table}
+
+EXCEPT ALL is an optional feature which is defined in the SQL standard and result to return all rows from the outer relation which are not present in the inner relation without removing the duplicates. Thus, this operator is fully supported by the SQL standard but it is optional.  It can be seen from the above table that SQL server, MySql and Oracle db do not support this operator. Nevertheless, regarding oracle db, it is important mentioning that it supports the same operator but with different name which is the ‘MINUS ALL’ keyword. Thus, we can use the MINUS ALL rather than EXCEPT ALL which has exactly the same behaviour.   
+
+
+
+\subsection{Dif 8}
+  
+\begin{mdframed}[backgroundcolor=gray!20] 
+\textbf{Q8:}
+\begin{lstlisting}
+(SELECT r41.A AS A0
+ FROM r4 AS r41, r2 AS r21, r3 AS r31
+ WHERE NOT(r31.B <> r41.A ) )
+ 
+ EXCEPT
+ 
+(SELECT r21.A AS A0
+ FROM r2 AS r21, r4 AS r41
+ WHERE r41.A <> r41.B )
+\end{lstlisting}
+\end{mdframed}
+
+\begin{table}[h]
+\centering
+\caption{My caption}
+\label{my-label}
+\begin{tabular}{|l|l|}
+\hline
+\multicolumn{2}{|c|}{\textbf{Diff 8}}                                                                                                                                                                                                   \\ \hline
+\textbf{DBMS}                              & \textbf{Result Message}                                                                                                                                                                    \\ \hline
+{\color[HTML]{333333} \textbf{Mysql}}      & {\color[HTML]{333333} {[}42000{]}{[}1064{]} You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'EXCEPT} \\ \hline
+{\color[HTML]{333333} \textbf{PostgreSQL}} & {\color[HTML]{333333} Works}                                                                                                                                                               \\ \hline
+{\color[HTML]{333333} \textbf{MS Server:}} & {\color[HTML]{333333} Works}                                                                                                                                                               \\ \hline
+\textbf{Oracle}                            & {[}42000{]}{[}933{]} ORA-00933: SQL command not properly ended                                                                                                                             \\ \hline
+\textbf{IBM DB2}                           & Works                                                                                                                                                                                      \\ \hline
+\end{tabular}
+\end{table}
+
+Except is a mandatory feature in the  SQL standard. Using this feature results to return all rows from the outer relation which are not present in the inner relation with removing the duplicates.  Oracle instead of supports EXCEPT use ‘MINUS’ which has a similar behavior. On the contrary, MySql does not support EXCEPT at all even though it is a compulsory feature according to the SQL standard. The rest DBMSs support this operator. 
+
+\subsection{Dif 9}
+  
+\begin{mdframed}[backgroundcolor=gray!20] 
+\textbf{Q8:}
+\begin{lstlisting}
+(SELECT r41.A AS A0
+ FROM r4 AS  r41, r3 AS r31
+ WHERE (NULL <= 6 OR NOT(r31.B <> r41.A ) ) )
+ 
+INTERSECT ALL
+
+(SELECT r21.A AS A0
+ FROM r2 AS r21, r4 AS r41
+ WHERE r41.A <> r41.B OR ( 0 <> 14)  AND r41.A > r21.B)
+\end{lstlisting}
+\end{mdframed}
+
+ 
+\begin{table}[h]
+\centering
+\caption{My caption}
+\label{my-label}
+\begin{tabular}{|l|l|}
+\hline
+\multicolumn{2}{|c|}{\textbf{Diff 9}}                                                                                                                                                                                                \\ \hline
+\textbf{DBMS}                              & \textbf{Result Message}                                                                                                                                                                 \\ \hline
+{\color[HTML]{333333} \textbf{Mysql}}      & {\color[HTML]{333333} {[}42000{]}{[}1064{]} You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'ALL} \\ \hline
+{\color[HTML]{333333} \textbf{PostgreSQL}} & {\color[HTML]{333333} Works}                                                                                                                                                            \\ \hline
+{\color[HTML]{333333} \textbf{MS Server:}} & {\color[HTML]{333333} {[}S0001{]}{[}324{]} The 'ALL' version of the INTERSECT operator is not supported.}                                                                               \\ \hline
+\textbf{Oracle}                            & {[}42000{]}{[}928{]} ORA-00928                                                                                                                                                          \\ \hline
+\textbf{IBM DB2}                           & Works                                                                                                                                                                                   \\ \hline
+\end{tabular}
+\end{table}
+
+With respect to the SQL standard INTERSECT ALL is an optional feature and it should return all rows which are presented in both inner and outer queries results and without removing duplicates. It can be seen from the above table that the feature is only implemented in PostgreSQL and DB2.  
+
+
+\subsection{Dif 10}
+  
+\begin{mdframed}[backgroundcolor=gray!20] 
+\textbf{Q10:}
+\begin{lstlisting}
+SELECT  7/0 AS ART0, 1%NULL AS ART1
+FROM r1 AS r11
+WHERE (NULL = 19 AND r11.b <> 5)   
+\end{lstlisting}
+\end{mdframed}
+ 
+ 
+\begin{table}[h]
+\centering
+\caption{My caption}
+\label{my-label}
+\begin{tabular}{|p{2cm}|p{12cm}|}
+\hline
+\multicolumn{2}{|c|}{\textbf{Diff 10}}                                                                                       \\ \hline
+\textbf{DBMS}                              & \textbf{Result Message}                                                        \\ \hline
+{\color[HTML]{333333} \textbf{Mysql}}      & {\color[HTML]{333333} Works}                                                   \\ \hline
+{\color[HTML]{333333} \textbf{PostgreSQL}} & {\color[HTML]{333333} {[}22012{]} ERROR: division by zero}                     \\ \hline
+{\color[HTML]{333333} \textbf{MS Server:}} & {\color[HTML]{333333} {[}S0001{]}{[}8134{]} Divide by zero error encountered.} \\ \hline
+\textbf{Oracle}                            & ORA-01476: divisor is equal to zero                                            \\ \hline
+\textbf{IBM DB2}                           & {[}22012{]}{[}-801{]} Division by zero was attempted..                         \\ \hline
+\end{tabular}
+\end{table} 
+
+Apparently, a division with zero should always throw an error. Nevertheless, MySQL does not throw any error and the result of the division with zero is NULL. 
+
+
+\subsection{Dif 11}
+  
+\begin{mdframed}[backgroundcolor=gray!20] 
+\textbf{Q11:}
+\begin{lstlisting}
+SELECT r11.a AS A1, r11.b AS A2
+FROM r1 AS r11
+WHERE (r11.b, r11.a) IN (SELECT r12.a AS A4, r12.b AS A3
+                         		 FROM r1 AS r12)  
+\end{lstlisting}
+\end{mdframed}
+
+
+
+\begin{table}[]
+\centering
+\caption{My caption}
+\label{my-label}
+\begin{tabular}{|p{2cm}|p{12cm}|}
+\hline
+\multicolumn{2}{|c|}{\textbf{Diff 11}}                                                                                                                                                      \\ \hline
+\textbf{DBMS}                              & \textbf{Result Message}                                                                                                                        \\ \hline
+{\color[HTML]{333333} \textbf{Mysql}}      & {\color[HTML]{333333} Works}                                                                                                                   \\ \hline
+{\color[HTML]{333333} \textbf{PostgreSQL}} & {\color[HTML]{333333} Works}                                                                                                                   \\ \hline
+{\color[HTML]{333333} \textbf{MS Server:}} & {\color[HTML]{333333} {[}S0001{]}{[}4145{]} An expression of non-boolean type specified in a context where a condition is expected, near ','.} \\ \hline
+\textbf{Oracle}                            & Works                                                                                                                                          \\ \hline
+\textbf{IBM DB2}                           & Works                                                                                                                                          \\ \hline
+\end{tabular}
+\end{table}
+
+The Q11 will not run on MS Server. The problem is that the ‘IN’ operator does not accept more than one attribute and as a result the DBMS will throw an exception. In the rest DBMS the query is working properly. 
+
+\subsection{Dif 12}
+ 
+\begin{mdframed}[backgroundcolor=gray!20] 
+\textbf{Q12:}
+\begin{lstlisting}
+SELECT  r31.b AS A1
+FROM r3 AS r31
+WHERE r31.a >= r31.a
+GROUP BY r31.a
+\end{lstlisting}
+\end{mdframed} 
+ 
+\begin{table}[h]
+\centering
+\caption{My caption}
+\label{my-label}
+\begin{tabular}{|p{2cm}|p{12cm}|}
+\hline
+\multicolumn{2}{|c|}{\textbf{Diff 11}}                                                                                                                                                                                                                                                                                               \\ \hline
+\textbf{DBMS}                              & \textbf{Result Message}                                                                                                                                                                                                                                                                 \\ \hline
+{\color[HTML]{333333} \textbf{Mysql}}      & {\color[HTML]{333333} Works}                                                                                                                                                                                                                                                            \\ \hline
+{\color[HTML]{333333} \textbf{PostgreSQL}} & {\color[HTML]{333333} {[}42803{]} ERROR: column "r31.b" must appear in the GROUP BY clause or be used in an aggregate function Position: 9}                                                                                                                                             \\ \hline
+{\color[HTML]{333333} \textbf{MS Server:}} & {\color[HTML]{333333} {[}S0001{]}{[}8120{]} Column 'r3.B' is invalid in the select list because it is not contained in either an aggregate function or the GROUP BY clause.}                                                                                                            \\ \hline
+\textbf{Oracle}                            & {[}42000{]}{[}979{]} ORA-00979: not a GROUP BY expression                                                                                                                                                                                                                               \\ \hline
+\textbf{IBM DB2}                           & {[}42803{]}{[}-119{]} An expression starting with "B" specified in a SELECT clause, HAVING clause, or ORDER BY clause is not specified in the GROUP BY clause or it is in a SELECT clause, HAVING clause, or ORDER BY clause with a column function and no GROUP BY clause is specified \\ \hline
+\end{tabular}
+\end{table}
+
+
+\subsection{Dif 13}
+ 
+\begin{mdframed}[backgroundcolor=gray!20] 
+\textbf{Q13:}
+\begin{lstlisting}
+SELECT  NULL+NULL AS ART1
+FROM r4 AS r41, r5 AS r51
+WHERE  r41.a >= r41.a OR ( r41.a >= 4 )
+GROUP BY r41.a
+HAVING MIN(r41.a) < 7506
+\end{lstlisting}
+\end{mdframed} 
+
+% Please add the following required packages to your document preamble:
+% \usepackage[table,xcdraw]{xcolor}
+% If you use beamer only pass "xcolor=table" option, i.e. \documentclass[xcolor=table]{beamer}
+\begin{table}[h]
+\centering
+\caption{My caption}
+\label{my-label}
+\begin{tabular}{|p{2cm}|p{12cm}|}
+\hline
+\multicolumn{2}{|c|}{\textbf{Diff 11}}                                                                                                                                                                                       \\ \hline
+\textbf{DBMS}                              & \textbf{Result Message}                                                                                                                                                         \\ \hline
+{\color[HTML]{333333} \textbf{Mysql}}      & {\color[HTML]{333333} Works}                                                                                                                                                    \\ \hline
+{\color[HTML]{333333} \textbf{PostgreSQL}} & {\color[HTML]{333333} {[}42725{]} ERROR: operator is not unique: unknown + unknown Hint: Could not choose a best candidate operator. You might need to add explicit type casts} \\ \hline
+{\color[HTML]{333333} \textbf{MS Server:}} & {\color[HTML]{333333} Works}                                                                                                                                                    \\ \hline
+\textbf{Oracle}                            & Works                                                                                                                                                                           \\ \hline
+\textbf{IBM DB2}                           & Works                                                                                                                                                                           \\ \hline
+\end{tabular}
+\end{table}
+
+
+\subsection{Dif 14}
+
+\begin{mdframed}[backgroundcolor=gray!20] 
+\textbf{Q14:}
+\begin{lstlisting}
+SELECT  'SQL' || 'STANDARD'
+FROM R1
+\end{lstlisting}
+\end{mdframed} 
+ 
+\begin{table}[]
+\centering
+\caption{My caption}
+\label{my-label}
+\begin{tabular}{|l|l|}
+\hline
+\multicolumn{2}{|c|}{\textbf{Diff 11}}                                                                              \\ \hline
+\textbf{DBMS}                              & \textbf{Result Message}                                                \\ \hline
+{\color[HTML]{333333} \textbf{Mysql}}      & {\color[HTML]{333333} Works}                                           \\ \hline
+{\color[HTML]{333333} \textbf{PostgreSQL}} & {\color[HTML]{333333} Works}                                           \\ \hline
+{\color[HTML]{333333} \textbf{MS Server:}} & {\color[HTML]{333333} {[}S0001{]}{[}102{]} Incorrect syntax near '|'.} \\ \hline
+\textbf{Oracle}                            & Works                                                                  \\ \hline
+\textbf{IBM DB2}                           & Works                                                                  \\ \hline
+\end{tabular}
+\end{table}
+
+According to the SQL standard concatenation should be supported by DBMSs with a double-pipe mark ‘||’ and the purpose is to concatenate two or more strings into one. Thus, executing Q14 is expected the result to be ‘SQLSTANDARD’. Nevertheless, MySQL supports the double pipe operator, but it treats the double-pipe “||” as a logical OR and thus the query returns 0. For accomplishing concatenation in MySQL, it uses the CONCAT() function which as parameter one or more strings.   Microsoft SQL Server does not support this operator and raise an error and instead of this operator, it uses a different one such as ‘+’  in order to perform the concatenation. Oracle and PostgreSQL support the double-pipe  concatenation operator. 
+
+
+
+\subsection{Dif 15}
+
+\begin{mdframed}[backgroundcolor=gray!20] 
+\textbf{Q15:}
+\begin{lstlisting}
+SELECT  *
+FROM  r1 AS R1 , r1 AS R1
+\end{lstlisting}
+\end{mdframed} 
+
+% Please add the following required packages to your document preamble:
+% \usepackage[table,xcdraw]{xcolor}
+% If you use beamer only pass "xcolor=table" option, i.e. \documentclass[xcolor=table]{beamer}
+\begin{table}[h]
+\centering
+\caption{My caption}
+\label{my-label}
+\begin{tabular}{|p{2cm}|p{12cm}|}
+\hline
+\multicolumn{2}{|c|}{\textbf{Diff 11}}                                                                                                                            \\ \hline
+\textbf{DBMS}                              & \textbf{Result Message}                                                                                              \\ \hline
+{\color[HTML]{333333} \textbf{Mysql}}      & {\color[HTML]{333333} {[}42000{]}{[}1066{]} Not unique table/alias: 'R1'}                                            \\ \hline
+{\color[HTML]{333333} \textbf{PostgreSQL}} & {\color[HTML]{333333} {[}42712{]} ERROR: table name "r1" specified more than once}                                   \\ \hline
+{\color[HTML]{333333} \textbf{MS Server:}} & {\color[HTML]{333333} {[}S0001{]}{[}1011{]} The correlation name 'R1' is specified multiple times in a FROM clause.} \\ \hline
+\textbf{Oracle}                            & {[}42000{]}{[}933{]} ORA-00933: SQL command not properly ended                                                       \\ \hline
+\textbf{IBM DB2}                           & Works                                                                                                                \\ \hline
+\end{tabular}
+\end{table}
+
+It can be seen from Q15 that we have two times the same table with the same alias. It is expected that every DBMSs will raise an error while evaluating this query. Nevertheless, the query is executed in IBM DB2 database. 
+
+\subsection{Dif 16}
+
+\begin{mdframed}[backgroundcolor=gray!20] 
+\textbf{Q16:}
+\begin{lstlisting}
+SELECT TRIM(' SQLSTANDARD ')
+FROM R1
+\end{lstlisting}
+\end{mdframed} 
+
+\begin{table}[h]
+\centering
+\caption{My caption}
+\label{my-label}
+\begin{tabular}{|p{2cm}|p{12cm}|}
+\hline
+\multicolumn{2}{|c|}{\textbf{Diff 11}}                                                                                                       \\ \hline
+\textbf{DBMS}                              & \textbf{Result Message}                                                                         \\ \hline
+{\color[HTML]{333333} \textbf{Mysql}}      & {\color[HTML]{333333} Works}                                                                    \\ \hline
+{\color[HTML]{333333} \textbf{PostgreSQL}} & {\color[HTML]{333333} Works}                                                                    \\ \hline
+{\color[HTML]{333333} \textbf{MS Server:}} & {\color[HTML]{333333} {[}S00010{]}{[}195{]} 'TRIM' is not a recognized built-in function name.} \\ \hline
+\textbf{Oracle}                            & Works                                                                                           \\ \hline
+\textbf{IBM DB2}                           & Works                                                                                           \\ \hline
+\end{tabular}
+\end{table}
+
+According to SQL standard trim function return the string which is given as argument with leading and/or trailing pad character. This function is supported by most of DBMSs, except MS Server. 
+
+
+\subsection{Dif 17}
+
+\begin{mdframed}[backgroundcolor=gray!20] 
+\textbf{Q17:}
+\begin{lstlisting}
+SELECT  2 * 5 AS ART
+WHERE ( 1 = 1 )
+\end{lstlisting}
+\end{mdframed} 
+
+\begin{table}[h]
+\centering
+\caption{My caption}
+\label{my-label}
+\begin{tabular}{|p{2cm}|p{12cm}|}
+\hline
+\multicolumn{2}{|c|}{\textbf{Diff 17}}                                                                                                                                                                                                          \\ \hline
+\textbf{DBMS}                              & \textbf{Result Message}                                                                                                                                                                            \\ \hline
+{\color[HTML]{333333} \textbf{Mysql}}      & {\color[HTML]{333333} {[}42000{]}{[}1064{]} You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'WHERE (1 = 1 )} \\ \hline
+{\color[HTML]{333333} \textbf{PostgreSQL}} & {\color[HTML]{333333} Works}                                                                                                                                                                       \\ \hline
+{\color[HTML]{333333} \textbf{MS Server:}} & {\color[HTML]{333333} Works}                                                                                                                                                                       \\ \hline
+\textbf{Oracle}                            & {[}42000{]}{[}923{]} ORA-00923: FROM keyword not found where expected                                                                                                                              \\ \hline
+\textbf{IBM DB2}                           & {[}42601{]}{[}-104{]} Expected tokens may include: "FROM"                                                                                                                                          \\ \hline
+\end{tabular}
+\end{table}
+
+\subsection{Dif 18}
+
+\begin{mdframed}[backgroundcolor=gray!20] 
+\textbf{Q18:}
+\begin{lstlisting}
+SELECT  SUBSTRING ('Standard', 1, 4)
+FROM  R1
+\end{lstlisting}
+\end{mdframed} 
+
+\begin{table}[h]
+\centering
+\caption{My caption}
+\label{my-label}
+\begin{tabular}{|p{2cm}|p{12cm}|}
+\hline
+\multicolumn{2}{|c|}{\textbf{Diff 18}}                                                                       \\ \hline
+\textbf{DBMS}                              & \textbf{Result Message}                                         \\ \hline
+{\color[HTML]{333333} \textbf{Mysql}}      & {\color[HTML]{333333} Works}                                    \\ \hline
+{\color[HTML]{333333} \textbf{PostgreSQL}} & {\color[HTML]{333333} Works}                                    \\ \hline
+{\color[HTML]{333333} \textbf{MS Server:}} & {\color[HTML]{333333} Works}                                    \\ \hline
+\textbf{Oracle}                            & {[}42000{]}{[}904{]} ORA-00904: "SUBSTRING": invalid identifier \\ \hline
+\textbf{IBM DB2}                           & Works                                                           \\ \hline
+\end{tabular}
+\end{table}
+
+The Substring function is defined in the SQL standard as an optional feature. Mysql, PostgreSQL, IBM DB2 and Microsoft Sql Server support this function. Oracle db use Substr instead of Substring which has a similar behaviour. The prototype of oracle’s function is as follow: substr $(column_name, start_pos , no_of_characters)$. 
+
+
+\subsection{Dif 19}
+
+\begin{mdframed}[backgroundcolor=gray!20] 
+\textbf{Q19:}
+\begin{lstlisting}
+SELECT "SQLSTANDARD"
+FROM R1
+\end{lstlisting}
+\end{mdframed} 
+
+ 
+\begin{table}[h]
+\centering
+\caption{My caption}
+\label{my-label}
+\begin{tabular}{|p{2cm}|p{12cm}|}
+\hline
+\multicolumn{2}{|c|}{\textbf{Diff 17}}                                                                                                 \\ \hline
+\textbf{DBMS}                              & \textbf{Result Message}                                                                   \\ \hline
+{\color[HTML]{333333} \textbf{Mysql}}      & {\color[HTML]{333333} Works}                                                              \\ \hline
+{\color[HTML]{333333} \textbf{PostgreSQL}} & {\color[HTML]{333333} {[}42703{]} ERROR: column "SQLSTANDARD" does not exist Position: 8} \\ \hline
+{\color[HTML]{333333} \textbf{MS Server:}} & {\color[HTML]{333333} {[}S0001{]}{[}207{]} Invalid column name 'SQLSTANDARD'.}            \\ \hline
+\textbf{Oracle}                            & {[}42000{]}{[}904{]} ORA-00904: "SQLSTANDARD": invalid identifier                         \\ \hline
+\textbf{IBM DB2}                           & {[}56098{]}{[}-727{]} An error occurred during implicit system action type "2"            \\ \hline
+\end{tabular}
+\end{table}
+
+According to the SQL standard encompass by ‘. It is demonstrated in Q19 that MySQL allow a string to be encompassed by both ‘ and “ which make the SQL code less portable as the rest DBMSs raise an error if it is used “ instead if ‘. 
+
+
+\subsection{Dif 20}
+
+\begin{mdframed}[backgroundcolor=gray!20] 
+\textbf{Q20:}
+\begin{lstlisting}
+SELECT *
+FROM r1 AS R1
+where R1.c3 = ’’’
+\end{lstlisting}
+\end{mdframed} 
+
+ 
+\begin{table}[h]
+\centering
+\caption{My caption}
+\label{my-label}
+\begin{tabular}{|p{2cm}|p{12cm}|}
+\hline
+\multicolumn{2}{|c|}{\textbf{Diff 17}}                                    \\ \hline
+\textbf{DBMS}                              & \textbf{Result Message}      \\ \hline
+{\color[HTML]{333333} \textbf{Mysql}}      & {\color[HTML]{333333} Works} \\ \hline
+{\color[HTML]{333333} \textbf{PostgreSQL}} & {\color[HTML]{333333} Works} \\ \hline
+{\color[HTML]{333333} \textbf{MS Server:}} & {\color[HTML]{333333} Works} \\ \hline
+\textbf{Oracle}                            & Works                        \\ \hline
+\textbf{IBM DB2}                           & Works                        \\ \hline
+\end{tabular}
+\end{table}
+
+
+Even though the above query is executed correctly on the DBMSs the semantic differs. As it was mentioned in the background chapter and more precisely in the missing value, Oracle database treats the empty string as NULL, on the contrary with the rest DBMSs which treats it as a normal string. Thus, all the comparisons in the WHERE clause involving NULL are evaluated to Unknown which means that the result will be empty as none of the rows will be satisfied.  On the other hand, if there is at least a row which contains an empty string by executing the above query will be returned in the result. It can be conclude that the above query will return all the rows that contain an empty string in the attribute c3 of the relation R1 in all the DBMSs except Oracle DB, where the result for this database will be empty.
+
 
 \section{Summarize features}
 The below table summarizes the main features of SQL language and illustrated which of them are not supported by all popular DBMSs. These findings have been discovered by conducting experiments using the random generator query tool and the comparison tool. We have generated a huge number of SQL queries in order to identify lot of cases where DBMSs behave differently. It is worthy mentioning that the process of conducting experiments is fully automated and in case where a difference is found, it is recorded in a log file with some useful explanation.    

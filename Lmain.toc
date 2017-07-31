@@ -1,30 +1,48 @@
-\contentsline {chapter}{\numberline {1}Introduction}{1}
-\contentsline {section}{\numberline {1.1}Introduction}{1}
-\contentsline {section}{\numberline {1.2}Motivation}{2}
-\contentsline {section}{\numberline {1.3}Related Work }{3}
-\contentsline {section}{\numberline {1.4}Thesis Structure}{3}
-\contentsline {chapter}{\numberline {2}Background}{5}
-\contentsline {section}{\numberline {2.1}The SQL Standard }{5}
-\contentsline {section}{\numberline {2.2}The SQL Language}{6}
-\contentsline {section}{\numberline {2.3}Commands of SQL}{6}
-\contentsline {subsection}{\numberline {2.3.1}Missing values}{9}
-\contentsline {subsection}{\numberline {2.3.2}SQL standard issues}{10}
-\contentsline {chapter}{\numberline {3}Methodology}{12}
-\contentsline {section}{\numberline {3.1}Methodology}{12}
-\contentsline {chapter}{\numberline {4}Implementation}{14}
-\contentsline {section}{\numberline {4.1}Implementation}{14}
-\contentsline {subsubsection}{\numberline {4.1.0.1}Random SQL generator engine}{15}
-\contentsline {subsubsection}{\numberline {4.1.0.2}Configuration file}{15}
-\contentsline {section}{\numberline {4.2}Comparison Tool}{18}
-\contentsline {section}{\numberline {4.3}Generate data}{19}
-\contentsline {chapter}{\numberline {5}Experimental Evaluation}{21}
-\contentsline {section}{\numberline {5.1}Experimental Set Up}{21}
-\contentsline {section}{\numberline {5.2}Experiment Results}{21}
-\contentsline {subsection}{\numberline {5.2.1}Dif 1}{21}
-\contentsline {subsection}{\numberline {5.2.2}Dif 2}{22}
-\contentsline {section}{\numberline {5.3}Summarize features}{22}
-\contentsline {chapter}{\numberline {6}Conclusions}{24}
-\contentsline {subsection}{\numberline {6.0.1}Conclusions}{24}
-\contentsline {subsection}{\numberline {6.0.2}Summary of the findings}{25}
-\contentsline {subsection}{\numberline {6.0.3}Suggestions for future work}{25}
-\contentsline {chapter}{Bibliography}{26}
+\contentsline {chapter}{\numberline {1}Introduction}{1}{chapter.1}
+\contentsline {section}{\numberline {1.1}Introduction}{1}{section.1.1}
+\contentsline {section}{\numberline {1.2}Motivation}{2}{section.1.2}
+\contentsline {section}{\numberline {1.3}Related Work }{3}{section.1.3}
+\contentsline {section}{\numberline {1.4}Thesis Structure}{3}{section.1.4}
+\contentsline {chapter}{\numberline {2}Background}{5}{chapter.2}
+\contentsline {section}{\numberline {2.1}The SQL Standard }{5}{section.2.1}
+\contentsline {section}{\numberline {2.2}The SQL Language}{6}{section.2.2}
+\contentsline {section}{\numberline {2.3}Commands of SQL}{6}{section.2.3}
+\contentsline {subsection}{\numberline {2.3.1}Missing values}{10}{subsection.2.3.1}
+\contentsline {subsection}{\numberline {2.3.2}SQL standard issues}{10}{subsection.2.3.2}
+\contentsline {chapter}{\numberline {3}Methodology}{12}{chapter.3}
+\contentsline {section}{\numberline {3.1}Methodology}{12}{section.3.1}
+\contentsline {chapter}{\numberline {4}Implementation}{14}{chapter.4}
+\contentsline {section}{\numberline {4.1}Implementation}{14}{section.4.1}
+\contentsline {subsection}{\numberline {4.1.1}Random SQL generator engine}{15}{subsection.4.1.1}
+\contentsline {subsection}{\numberline {4.1.2}Configuration file}{15}{subsection.4.1.2}
+\contentsline {section}{\numberline {4.2}Comparison Tool}{18}{section.4.2}
+\contentsline {section}{\numberline {4.3}Generate data}{19}{section.4.3}
+\contentsline {chapter}{\numberline {5}Experimental Evaluation}{21}{chapter.5}
+\contentsline {section}{\numberline {5.1}The experiment Set-Up}{21}{section.5.1}
+\contentsline {section}{\numberline {5.2}Experiment Results}{21}{section.5.2}
+\contentsline {subsection}{\numberline {5.2.1}Dif 1}{22}{subsection.5.2.1}
+\contentsline {subsection}{\numberline {5.2.2}Dif 2}{23}{subsection.5.2.2}
+\contentsline {subsection}{\numberline {5.2.3}Dif 3}{23}{subsection.5.2.3}
+\contentsline {subsection}{\numberline {5.2.4}Dif 4}{24}{subsection.5.2.4}
+\contentsline {subsection}{\numberline {5.2.5}Dif 5}{25}{subsection.5.2.5}
+\contentsline {subsection}{\numberline {5.2.6}Dif 6}{25}{subsection.5.2.6}
+\contentsline {subsection}{\numberline {5.2.7}Dif 7}{27}{subsection.5.2.7}
+\contentsline {subsection}{\numberline {5.2.8}Dif 8}{28}{subsection.5.2.8}
+\contentsline {subsection}{\numberline {5.2.9}Dif 9}{28}{subsection.5.2.9}
+\contentsline {subsection}{\numberline {5.2.10}Dif 10}{29}{subsection.5.2.10}
+\contentsline {subsection}{\numberline {5.2.11}Dif 11}{30}{subsection.5.2.11}
+\contentsline {subsection}{\numberline {5.2.12}Dif 12}{30}{subsection.5.2.12}
+\contentsline {subsection}{\numberline {5.2.13}Dif 13}{30}{subsection.5.2.13}
+\contentsline {subsection}{\numberline {5.2.14}Dif 14}{31}{subsection.5.2.14}
+\contentsline {subsection}{\numberline {5.2.15}Dif 15}{32}{subsection.5.2.15}
+\contentsline {subsection}{\numberline {5.2.16}Dif 16}{32}{subsection.5.2.16}
+\contentsline {subsection}{\numberline {5.2.17}Dif 17}{33}{subsection.5.2.17}
+\contentsline {subsection}{\numberline {5.2.18}Dif 18}{34}{subsection.5.2.18}
+\contentsline {subsection}{\numberline {5.2.19}Dif 19}{34}{subsection.5.2.19}
+\contentsline {subsection}{\numberline {5.2.20}Dif 20}{34}{subsection.5.2.20}
+\contentsline {section}{\numberline {5.3}Summarize features}{35}{section.5.3}
+\contentsline {chapter}{\numberline {6}Conclusions}{39}{chapter.6}
+\contentsline {section}{\numberline {6.1}Conclusions}{39}{section.6.1}
+\contentsline {section}{\numberline {6.2}Summary of the findings}{40}{section.6.2}
+\contentsline {section}{\numberline {6.3}Suggestions for future work}{40}{section.6.3}
+\contentsline {chapter}{Bibliography}{41}{appendix*.33}

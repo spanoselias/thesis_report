@@ -69,8 +69,22 @@
 %%Package for tick icon in the experiments chapter
 \usepackage{pifont}
 
+%%package
+\usepackage{listings}
+
 \usepackage{xcolor}
 \usepackage{mdframed}
+
+%% This library is used to make 
+%% Clickable table of content 
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks,
+    citecolor=black,
+    filecolor=black,
+    linkcolor=black,
+    urlcolor=black
+}
  
 %% Information about the title, etc.
 \title{ Testing SQL-compliance of current DBMSs}
@@ -105,7 +119,6 @@ The aim of this project is the implementation of a random SQL query generator an
  
 I would like to thank my supervisors Paolo Guagliardo and Leonid Libkin who were always willing to advise me and help me in order to overcome any difficulty. In addition, I want to thank my family who is always by my side 
 
-
 \end{acknowledgements}
 
 %% Next we need to have the declaration.
@@ -121,8 +134,6 @@ I would like to thank my supervisors Paolo Guagliardo and Leonid Libkin who were
 %% If you want a list of figures or tables, uncomment the appropriate line(s)
 %%\listoffigures
 %%\listoftables
-
-
 
 \end{preliminary}
 
