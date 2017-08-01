@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6350 64-bit) (preloaded format=pdflatex 2017.6.3)  1 AUG 2017 01:14
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6350 64-bit) (preloaded format=pdflatex 2017.6.3)  1 AUG 2017 20:14
 entering extended mode
 **./Lmain.tex
 (Lmain.tex
@@ -908,42 +908,103 @@ LaTeX Font Info:    Font shape `OT1/phv/m/it' in size <12> not available
 (Font)              Font shape `OT1/phv/m/sl' tried instead on input line 22.
 LaTeX Font Info:    Font shape `OT1/phv/m/sl' will be
 (Font)              scaled to size 10.79993pt on input line 22.
- [2 <./Images/db_arch.png>]
+ [2 <./Images/db_arch.png>] [3]
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <12> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 31.
-LaTeX Font Info:    Try loading font information for OT1+ptmcm on input line 31
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 35.
+LaTeX Font Info:    Try loading font information for OT1+ptmcm on input line 35
 .
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\psnfss\ot1ptmcm.fd"
 File: ot1ptmcm.fd 2000/01/03 Fontinst v1.801 font definitions for OT1/ptmcm.
 )
-LaTeX Font Info:    Try loading font information for OML+ptmcm on input line 31
+LaTeX Font Info:    Try loading font information for OML+ptmcm on input line 35
 .
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\psnfss\omlptmcm.fd"
 File: omlptmcm.fd 2000/01/03 Fontinst v1.801 font definitions for OML/ptmcm.
 )
-LaTeX Font Info:    Try loading font information for OMX+psycm on input line 31
+LaTeX Font Info:    Try loading font information for OMX+psycm on input line 35
 .
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\psnfss\omxpsycm.fd"
 File: omxpsycm.fd 2000/01/03 Fontinst v1.801 font definitions for OMX/psycm.
 )
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <9> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 31.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 35.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <7> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 31.
- [3]
-Overfull \hbox (10.64212pt too wide) in paragraph at lines 39--40
-[]\OT1/ptm/m/n/12 concludes this re-search project with ex-pla-na-tion of what 
-it is been achieved,
- []
-
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 35.
 ) [4]
 \openout2 = `Chapters/2-background.aux'.
 
- (Chapters/2-background.tex
+
+(Chapters/2-background.tex
 Chapter 2.
+Missing character: There is no ‚ in font ptmr7t!
+Missing character: There is no Ä in font ptmr7t!
+Missing character: There is no ô in font ptmr7t!
+Missing character: There is no ‚ in font ptmr7t!
+Missing character: There is no Ä in font ptmr7t!
+Missing character: There is no ò in font ptmr7t!
+Missing character: There is no ‚ in font ptmr7t!
+Missing character: There is no Ä in font ptmr7t!
+Missing character: There is no ô in font ptmr7t!
+Missing character: There is no ‚ in font ptmr7t!
+Missing character: There is no Ä in font ptmr7t!
+Missing character: There is no ò in font ptmr7t!
+Missing character: There is no ‚ in font ptmr7t!
+Missing character: There is no Ä in font ptmr7t!
+Missing character: There is no ô in font ptmr7t!
+Missing character: There is no ‚ in font ptmr7t!
+Missing character: There is no Ä in font ptmr7t!
+Missing character: There is no ò in font ptmr7t!
+Missing character: There is no ‚ in font ptmr7t!
+Missing character: There is no Ä in font ptmr7t!
+Missing character: There is no ô in font ptmr7t!
+Missing character: There is no ‚ in font ptmr7t!
+Missing character: There is no Ä in font ptmr7t!
+Missing character: There is no ò in font ptmr7t!
+Missing character: There is no ‚ in font ptmr7t!
+Missing character: There is no Ä in font ptmr7t!
+Missing character: There is no ô in font ptmr7t!
+Missing character: There is no ‚ in font ptmr7t!
+Missing character: There is no Ä in font ptmr7t!
+Missing character: There is no ò in font ptmr7t!
+Missing character: There is no ‚ in font ptmr7t!
+Missing character: There is no Ä in font ptmr7t!
+Missing character: There is no ô in font ptmr7t!
+Missing character: There is no ‚ in font ptmr7t!
+Missing character: There is no Ä in font ptmr7t!
+Missing character: There is no ò in font ptmr7t!
+Missing character: There is no ‚ in font ptmr7t!
+Missing character: There is no Ä in font ptmr7t!
+Missing character: There is no ô in font ptmr7t!
+Missing character: There is no ‚ in font ptmr7t!
+Missing character: There is no Ä in font ptmr7t!
+Missing character: There is no ò in font ptmr7t!
+Missing character: There is no ‚ in font ptmr7t!
+Missing character: There is no Ä in font ptmr7t!
+Missing character: There is no ô in font ptmr7t!
+Missing character: There is no ‚ in font ptmr7t!
+Missing character: There is no Ä in font ptmr7t!
+Missing character: There is no ò in font ptmr7t!
+Missing character: There is no ‚ in font ptmr7t!
+Missing character: There is no Ä in font ptmr7t!
+Missing character: There is no ô in font ptmr7t!
+Missing character: There is no ‚ in font ptmr7t!
+Missing character: There is no Ä in font ptmr7t!
+Missing character: There is no ò in font ptmr7t!
+Missing character: There is no ‚ in font ptmr7t!
+Missing character: There is no Ä in font ptmr7t!
+Missing character: There is no ô in font ptmr7t!
+Missing character: There is no ‚ in font ptmr7t!
+Missing character: There is no Ä in font ptmr7t!
+Missing character: There is no ò in font ptmr7t!
+Missing character: There is no ‚ in font ptmr7t!
+Missing character: There is no Ä in font ptmr7t!
+Missing character: There is no ô in font ptmr7t!
+Missing character: There is no ‚ in font ptmr7t!
+Missing character: There is no Ä in font ptmr7t!
+Missing character: There is no ò in font ptmr7t!
 Missing character: There is no ‚ in font ptmr7t!
 Missing character: There is no Ä in font ptmr7t!
 Missing character: There is no ô in font ptmr7t!
@@ -962,9 +1023,9 @@ Missing character: There is no ù in font ptmr7t!
 File: lstlang1.sty 2015/06/04 1.6 listings language file
 )
 LaTeX Font Info:    Font shape `OT1/pcr/bx/n' in size <12> not available
-(Font)              Font shape `OT1/pcr/b/n' tried instead on input line 37.
+(Font)              Font shape `OT1/pcr/b/n' tried instead on input line 39.
 
-Overfull \hbox (3.28839pt too wide) in paragraph at lines 55--56
+Overfull \hbox (3.28839pt too wide) in paragraph at lines 57--58
 []\OT1/ptm/m/n/12 Queries with ag-gre-ga-tion have as goal to per-form a cal-cu
 -la-tion on a spe-cific columns
  []
@@ -973,19 +1034,19 @@ Overfull \hbox (3.28839pt too wide) in paragraph at lines 55--56
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 
-Overfull \hbox (173.96674pt too wide) in paragraph at lines 74--81
+Overfull \hbox (173.96674pt too wide) in paragraph at lines 76--83
 [][] 
  []
 
 [7]
-LaTeX Font Info:    Try loading font information for OML+ptm on input line 94.
+LaTeX Font Info:    Try loading font information for OML+ptm on input line 96.
  ("C:\Program Files\MiKTeX 2.9\tex\latex\psnfss\omlptm.fd"
 File: omlptm.fd 
 )
 LaTeX Font Info:    Font shape `OML/ptm/m/n' in size <12> not available
-(Font)              Font shape `OML/cmm/m/it' tried instead on input line 94.
+(Font)              Font shape `OML/cmm/m/it' tried instead on input line 96.
 LaTeX Font Info:    Font shape `OMS/ptm/m/n' in size <12> not available
-(Font)              Font shape `OMS/pzccm/m/n' tried instead on input line 122.
+(Font)              Font shape `OMS/pzccm/m/n' tried instead on input line 124.
 
 Missing character: There is no ‚ in font ptmr7t!
 Missing character: There is no Ä in font ptmr7t!
@@ -1000,9 +1061,9 @@ Missing character: There is no ‚ in font ptmr7t!
 Missing character: There is no Ä in font ptmr7t!
 Missing character: There is no ô in font ptmr7t!
  [8]
-Package mdframed Info: Not enough space on this page on input line 126.
+Package mdframed Info: Not enough space on this page on input line 128.
 
-Overfull \hbox (163.16545pt too wide) in paragraph at lines 134--142
+Overfull \hbox (163.16545pt too wide) in paragraph at lines 136--144
  [][] 
  []
 
@@ -1014,7 +1075,7 @@ Missing character: There is no Ä in font ptmr7t!
 Missing character: There is no ô in font ptmr7t!
 
 LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `tbp') on input line 159.
+               Default added (so using `tbp') on input line 161.
 
 Missing character: There is no ‚ in font ptmr7t!
 Missing character: There is no Ä in font ptmr7t!
@@ -1023,7 +1084,7 @@ Missing character: There is no ‚ in font ptmr7t!
 Missing character: There is no Ä in font ptmr7t!
 Missing character: There is no ù in font ptmr7t!
 
-Overfull \hbox (40.23941pt too wide) in paragraph at lines 177--178
+Overfull \hbox (40.23941pt too wide) in paragraph at lines 179--180
 [][][][][][][][][][][][][][][][][][][][] 
  []
 
@@ -1035,16 +1096,16 @@ Missing character: There is no ‚ in font ptmr7t!
 Missing character: There is no Ä in font ptmr7t!
 Missing character: There is no ù in font ptmr7t!
 
-Overfull \hbox (90.63852pt too wide) in paragraph at lines 187--198
+Overfull \hbox (90.63852pt too wide) in paragraph at lines 189--200
  [][] 
  []
 
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <14.4> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 200.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 202.
 LaTeX Font Info:    Font shape `OT1/phv/bx/n' in size <14.4> not available
-(Font)              Font shape `OT1/phv/b/n' tried instead on input line 200.
+(Font)              Font shape `OT1/phv/b/n' tried instead on input line 202.
 LaTeX Font Info:    Font shape `OT1/phv/b/n' will be
-(Font)              scaled to size 12.9599pt on input line 200.
+(Font)              scaled to size 12.9599pt on input line 202.
 [10]
 Missing character: There is no ‚ in font ptmr7t!
 Missing character: There is no Ä in font ptmr7t!
@@ -1071,7 +1132,7 @@ Missing character: There is no ô in font ptmr7t!
 
  (Chapters/4-Implementation.tex
 Chapter 4.
-<Images/1-implemen_detail.png, id=319, 544.0325pt x 414.54875pt>
+<Images/1-implemen_detail.png, id=321, 544.0325pt x 414.54875pt>
 File: Images/1-implemen_detail.png Graphic file (type png)
 
 <use Images/1-implemen_detail.png>
@@ -1088,7 +1149,7 @@ Overfull \hbox (1.46541pt too wide) in paragraph at lines 47--48
 o the database schema.
  []
 
-[16] [17] <Images/2-ComparisonTool.png, id=339, 433.62pt x 283.0575pt>
+[16] [17] <Images/2-ComparisonTool.png, id=341, 433.62pt x 283.0575pt>
 File: Images/2-ComparisonTool.png Graphic file (type png)
 
 <use Images/2-ComparisonTool.png>
@@ -1098,14 +1159,14 @@ Missing character: There is no ‚ in font ptmr7t!
 Missing character: There is no Ä in font ptmr7t!
 Missing character: There is no ô in font ptmr7t!
  [18]
-<Images/3-ComparisonTool.png, id=344, 333.245pt x 294.09875pt>
+<Images/3-ComparisonTool.png, id=346, 333.245pt x 294.09875pt>
 File: Images/3-ComparisonTool.png Graphic file (type png)
 
 <use Images/3-ComparisonTool.png>
 Package pdftex.def Info: Images/3-ComparisonTool.png used on input line 102.
 (pdftex.def)             Requested size: 412.59407pt x 170.71649pt.
  [19 <./Images/2-ComparisonTool.png>]
-<Images/4-Datafiller.png, id=351, 402.50375pt x 103.38625pt>
+<Images/4-Datafiller.png, id=353, 402.50375pt x 103.38625pt>
 File: Images/4-Datafiller.png Graphic file (type png)
 
 <use Images/4-Datafiller.png>
@@ -1127,33 +1188,13 @@ Missing character: There is no ô in font ptmr7t!
 
 
 ]
-Overfull \hbox (5.302pt too wide) in paragraph at lines 34--34
-[]|\OT1/ptm/b/n/12 PostgreSQL[]| 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 35--35
-[]|\OT1/ptm/b/n/12 MS
- []
-
-
-Overfull \hbox (10.97357pt too wide) in paragraph at lines 29--39
- [][] 
+Overfull \hbox (1.76192pt too wide) in paragraph at lines 29--29
+[]|\OT1/ptm/m/n/12 PostgreSQL| 
  []
 
 [22]
-Overfull \hbox (5.302pt too wide) in paragraph at lines 64--64
-[]|\OT1/ptm/b/n/12 PostgreSQL[]| 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 65--65
-[]|\OT1/ptm/b/n/12 MS
- []
-
-
-Overfull \hbox (10.97357pt too wide) in paragraph at lines 59--69
- [][] 
+Overfull \hbox (1.76192pt too wide) in paragraph at lines 58--58
+[]|\OT1/ptm/m/n/12 PostgreSQL| 
  []
 
 Missing character: There is no ‚ in font ptmr7t!
@@ -1163,74 +1204,32 @@ Missing character: There is no ‚ in font ptmr7t!
 Missing character: There is no Ä in font ptmr7t!
 Missing character: There is no ô in font ptmr7t!
 [23]
-Overfull \hbox (5.302pt too wide) in paragraph at lines 93--93
-[]|\OT1/ptm/b/n/12 PostgreSQL[]| 
+Overfull \hbox (1.76192pt too wide) in paragraph at lines 87--87
+[]|\OT1/ptm/m/n/12 PostgreSQL| 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 94--94
-[]|\OT1/ptm/b/n/12 MS
- []
-
-
-Overfull \hbox (10.97357pt too wide) in paragraph at lines 88--98
- [][] 
- []
-
-[24]
-Overfull \hbox (5.302pt too wide) in paragraph at lines 123--123
-[]|\OT1/ptm/b/n/12 PostgreSQL[]| 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 124--124
-[]|\OT1/ptm/b/n/12 MS
- []
-
-
-Overfull \hbox (10.97357pt too wide) in paragraph at lines 118--128
- [][] 
- []
-
-
-Overfull \hbox (5.302pt too wide) in paragraph at lines 157--157
-[]|\OT1/ptm/b/n/12 PostgreSQL[]| 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 158--158
-[]|\OT1/ptm/b/n/12 MS
- []
-
-Missing character: There is no ‚ in font ptmr7t!
-Missing character: There is no Ä in font ptmr7t!
-Missing character: There is no ò in font ptmr7t!
-Missing character: There is no ‚ in font ptmr7t!
-Missing character: There is no Ä in font ptmr7t!
-Missing character: There is no ô in font ptmr7t!
-
-Overfull \hbox (10.97357pt too wide) in paragraph at lines 152--162
- [][] 
+Overfull \hbox (1.76192pt too wide) in paragraph at lines 116--116
+[]|\OT1/ptm/m/n/12 PostgreSQL| 
  []
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
+[24]
+Overfull \hbox (1.76192pt too wide) in paragraph at lines 145--145
+[]|\OT1/ptm/m/n/12 PostgreSQL| 
+ []
+
+Missing character: There is no ‚ in font ptmr7t!
+Missing character: There is no Ä in font ptmr7t!
+Missing character: There is no ò in font ptmr7t!
+Missing character: There is no ‚ in font ptmr7t!
+Missing character: There is no Ä in font ptmr7t!
+Missing character: There is no ô in font ptmr7t!
 [25]
-Package mdframed Info: Not enough space on this page on input line 174.
-
-Overfull \hbox (5.302pt too wide) in paragraph at lines 188--188
-[]|\OT1/ptm/b/n/12 PostgreSQL[]| 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 189--189
-[]|\OT1/ptm/b/n/12 MS
- []
-
-
-Overfull \hbox (10.97357pt too wide) in paragraph at lines 183--193
- [][] 
+Overfull \hbox (1.76192pt too wide) in paragraph at lines 173--173
+[]|\OT1/ptm/m/n/12 PostgreSQL| 
  []
 
 Missing character: There is no ‚ in font ptmr7t!
@@ -1242,20 +1241,32 @@ Missing character: There is no ô in font ptmr7t!
 Missing character: There is no ‚ in font ptmr7t!
 Missing character: There is no Ä in font ptmr7t!
 Missing character: There is no ô in font ptmr7t!
+
+Overfull \hbox (1.76192pt too wide) in paragraph at lines 204--204
+[]|\OT1/ptm/m/n/12 PostgreSQL| 
+ []
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+Missing character: There is no ‚ in font ptmr7t!
+Missing character: There is no Ä in font ptmr7t!
+Missing character: There is no ò in font ptmr7t!
+Missing character: There is no ‚ in font ptmr7t!
+Missing character: There is no Ä in font ptmr7t!
+Missing character: There is no ô in font ptmr7t!
+
+Underfull \hbox (badness 10000) in paragraph at lines 211--213
+
+ []
+
 [26]
-Overfull \hbox (5.302pt too wide) in paragraph at lines 230--230
-[]|\OT1/ptm/b/n/12 PostgreSQL[]| 
+Overfull \hbox (1.76192pt too wide) in paragraph at lines 238--238
+[]|\OT1/ptm/m/n/12 PostgreSQL| 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 231--231
-[]|\OT1/ptm/b/n/12 MS
- []
-
-
-Overfull \hbox (10.97357pt too wide) in paragraph at lines 225--235
- [][] 
- []
+LaTeX Warning: `h' float specifier changed to `ht'.
 
 Missing character: There is no ‚ in font ptmr7t!
 Missing character: There is no Ä in font ptmr7t!
@@ -1263,81 +1274,54 @@ Missing character: There is no ò in font ptmr7t!
 Missing character: There is no ‚ in font ptmr7t!
 Missing character: There is no Ä in font ptmr7t!
 Missing character: There is no ô in font ptmr7t!
+
+Underfull \hbox (badness 10000) in paragraph at lines 245--247
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 245--247
+
+ []
+
 [27]
-Overfull \hbox (454.59708pt too wide) in paragraph at lines 262--272
- [][] 
- []
-
-Missing character: There is no ‚ in font ptmr7t!
-Missing character: There is no Ä in font ptmr7t!
-Missing character: There is no ò in font ptmr7t!
-Missing character: There is no ‚ in font ptmr7t!
-Missing character: There is no Ä in font ptmr7t!
-Missing character: There is no ô in font ptmr7t!
-
-Overfull \hbox (4.23904pt too wide) in paragraph at lines 289--290
+Overfull \hbox (4.23904pt too wide) in paragraph at lines 259--260
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
 ] 
  []
 
-[28]
-Package mdframed Info: Not enough space on this page on input line 291.
 
-Overfull \hbox (432.58926pt too wide) in paragraph at lines 298--308
- [][] 
- []
-
-
-Overfull \hbox (5.302pt too wide) in paragraph at lines 334--334
-[]|\OT1/ptm/b/n/12 PostgreSQL[]| 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 335--335
-[]|\OT1/ptm/b/n/12 MS
- []
-
-
-Overfull \hbox (10.97357pt too wide) in paragraph at lines 329--339
- [][] 
+Overfull \hbox (1.76192pt too wide) in paragraph at lines 272--272
+[]|\OT1/ptm/m/n/12 PostgreSQL| 
  []
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
+[28]
+Overfull \hbox (1.76192pt too wide) in paragraph at lines 302--302
+[]|\OT1/ptm/m/n/12 PostgreSQL| 
+ []
 
-Overfull \hbox (7.12862pt too wide) in paragraph at lines 341--342
+
+Overfull \hbox (7.12862pt too wide) in paragraph at lines 309--310
 []\OT1/ptm/m/n/12 Apparently, a di-vi-sion with zero should al-ways throw an er
 -ror. Nev-er-the-less, MySQL
  []
 
 [29]
-Overfull \hbox (11.43912pt too wide) in paragraph at lines 351--352
+Overfull \hbox (11.43912pt too wide) in paragraph at lines 319--320
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
  []
 
 
-Overfull \hbox (11.43912pt too wide) in paragraph at lines 352--353
+Overfull \hbox (11.43912pt too wide) in paragraph at lines 320--321
 [][][][][][][][][][][][] 
  []
 
 
-LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `tbp') on input line 358.
-
-
-Overfull \hbox (5.302pt too wide) in paragraph at lines 367--367
-[]|\OT1/ptm/b/n/12 PostgreSQL[]| 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 368--368
-[]|\OT1/ptm/b/n/12 MS
- []
-
-
-Overfull \hbox (10.97357pt too wide) in paragraph at lines 362--372
- [][] 
+Overfull \hbox (1.76192pt too wide) in paragraph at lines 332--332
+[]|\OT1/ptm/m/n/12 PostgreSQL| 
  []
 
 Missing character: There is no ‚ in font ptmr7t!
@@ -1347,46 +1331,30 @@ Missing character: There is no ‚ in font ptmr7t!
 Missing character: There is no Ä in font ptmr7t!
 Missing character: There is no ô in font ptmr7t!
 
-Overfull \hbox (5.302pt too wide) in paragraph at lines 397--397
-[]|\OT1/ptm/b/n/12 PostgreSQL[]| 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 398--398
-[]|\OT1/ptm/b/n/12 MS
- []
-
-
-Overfull \hbox (10.97357pt too wide) in paragraph at lines 392--402
- [][] 
+Overfull \hbox (1.76192pt too wide) in paragraph at lines 362--362
+[]|\OT1/ptm/m/n/12 PostgreSQL| 
  []
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 369--370
+
+ []
 
 [30]
-Package mdframed Info: Not enough space on this page on input line 416.
-
-Overfull \hbox (5.302pt too wide) in paragraph at lines 430--430
-[]|\OT1/ptm/b/n/12 PostgreSQL[]| 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 431--431
-[]|\OT1/ptm/b/n/12 MS
- []
-
-
-Overfull \hbox (10.97357pt too wide) in paragraph at lines 425--435
- [][] 
+Overfull \hbox (1.76192pt too wide) in paragraph at lines 391--391
+[]|\OT1/ptm/m/n/12 PostgreSQL| 
  []
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-
-LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `tbp') on input line 448.
+[31]
+Overfull \hbox (1.76192pt too wide) in paragraph at lines 417--417
+[]|\OT1/ptm/m/n/12 PostgreSQL| 
+ []
 
 Missing character: There is no ‚ in font ptmr7t!
 Missing character: There is no Ä in font ptmr7t!
@@ -1412,143 +1380,76 @@ Missing character: There is no ò in font ptmr7t!
 Missing character: There is no ‚ in font ptmr7t!
 Missing character: There is no Ä in font ptmr7t!
 Missing character: There is no ô in font ptmr7t!
-[31]
-Overfull \hbox (5.302pt too wide) in paragraph at lines 490--490
-[]|\OT1/ptm/b/n/12 PostgreSQL[]| 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 491--491
-[]|\OT1/ptm/b/n/12 MS
- []
-
-
-Overfull \hbox (10.97357pt too wide) in paragraph at lines 485--495
- [][] 
- []
-
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-
-Overfull \hbox (5.302pt too wide) in paragraph at lines 518--518
-[]|\OT1/ptm/b/n/12 PostgreSQL[]| 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 519--519
-[]|\OT1/ptm/b/n/12 MS
- []
-
-
-Overfull \hbox (10.97357pt too wide) in paragraph at lines 513--523
- [][] 
- []
-
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
 [32]
-Overfull \hbox (5.302pt too wide) in paragraph at lines 547--547
-[]|\OT1/ptm/b/n/12 PostgreSQL[]| 
+Overfull \hbox (1.76192pt too wide) in paragraph at lines 445--445
+[]|\OT1/ptm/m/n/12 PostgreSQL| 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 548--548
-[]|\OT1/ptm/b/n/12 MS
- []
-
-
-Overfull \hbox (10.97357pt too wide) in paragraph at lines 542--552
- [][] 
+Overfull \hbox (1.76192pt too wide) in paragraph at lines 472--472
+[]|\OT1/ptm/m/n/12 PostgreSQL| 
  []
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 [33]
-Overfull \hbox (5.302pt too wide) in paragraph at lines 573--573
-[]|\OT1/ptm/b/n/12 PostgreSQL[]| 
+Overfull \hbox (1.76192pt too wide) in paragraph at lines 503--503
+[]|\OT1/ptm/m/n/12 PostgreSQL| 
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 574--574
-[]|\OT1/ptm/b/n/12 MS
- []
-
-
-Overfull \hbox (10.97357pt too wide) in paragraph at lines 568--578
- [][] 
- []
-
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-Missing character: There is no ‚ in font ptmr7t!
-Missing character: There is no Ä in font ptmr7t!
-Missing character: There is no ô in font ptmr7t!
-
-Overfull \hbox (5.302pt too wide) in paragraph at lines 603--603
-[]|\OT1/ptm/b/n/12 PostgreSQL[]| 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 604--604
-[]|\OT1/ptm/b/n/12 MS
- []
-
-
-Overfull \hbox (10.97357pt too wide) in paragraph at lines 598--608
- [][] 
- []
-
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-Missing character: There is no ‚ in font ptmr7t!
-Missing character: There is no Ä in font ptmr7t!
-Missing character: There is no ò in font ptmr7t!
-Missing character: There is no ‚ in font ptmr7t!
-Missing character: There is no Ä in font ptmr7t!
-Missing character: There is no ò in font ptmr7t!
-Missing character: There is no ‚ in font ptmr7t!
-Missing character: There is no Ä in font ptmr7t!
-Missing character: There is no ú in font ptmr7t!
-Missing character: There is no ‚ in font ptmr7t!
-Missing character: There is no Ä in font ptmr7t!
-Missing character: There is no ú in font ptmr7t!
-Missing character: There is no ‚ in font ptmr7t!
-Missing character: There is no Ä in font ptmr7t!
-Missing character: There is no ò in font ptmr7t!
-Missing character: There is no ‚ in font ptmr7t!
-Missing character: There is no Ä in font ptmr7t!
-Missing character: There is no ô in font ptmr7t!
 [34]
-Package mdframed Info: Not enough space on this page on input line 622.
-
-Overfull \hbox (5.302pt too wide) in paragraph at lines 634--634
-[]|\OT1/ptm/b/n/12 PostgreSQL[]| 
+Overfull \hbox (1.76192pt too wide) in paragraph at lines 530--530
+[]|\OT1/ptm/m/n/12 PostgreSQL| 
  []
 
+Missing character: There is no ‚ in font ptmr7t!
+Missing character: There is no Ä in font ptmr7t!
+Missing character: There is no ô in font ptmr7t!
 
-Underfull \hbox (badness 10000) in paragraph at lines 635--635
-[]|\OT1/ptm/b/n/12 MS
- []
-
-
-Overfull \hbox (10.97357pt too wide) in paragraph at lines 629--639
- [][] 
+Overfull \hbox (1.76192pt too wide) in paragraph at lines 559--559
+[]|\OT1/ptm/m/n/12 PostgreSQL| 
  []
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 [35]
+Missing character: There is no ‚ in font ptmr7t!
+Missing character: There is no Ä in font ptmr7t!
+Missing character: There is no ò in font ptmr7t!
+Missing character: There is no ‚ in font ptmr7t!
+Missing character: There is no Ä in font ptmr7t!
+Missing character: There is no ò in font ptmr7t!
+Missing character: There is no ‚ in font ptmr7t!
+Missing character: There is no Ä in font ptmr7t!
+Missing character: There is no ú in font ptmr7t!
+Missing character: There is no ‚ in font ptmr7t!
+Missing character: There is no Ä in font ptmr7t!
+Missing character: There is no ú in font ptmr7t!
+Missing character: There is no ‚ in font ptmr7t!
+Missing character: There is no Ä in font ptmr7t!
+Missing character: There is no ò in font ptmr7t!
+Missing character: There is no ‚ in font pcrr7tn!
+Missing character: There is no Ä in font pcrr7tn!
+Missing character: There is no ô in font pcrr7tn!
+Missing character: There is no ‚ in font pcrr7tn!
+Missing character: There is no Ä in font pcrr7tn!
+Missing character: There is no ô in font pcrr7tn!
+Missing character: There is no ‚ in font pcrr7tn!
+Missing character: There is no Ä in font pcrr7tn!
+Missing character: There is no ô in font pcrr7tn!
 
-LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `tbp') on input line 650.
+Overfull \hbox (1.76192pt too wide) in paragraph at lines 589--589
+[]|\OT1/ptm/m/n/12 PostgreSQL| 
+ []
 
-) [36] [37] [38]
+[36]
+Overfull \hbox (1.76192pt too wide) in paragraph at lines 620--620
+[]|\OT1/ptm/m/n/12 PostgreSQL| 
+ []
+
+[37]) [38]
 \openout2 = `Chapters/6-Conclusions.aux'.
 
  (Chapters/6-Conclusions.tex
@@ -1582,36 +1483,45 @@ Package natbib Warning: Citation(s) may have changed.
 )
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 185.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 185.
-Package rerunfilecheck Info: File `Lmain.out' has not changed.
-(rerunfilecheck)             Checksum: E3393DB3066300F3090A4047AEAF5EA0;2952.
 
+
+Package rerunfilecheck Warning: File `Lmain.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `Lmain.out':
+(rerunfilecheck)             Before: E3393DB3066300F3090A4047AEAF5EA0;2952
+(rerunfilecheck)             After:  341BAB1124F9033DBBEC677B9474C8AA;3074.
 
 LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
 
  ) 
 Here is how much of TeX's memory you used:
- 20071 strings out of 493323
- 346788 string characters out of 3139067
- 461424 words of memory out of 3000000
- 23090 multiletter control sequences out of 15000+200000
+ 20057 strings out of 493323
+ 346658 string characters out of 3139067
+ 458424 words of memory out of 3000000
+ 23075 multiletter control sequences out of 15000+200000
  565683 words of font info for 83 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  43i,11n,51p,10396b,1333s stack positions out of 5000i,500n,10000p,200000b,50000s
-{C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/base/8r.enc}<C:/Program Files/Mi
-KTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Program Files/MiKTeX 2.9
-/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Program Files/MiKTeX 2.9/fonts/t
-ype1/public/amsfonts/cm/cmr10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/publ
-ic/amsfonts/cm/cmsy10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/courier/
-ucrb8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/courier/ucrr8a.pfb><C:/
-Program Files/MiKTeX 2.9/fonts/type1/urw/helvetic/uhvb8a.pfb><C:/Program Files/
-MiKTeX 2.9/fonts/type1/urw/helvetic/uhvr8a.pfb><C:/Program Files/MiKTeX 2.9/fon
-ts/type1/urw/helvetic/uhvro8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/
-times/utmb8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmr8a.pfb>
-<C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmri8a.pfb><C:/Program File
-s/MiKTeX 2.9/fonts/type1/urw/zapfding/uzdr.pfb>
-Output written on Lmain.pdf (46 pages, 369913 bytes).
+pdfTeX warning (dest): name{appendix*.33} has been referenced but does not ex
+ist, replaced by a fixed one
+
+{C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/base/8r.enc}<C:/Program Files/MiKT
+eX 2.9/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Program Files/MiKTeX 2.9/f
+onts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Program Files/MiKTeX 2.9/fonts/typ
+e1/public/amsfonts/cm/cmr10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public
+/amsfonts/cm/cmsy10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/courier/uc
+rb8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/courier/ucrr8a.pfb><C:/Pr
+ogram Files/MiKTeX 2.9/fonts/type1/urw/helvetic/uhvb8a.pfb><C:/Program Files/Mi
+KTeX 2.9/fonts/type1/urw/helvetic/uhvr8a.pfb><C:/Program Files/MiKTeX 2.9/fonts
+/type1/urw/helvetic/uhvro8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/ti
+mes/utmb8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmr8a.pfb><C
+:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmri8a.pfb><C:/Program Files/
+MiKTeX 2.9/fonts/type1/urw/zapfding/uzdr.pfb>
+Output written on Lmain.pdf (46 pages, 372909 bytes).
 PDF statistics:
- 673 PDF objects out of 1000 (max. 8388607)
- 254 named destinations out of 1000 (max. 500000)
+ 674 PDF objects out of 1000 (max. 8388607)
+ 255 named destinations out of 1000 (max. 500000)
  415 words of extra memory for PDF output out of 10000 (max. 10000000)
 

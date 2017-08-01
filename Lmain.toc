@@ -2,7 +2,8 @@
 \contentsline {section}{\numberline {1.1}Introduction}{1}{section.1.1}
 \contentsline {section}{\numberline {1.2}Motivation}{2}{section.1.2}
 \contentsline {section}{\numberline {1.3}Related Work }{3}{section.1.3}
-\contentsline {section}{\numberline {1.4}Thesis Structure}{3}{section.1.4}
+\contentsline {section}{\numberline {1.4}Related Work}{3}{section.1.4}
+\contentsline {section}{\numberline {1.5}Thesis Structure}{4}{section.1.5}
 \contentsline {chapter}{\numberline {2}Background}{5}{chapter.2}
 \contentsline {section}{\numberline {2.1}The SQL Standard }{5}{section.2.1}
 \contentsline {section}{\numberline {2.2}The SQL Language}{6}{section.2.2}
@@ -25,24 +26,25 @@
 \contentsline {subsection}{\numberline {5.2.3}Dif 3}{24}{subsection.5.2.3}
 \contentsline {subsection}{\numberline {5.2.4}Dif 4}{24}{subsection.5.2.4}
 \contentsline {subsection}{\numberline {5.2.5}Dif 5}{25}{subsection.5.2.5}
-\contentsline {subsection}{\numberline {5.2.6}Dif 6}{25}{subsection.5.2.6}
-\contentsline {subsection}{\numberline {5.2.7}Dif 7}{27}{subsection.5.2.7}
-\contentsline {subsection}{\numberline {5.2.8}Dif 8}{28}{subsection.5.2.8}
+\contentsline {subsection}{\numberline {5.2.6}Dif 6}{26}{subsection.5.2.6}
+\contentsline {subsection}{\numberline {5.2.7}Dif 7}{26}{subsection.5.2.7}
+\contentsline {subsection}{\numberline {5.2.8}Dif 8}{27}{subsection.5.2.8}
 \contentsline {subsection}{\numberline {5.2.9}Dif 9}{28}{subsection.5.2.9}
 \contentsline {subsection}{\numberline {5.2.10}Dif 10}{29}{subsection.5.2.10}
 \contentsline {subsection}{\numberline {5.2.11}Dif 11}{30}{subsection.5.2.11}
 \contentsline {subsection}{\numberline {5.2.12}Dif 12}{30}{subsection.5.2.12}
-\contentsline {subsection}{\numberline {5.2.13}Dif 13}{30}{subsection.5.2.13}
-\contentsline {subsection}{\numberline {5.2.14}Dif 14}{31}{subsection.5.2.14}
-\contentsline {subsection}{\numberline {5.2.15}Dif 15}{32}{subsection.5.2.15}
-\contentsline {subsection}{\numberline {5.2.16}Dif 16}{32}{subsection.5.2.16}
-\contentsline {subsection}{\numberline {5.2.17}Dif 17}{33}{subsection.5.2.17}
-\contentsline {subsection}{\numberline {5.2.18}Dif 18}{34}{subsection.5.2.18}
-\contentsline {subsection}{\numberline {5.2.19}Dif 19}{34}{subsection.5.2.19}
-\contentsline {subsection}{\numberline {5.2.20}Dif 20}{34}{subsection.5.2.20}
-\contentsline {section}{\numberline {5.3}Summarize features}{35}{section.5.3}
+\contentsline {subsection}{\numberline {5.2.13}Dif 13}{31}{subsection.5.2.13}
+\contentsline {subsection}{\numberline {5.2.14}Dif 14}{32}{subsection.5.2.14}
+\contentsline {subsection}{\numberline {5.2.15}Dif 15}{33}{subsection.5.2.15}
+\contentsline {subsection}{\numberline {5.2.16}Dif 16}{33}{subsection.5.2.16}
+\contentsline {subsection}{\numberline {5.2.17}Dif 17}{34}{subsection.5.2.17}
+\contentsline {subsection}{\numberline {5.2.18}Dif 18}{35}{subsection.5.2.18}
+\contentsline {subsection}{\numberline {5.2.19}Dif 19}{35}{subsection.5.2.19}
+\contentsline {subsection}{\numberline {5.2.20}Dif 20}{36}{subsection.5.2.20}
+\contentsline {subsection}{\numberline {5.2.21}Dif 21}{37}{subsection.5.2.21}
+\contentsline {section}{\numberline {5.3}Summarize features}{38}{section.5.3}
 \contentsline {chapter}{\numberline {6}Conclusions}{39}{chapter.6}
 \contentsline {section}{\numberline {6.1}Conclusions}{39}{section.6.1}
 \contentsline {section}{\numberline {6.2}Summary of the findings}{40}{section.6.2}
 \contentsline {section}{\numberline {6.3}Suggestions for future work}{40}{section.6.3}
-\contentsline {chapter}{Bibliography}{41}{appendix*.33}
+\contentsline {chapter}{Bibliography}{41}{appendix*.35}

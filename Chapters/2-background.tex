@@ -1,13 +1,15 @@
 \chapter{Background}
 
 \section{The SQL Standard }
-DBMS from its first appearance shows that it will be the dominant trend for managing data. Consequently, different implementations have been emerged from various vendors and inevitable, a standardized language should be implemented in order to provide portability among different systems. If applications were implemented using only SQL commands which are defined in that standard and vendors implemented these commands in exactly the same way, then SQL code could be migrated on any DBMS without the need to be adopted. As it was mentioned, the common language for relational database management system (RDMS) is SQL. 
+DBMS from its first appearance shows that it will be the dominant trend for managing data. Consequently, different implementations have emerged from various vendors and inevitably, a standardised language should be implemented in order to provide portability among current systems. If applications were implemented using only SQL commands which are defined in that standard and vendors implemented these commands in exactly the same way, then SQL code could be migrated on any DBMS without the need to be adopted.
 
-The first appearance of the SQL language was in 1970 where IBM developed the first prototype of RDMS. Subsequently, the first SQL standard arose in 1986 by American National Standard Institute (ANSI) with the name SQL-86 for bearing conformity among vendors’ implementations. Since then different flavors of the standard have being emerged for revising previous versions or for adding new features such as SQL-87, SQL-89, ANSI/ISO SQL-92 and  ANSI/ISO SQL: 1999 which has been approved also by International Standards Organization (ISO) [11]. SQL standard has been continuously developed with current version being SQL:2016 or ISO/IEC 9075:2016. The ANSI SQL standard is divided into several parts and this project focus on the SQL/Foundation part. This part contains central elements of SQL. Explanations about the findings are explained according to SQL:2016 since it is the newest version of the standard, though this parts  remains the same in comparison with earlier flavors. 
+The first appearance of the SQL language was in 1970 where IBM developed the first prototype of Relational Database Management System (RDBMS). Subsequently, the first SQL standard arose in 1986 by the American National Standard Institute (ANSI) with the name SQL-86 for bearing conformity among vendors’ implementations. Since then, different flavors of the standard have being emerged for revising previous versions or for adding new features such as SQL-87, SQL-89, ANSI/ISO SQL-92 and ANSI/ISO SQL: 1999 which has been approved also by the International Standards Organization (ISO) [11]. The SQL Standard has been continuously developed with current version being SQL:2016 or ISO/IEC 9075:2016. The ANSI SQL standard is divided into several parts and this project focuses on the SQL/Foundation part. This part contains central elements of SQL. Explanations about the findings are explained according to SQL:2016 since it is the newest version of the standard, though this part  remains the same in comparison with earlier flavors. 
+
 
 \section{The SQL Language}
-SQL operations are in the form of commands known as SQL statements. More precisely, SQL is consisted primarily by two sublanguages such as data definition language (DDL) and data manipulation language (DML). DDL is a part of SQL language and can be used to create, modify, delete tables and views, and usually DDL statements start with keywords CREATE, DROP and ALTER. Also, it supports a command that give the capability to be defined new domains. Moreover, in general tables and rows are denoted as relations and tuples and sometimes it referred to these terminologies. DML is also a part of the SQL language that is consisted by a family of commands like any programming language and is used for the creation of a query for inserting, modifying and deleting rows in a Database. This sublanguage is consisted by SELECT-FROM-WHERE commands as to be the fundamental for any query. In addition, SQL standard supports more complex rather than just these simple commands for performing various tasks on data. For example, aggregation functions such as Sum, Max, Min, Avg are used with combination with Group By, and Having SQL statements. The purpose of having such commands is to perform a calculation on a specific  columns in order to return a value. An example can be if we want to calculate the average salary of a department. Then, we need to perform a group by based on all the salaries of the employees of that department. 
+SQL operations are in the form of commands known as SQL statements. More precisely, SQL is composed of primarily two sublanguages, the data definition language (DDL) and the data manipulation language (DML). DDL is a part of SQL language and can be used to create, modify, delete tables and views, and usually DDL statements start with keywords ‘CREATE’, ‘DROP’ and ‘ALTER’. Also, it supports a command that gives the capability of defining new domains. Moreover, in general, tables and rows are denoted as relations and tuples. DML is also a part of the SQL language that is composed of a family of commands like any programming language and is used for the creation of a query for inserting, modifying and deleting rows in a Database. This sublanguage is consisted by ‘SELECT-FROM-WHERE’ commands as to be the fundamental for any query. In addition, the SQL Standard supports more complex rather than just simple commands for performing various tasks on data. For example, aggregation functions such as ‘Sum’, ‘Max’, ‘Min’, ‘Avg’ are used with combination with ‘Group By’, and ‘Having’ SQL statements. The purpose of having such commands is to perform a calculation on a specific column in order to return a value, for example the calculation of the average salary of a department by performing a ‘Group By’ based on all the salaries of the employees of that department. 
 Hence, SQL is extremely popular as it offers two capabilities. Firstly, it can access many tuples using just one command and secondly it does not need to specify how to reach a tuple, for example by using an index or not. 
+
 
 \section{Commands of SQL}
 This subsection intends to introduce in a high-level overview the basic commands of SQL which are defined in the SQL standard and it is described briefly the usefulness of each command. As some these commands are used to generate random SQL queries, it is important to provide a basic background of the usage and purpose of each command. 
@@ -200,6 +202,31 @@ The above SQL query extract from the string which is given as parameter to the S
 \subsection{Missing values} 
 
 This section aims to provide a basic background regarding NULLs and introduce the problems that can be arised from having NULLs in a DBMS. In the section of experiments, it is illustrated that many problems can be appeared by using NULLs. SQL uses NULL marker for missing or unknown values in a database and for that reason NULL is a reserved word. It worthy mentioning that NULL should not be confused with a value of zero or an empty string. Nevertheless, Oracle treats the empty string as NULL [12].  An important consideration is that it cannot be tested if a value of a field is NULL using usual comparison operators such as $ <>, = $ and $<$ but instead IS NOT NULL and IS NULL commands are used. In general the existence of NULL is the fundamental source of issues and incompatibilities among current DBMS. For evaluating each comparison with the existence of NULLS a three-valued logic (3VL) is proposed which is an extension of common boolean logic. In boolean logic, there are two values that an expression can be evaluated, namely, TRUE AND FALSE, where the negation evaluate to the opposite values. On the contrary with 3VL, in 3VL there is an addition value called unknown and the opposite of it remains the same. In addition, all comparisons involving NULL should be resulted to be unknown according to SQL Standard. Below it is illustrated a truth table for the different comparisons with the suitable outcomes.    
+
+
+\begin{table}[h]
+\centering
+\caption{Three-Valued logic truth table}
+\label{my-label}
+\begin{tabular}{|l|l|l|l|l| }
+\hline
+\textbf{Y} & \textbf{Z} & \textbf{Y OR Z} & \textbf{Y and Z} & \textbf{NOT Y} \\ \hline
+True       & True       & True            & True             & False          \\ \hline
+True       & False      & True            & False            & False          \\ \hline
+True       & Unknown    & True            & Unknown          & False          \\ \hline
+False      & True       & True            & False            & True           \\ \hline
+False      & False      & False           & False            & True           \\ \hline
+False      & Unknown    & Unknown         & False            & True           \\ \hline
+Unknown    & True       & True            & Unknown          & Unknown        \\ \hline
+Unknown    & False      & Unknown         & False            & Unknown        \\ \hline
+Unknown    & Unknown    & Unknown         & Unknown          & Unknown        \\ \hline
+\end{tabular}
+\end{table}
+
+
+
+
+
 
 \subsection{SQL standard issues} 
 
