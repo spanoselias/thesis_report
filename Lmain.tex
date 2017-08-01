@@ -78,14 +78,24 @@
 %% This library is used to make 
 %% Clickable table of content 
 \usepackage{hyperref}
-\hypersetup{
+\hypersetup
+{
     colorlinks,
     citecolor=black,
     filecolor=black,
     linkcolor=black,
     urlcolor=black
 }
- 
+
+\usepackage{arydshln}
+\lstdefinestyle{SQL}
+{  		   language=SQL,
+           showspaces=false,
+           basicstyle=\ttfamily,
+           numberstyle=\tiny,
+           commentstyle=\color{gray}
+}
+
 %% Information about the title, etc.
 \title{ Testing SQL-compliance of current DBMSs}
 \author{Elias Spanos}

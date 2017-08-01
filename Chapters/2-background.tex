@@ -1,4 +1,3 @@
-
 \chapter{Background}
 
 \section{The SQL Standard }
@@ -11,22 +10,30 @@ SQL operations are in the form of commands known as SQL statements. More precise
 Hence, SQL is extremely popular as it offers two capabilities. Firstly, it can access many tuples using just one command and secondly it does not need to specify how to reach a tuple, for example by using an index or not. 
 
 \section{Commands of SQL}
-
 This subsection intends to introduce in a high-level overview the basic commands of SQL which are defined in the SQL standard and it is described briefly the usefulness of each command. As some these commands are used to generate random SQL queries, it is important to provide a basic background of the usage and purpose of each command. 
 
 \noindent\textbf{\underline{SQL Basic Structure}} 
-\begin{mdframed}[backgroundcolor=gray!20] 
-\begin{lstlisting}
+\begin{mdframed}[backgroundcolor=lightgray!20] 
+\begin{verbatim}
 SELECT [DISTINCT] columns_list
 FROM tables_list
 WHERE Condition1 {AND|OR} Condition 2
-\end{lstlisting}
+\end{verbatim}
 \end{mdframed}
 The SQL basic structure is used to retrieve data from a database according to some criterias which are specified in the WHERE clause. Each SQL query should contain at least SELECT and FROM clause and an optional WHERE clause. The main idea of the basic SQL query is to go through all the rows of the tables listed in the FROM Clause, and each row that satisfied the search criteria is selected. Then, only the specified columns of the selected rows are appear in the result. The DISTINCT keyword is optional and it is used to eliminate duplicates rows in the result. Also, instead of having columns\_list in the SELECT clause, it can be used the “\*” keyword which indicates that all the columns will be appeared in the result. Different conditions can appear in the WHERE clause using logical connectivities such as AND, NOT and OR.  
 
 \noindent\textbf{\underline{Example:}}
 \begin{mdframed}[backgroundcolor=gray!20] 
-\begin{lstlisting}
+\begin{verbatim}
+SELECT St.Student_Name
+FROM Students AS St 
+WHERE St.age >= 20 AND St.age <= 24
+\end{verbatim}
+\end{mdframed}
+
+\noindent\textbf{\underline{Example:}}
+\begin{mdframed}[backgroundcolor=lightgray!20] 
+\begin{lstlisting}[style=SQL]
 SELECT St.Student_Name
 FROM Students AS St 
 WHERE St.age >= 20 AND St.age <= 24
@@ -34,10 +41,9 @@ WHERE St.age >= 20 AND St.age <= 24
 \end{mdframed}
 
 The above example uses the basic SQL structure to build a query. Thus, it returns all the name of students who are between 20 and 24 year old. 
-
-\noindent\textbf{\underline{SQL Basic aggregation Syntax:} }
-\begin{mdframed}[backgroundcolor=gray!20] 
-\begin{lstlisting}
+ 
+\begin{mdframed}[backgroundcolor=lightgray!20] 
+\begin{lstlisting}[style=SQL]
 SELECT       [DISTINCT]  Columns_list
 FROM         Tables_list
 WHERE        Condition1 {AND|OR} Condition2
@@ -63,6 +69,17 @@ Queries with aggregation have as goal to perform a calculation on a specific col
 {\color[HTML]{333333} \textbf{AVG()}}   & {\color[HTML]{333333} Calculates the average of,values of a column} \\ \hline
 \end{tabular}
 \end{table}
+
+
+\begin{tabular}{c:cc}
+   \textbf{Command} & \textbf{Usage}  \\ \cdashline{1-2}
+   UNION [ALL] & Returns the combination of the results of two SQL 	  queries \\ 
+   INTERSECT [ALL] & Return the combination of the results of two 	 SQL queries for rows that appear in both results   \\ 
+   EXCEPT [ALL] & Return each row that appear to the first query 	but does not appear to the second query  \\
+   \hline
+\end{tabular}
+
+ 
 
 
 Aggregate commands can be used both in SELECT and HAVING Clause with a combination with the existence of GROUP BY clause in the SQL query. The below example illustrates the proper use of aggregate commands.
@@ -155,7 +172,7 @@ The above query retrieves the Countries where there both Students and professors
 
 
 \noindent\textbf{\underline{Example: :} }
-\begin{mdframed}[backgroundcolor=gray!20][h]
+\begin{mdframed}[backgroundcolor=lightgray!20][h]
 \begin{lstlisting}
 SELECT SUBSTRING (“SQLSTANDARD”, 1, 3 ) AS SQLExtraction  
 \end{lstlisting}
@@ -193,7 +210,7 @@ Below it is provided a few concrete examples which demonstrate that indeed some 
 For example the SQL query below does not return identical results on both PostgreSQL and Oracle [14]. 
 
 
-\begin{mdframed}[backgroundcolor=gray!20][h] 
+\begin{mdframed}[backgroundcolor=lightgray!20][h] 
 Q1:SELECT * 
  \\FROM ( SELECT S.A, S.A FROM S ) R
 \end{mdframed}

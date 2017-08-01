@@ -5,15 +5,14 @@ This chapter presents the procedure that it is followed in order to provide the 
 The evaluation is carried out on Windows 8 with i7 CPU, 12GB Ram and a solid state disk (SSD). Also, the  following versions of DBMSs have been installed: PostgreSQL Version 9.6, Microsoft SQL Server Express Edition 2016, IBM Db2 Express-C, Oracle Database 12c and  MySQL Community Edition 5.7. 
 Apart of generating huge numbers of SQL queries, it is also checked if new findings can be emerged by conducting the experiments in different schemas with different data types and numbers of relations. As a result, it is checked the following data types:  TEXT, CHAR, VARCHAR, INTEGER, SMALLINT, BIGINT. Moreover, the experiments are conducted in different schemas varying from two to ten relations with two to ten attributes. In addition, it is generated data using different rate of NULLs such as 5%, 10%, 20% and 40% for identify if differences can arise depending on the number of NULLs that a database contains.  Furthermore, the size of instances varied from two to one thousand rows which were generating using data fiiller. Having huge instances decrease the throughput of queries that can be executed per second and thus less queries will be checked. Taking into account that issues and different interpretations can be raised even in small instances, it is end up realized that small instances and schema can still reveal crucial differences. 
 
-
 \section{Experiment Results}
 The implemented architecture is used to conduct the experiments and in that way it is also checked whether the current implementation if is capable to detect any differences among modern DBMSs. The results are provided below with the following format: Firstly,  It is presented  the SQL query that cause an error or a semantic issue on one or more systems. Meaning that some features may not be implemented by all systems or use a different commands or interpret it differently.  Then, a table for each query is provided that demonstrates a raised error of any system, otherwise, the keyword ‘works’ meaning that the SQL query is executed without to raise any error. Thereafter, a comprehensive explanation is given for each problematic query by explaining about the source of the problem and giving an explanation according to the SQL standard.   
 
 \subsection{Dif 1}
 
-\begin{mdframed}[backgroundcolor=gray!20] 
-\begin{lstlisting}
-Q1:
+\textbf{Q1:}
+\begin{mdframed}[backgroundcolor=lightgray!20] 
+\begin{lstlisting}[style=SQL]
 SELECT r41.A AS A0
 FROM r4 AS r41
 WHERE 1*1
@@ -43,14 +42,15 @@ According to SQL standard each expression in the WHERE clause should be evaluate
 
 \subsection{Dif 2}
   
-\begin{mdframed}[backgroundcolor=gray!20] 
 \textbf{Q2:}
-\begin{lstlisting}
+\begin{mdframed}[backgroundcolor=lightgray!20] 
+\begin{lstlisting}[style=SQL]
 SELECT r21.A AS A0 
 FROM r2 AS r21
 WHERE true
 \end{lstlisting}
 \end{mdframed}
+ 
  
 \begin{table}[h]
 \centering
@@ -71,10 +71,10 @@ WHERE true
 As it was mentioned before each expression in the WHERE clause is evaluated to true or false. Thus, instead of having an expression, it can be specified the true/false keyword which is a boolean type. As a consequence, it will be reasonable to have the ‘true’ keyword in the WHERE clause meaning that each row will be included in the results. Nevertheless, not all the DBMSs support this. MS server and Oracle do not support this keyword. With respect to SQL standard there is not explicit mention about the keyword true in the WHERE Clause. 
 
 \subsection{Dif 3}
-  
-\begin{mdframed}[backgroundcolor=gray!20] 
-\textbf{Q3:}
-\begin{lstlisting}
+
+\textbf{Q1:}
+\begin{mdframed}[backgroundcolor=lightgray!20] 
+\begin{lstlisting}[style=SQL]
 SELECT  NULL/NULL, 1/2, NULL-NULL
 FROM r2   r21, r4   r41
 WHERE NOT(r21.A < r41.A AND r41.A > r21.A)
@@ -101,7 +101,7 @@ According to SQL standards boolean data type comprises the distinct truth values
 
 \subsection{Dif 4}
   
-\begin{mdframed}[backgroundcolor=gray!20] 
+\begin{mdframed}[backgroundcolor=lightgray!20] 
 \textbf{Q4:}
 \begin{lstlisting}
 SELECT  r21.B/3
@@ -131,7 +131,7 @@ Even though the Q4 is executed without any error in the current DBMSs, the resul
 
 \subsection{Dif 5}
   
-\begin{mdframed}[backgroundcolor=gray!20] 
+\begin{mdframed}[backgroundcolor=lightgray!20] 
 \textbf{Q5:}
 \begin{lstlisting}
 SELECT (MIN(r41.B) % AVG(r41.A) ) 
@@ -165,7 +165,7 @@ It worthy mentioning that arithmetic operations such as addition, multiplication
 
 \subsection{Dif 6}
   
-\begin{mdframed}[backgroundcolor=gray!20] 
+\begin{mdframed}[backgroundcolor=lightgray!20] 
 \textbf{Q6:}
 \begin{lstlisting}
 SELECT r41.A AS A0
@@ -200,7 +200,7 @@ With respect to SQL standards alias names can be used both with attributes in th
 
 \subsection{Dif 7}
   
-\begin{mdframed}[backgroundcolor=gray!20] 
+\begin{mdframed}[backgroundcolor=lightgray!20] 
 \textbf{Q7:}
 \begin{lstlisting}
 (SELECT r41.A AS A0
@@ -240,7 +240,7 @@ EXCEPT ALL is an optional feature which is defined in the SQL standard and resul
 
 \subsection{Dif 8}
   
-\begin{mdframed}[backgroundcolor=gray!20] 
+\begin{mdframed}[backgroundcolor=lightgray!20] 
 \textbf{Q8:}
 \begin{lstlisting}
 (SELECT r41.A AS A0
@@ -275,7 +275,7 @@ Except is a mandatory feature in the  SQL standard. Using this feature results t
 
 \subsection{Dif 9}
   
-\begin{mdframed}[backgroundcolor=gray!20] 
+\begin{mdframed}[backgroundcolor=lightgray!20] 
 \textbf{Q8:}
 \begin{lstlisting}
 (SELECT r41.A AS A0
@@ -312,7 +312,7 @@ With respect to the SQL standard INTERSECT ALL is an optional feature and it sho
 
 \subsection{Dif 10}
   
-\begin{mdframed}[backgroundcolor=gray!20] 
+\begin{mdframed}[backgroundcolor=lightgray!20] 
 \textbf{Q10:}
 \begin{lstlisting}
 SELECT  7/0 AS ART0, 1%NULL AS ART1
@@ -343,7 +343,7 @@ Apparently, a division with zero should always throw an error. Nevertheless, MyS
 
 \subsection{Dif 11}
   
-\begin{mdframed}[backgroundcolor=gray!20] 
+\begin{mdframed}[backgroundcolor=lightgray!20] 
 \textbf{Q11:}
 \begin{lstlisting}
 SELECT r11.a AS A1, r11.b AS A2
@@ -375,7 +375,7 @@ The Q11 will not run on MS Server. The problem is that the ‘IN’ operator doe
 
 \subsection{Dif 12}
  
-\begin{mdframed}[backgroundcolor=gray!20] 
+\begin{mdframed}[backgroundcolor=lightgray!20] 
 \textbf{Q12:}
 \begin{lstlisting}
 SELECT  r31.b AS A1
@@ -404,7 +404,7 @@ GROUP BY r31.a
 
 \subsection{Dif 13}
  
-\begin{mdframed}[backgroundcolor=gray!20] 
+\begin{mdframed}[backgroundcolor=lightgray!20] 
 \textbf{Q13:}
 \begin{lstlisting}
 SELECT  NULL+NULL AS ART1
@@ -437,7 +437,7 @@ HAVING MIN(r41.a) < 7506
 
 \subsection{Dif 14}
 
-\begin{mdframed}[backgroundcolor=gray!20] 
+\begin{mdframed}[backgroundcolor=lightgray!20] 
 \textbf{Q14:}
 \begin{lstlisting}
 SELECT  'SQL' || 'STANDARD'
@@ -467,7 +467,7 @@ According to the SQL standard concatenation should be supported by DBMSs with a 
 
 \subsection{Dif 15}
 
-\begin{mdframed}[backgroundcolor=gray!20] 
+\begin{mdframed}[backgroundcolor=lightgray!20] 
 \textbf{Q15:}
 \begin{lstlisting}
 SELECT  *
@@ -498,7 +498,7 @@ It can be seen from Q15 that we have two times the same table with the same alia
 
 \subsection{Dif 16}
 
-\begin{mdframed}[backgroundcolor=gray!20] 
+\begin{mdframed}[backgroundcolor=lightgray!20] 
 \textbf{Q16:}
 \begin{lstlisting}
 SELECT TRIM(' SQLSTANDARD ')
@@ -527,7 +527,7 @@ According to SQL standard trim function return the string which is given as argu
 
 \subsection{Dif 17}
 
-\begin{mdframed}[backgroundcolor=gray!20] 
+\begin{mdframed}[backgroundcolor=lightgray!20] 
 \textbf{Q17:}
 \begin{lstlisting}
 SELECT  2 * 5 AS ART
@@ -553,7 +553,7 @@ WHERE ( 1 = 1 )
 
 \subsection{Dif 18}
 
-\begin{mdframed}[backgroundcolor=gray!20] 
+\begin{mdframed}[backgroundcolor=lightgray!20] 
 \textbf{Q18:}
 \begin{lstlisting}
 SELECT  SUBSTRING ('Standard', 1, 4)
@@ -582,7 +582,7 @@ The Substring function is defined in the SQL standard as an optional feature. My
 
 \subsection{Dif 19}
 
-\begin{mdframed}[backgroundcolor=gray!20] 
+\begin{mdframed}[backgroundcolor=lightgray!20] 
 \textbf{Q19:}
 \begin{lstlisting}
 SELECT "SQLSTANDARD"
@@ -612,12 +612,12 @@ According to the SQL standard encompass by ‘. It is demonstrated in Q19 that M
 
 \subsection{Dif 20}
 
-\begin{mdframed}[backgroundcolor=gray!20] 
+\begin{mdframed}[backgroundcolor=lightgray!20] 
 \textbf{Q20:}
 \begin{lstlisting}
 SELECT *
 FROM r1 AS R1
-where R1.c3 = ’’’
+where R1.c3 = \’'
 \end{lstlisting}
 \end{mdframed} 
 
