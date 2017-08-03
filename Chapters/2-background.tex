@@ -12,19 +12,23 @@ Hence, SQL is extremely popular as it offers two capabilities. Firstly, it can a
 
 
 \section{Commands of SQL}
-This subsection intends to introduce in a high-level overview the basic commands of SQL which are defined in the SQL standard and it is described briefly the usefulness of each command. As some these commands are used to generate random SQL queries, it is important to provide a basic background of the usage and purpose of each command. 
+This sections intends to provide a high-level description of the basic commands of SQL as are defined in the Standard. As these commands are used to generate random SQL queries, it is important to provide a basic background of the usage and purpose of each command. 
 
+\hfill\newline
 \noindent\textbf{\underline{SQL Basic Structure}} 
-\begin{mdframed}[backgroundcolor=lightgray!20] 
-\begin{verbatim}
+\begin{mdframed}[nobreak=true, backgroundcolor=lightgray!20] 
+\begin{lstlisting}[style=SQL]
 SELECT [DISTINCT] columns_list
 FROM tables_list
 WHERE Condition1 {AND|OR} Condition 2
-\end{verbatim}
+\end{lstlisting}
 \end{mdframed}
-The SQL basic structure is used to retrieve data from a database according to some criterias which are specified in the WHERE clause. Each SQL query should contain at least SELECT and FROM clause and an optional WHERE clause. The main idea of the basic SQL query is to go through all the rows of the tables listed in the FROM Clause, and each row that satisfied the search criteria is selected. Then, only the specified columns of the selected rows are appear in the result. The DISTINCT keyword is optional and it is used to eliminate duplicates rows in the result. Also, instead of having columns\_list in the SELECT clause, it can be used the “\*” keyword which indicates that all the columns will be appeared in the result. Different conditions can appear in the WHERE clause using logical connectivities such as AND, NOT and OR.  
 
-\noindent\textbf{\underline{Example:}}
+ 
+The SQL basic structure represents the basic commands which are used to retrieve data from a database based on some criterias that can be specified in the WHERE clause. Each SQL query should have at least a SELECT and FROM clause.  The WHERE clause is optional. The basic SQL is executed as follow: It goes through all the rows of the tables list in the FROM Clause. Then, each row that satisfied the search criteria is selected. Then, only the specified columns of the selected rows appear in the result. In addition,  the DISTINCT keyword is optional and can used to eliminate duplicates rows in the result. Also, instead of having columns\_list in the SELECT clause, the * keyword can be used which indicates that all the columns of the tables\_list will appear in the result. The usage of the WHERE clause is to filter the results and usually SQL queries contains a WHERE clause. Conditions are used to compare expressions using comparison operators. A comparison operator is used to compare two expressions and logical connectivities, such as AND, NOT and OR are used to connect the conditions. 
+
+\hfill\newline
+\noindent\textbf{\underline{Example of basic query:}}
 \begin{mdframed}[backgroundcolor=gray!20] 
 \begin{verbatim}
 SELECT St.Student_Name
@@ -33,34 +37,28 @@ WHERE St.age >= 20 AND St.age <= 24
 \end{verbatim}
 \end{mdframed}
 
-\noindent\textbf{\underline{Example:}}
-\begin{mdframed}[backgroundcolor=lightgray!20] 
-\begin{lstlisting}[style=SQL]
-SELECT St.Student_Name
-FROM Students AS St 
-WHERE St.age >= 20 AND St.age <= 24
-\end{lstlisting}
-\end{mdframed}
+The above example uses the basic SQL structure to build a query. Thus, it retrieves all the Students and based on the criteria of the ‘WHERE’ clause, it returns the name of students who are between 20 and 24 year old. 
 
-The above example uses the basic SQL structure to build a query. Thus, it returns all the name of students who are between 20 and 24 year old. 
- 
+\hfill\newline
+\noindent\textbf{\underline{Example:}}
 \begin{mdframed}[backgroundcolor=lightgray!20] 
 \begin{lstlisting}[style=SQL]
 SELECT       [DISTINCT]  Columns_list
 FROM         Tables_list
-WHERE        Condition1 {AND|OR} Condition2
-GROUP BY     Columns_list
-HAVING       Condition1 {AND|OR} Condition 2
+WHERE       Condition1 {AND|OR} Condition2
+GROUP BY Columns_list
+HAVING      Condition1 {AND|OR} Condition 2
 \end{lstlisting}
 \end{mdframed}
 
-Queries with aggregation have as goal to perform a calculation on a specific columns in order to return a value. GROUP BY and HAVING are used to perform an aggregation. HAVING is an optional clause, and aggregation can be still perform using aggregate commands in the SELECT clause. A concrete example is given subsequently. 
+SQL query with aggregation is used to perform a calculation on specific columns in order to return a value. ‘GROUP BY’ and ‘HAVING’ are used to perform an aggregation. ‘HAVING’ is an optional clause, where aggregation can still be performed using aggregate commands in the ‘SELECT’ clause. A concrete example is given subsequently. 
+ 
 
 \begin{table}[h]
 \centering
 \caption{My caption}
 \label{my-label}
-\begin{tabular}{|l|l|}
+\begin{tabular}{|p{2cm}|p{11.5cm}| }
 \hline
 \multicolumn{2}{|l|}{\textbf{Aggregate Commands}}                                                             \\ \hline
 \textbf{Command}                        & \textbf{Usage}                                                      \\ \hline
@@ -72,8 +70,49 @@ Queries with aggregation have as goal to perform a calculation on a specific col
 \end{tabular}
 \end{table}
 
+Aggregate commands can be used both in ‘SELECT’ and ‘HAVING’ clause in combination with the ‘GROUP BY’ clause in an SQL query. The example below illustrates the proper use of aggregation commands.
 
-\begin{tabular}{c:cc}
+\hfill\newpage
+\noindent\textbf{\underline{Example:}}
+\begin{mdframed}[backgroundcolor=lightgray!20] 
+\begin{lstlisting}[style=SQL]
+SELECT COUNT(St.student_id), St.Country
+FROM Students AS St 
+GROUP BY St.Students
+HAVING COUNT(St.student_id)  >  3
+\end{lstlisting}
+\end{mdframed}
+The query above makes proper uses of the aggregation commands. More precisely, the query above, list the number of students in each country where there are more than three students in a specific Country. 
+
+\noindent\textbf{Logical  Operators:}
+\begin{table}[h]
+\centering
+\caption{My caption}
+\label{my-label}
+\begin{tabular}{|p{2cm}|p{11.5cm}| }
+\hline
+\textbf{Operator} & \textbf{Usage}                                                     \\ \hline
+EXISTS            & Returns true, if there is at least one row in the subquery         \\ \hline
+Op ALL            & Returns true, if all the comparisons the operator OP return true   \\ \hline
+Op ANY            & Returns true, if at least one comparison the operator returns true \\ \hline
+Op IN             & Returns true, if an element exist in a given set                   \\ \hline
+\end{tabular}
+\end{table}
+
+\hfill\newpage
+\noindent\textbf{\underline{Example:}}
+\begin{mdframed}[backgroundcolor=lightgray!20] 
+\begin{lstlisting}[style=SQL]
+SELECT  *
+FROM Students AS St 
+WHERE St.Country IN (‘UK’, ‘Netherland’)
+\end{lstlisting}
+\end{mdframed}
+The query above  retrieves all the students who come from UK and Netherland.
+
+
+\noindent\textbf{ SET Commands}
+\begin{tabular}{c:cc} 
    \textbf{Command} & \textbf{Usage}  \\ \cdashline{1-2}
    UNION [ALL] & Returns the combination of the results of two SQL 	  queries \\ 
    INTERSECT [ALL] & Return the combination of the results of two 	 SQL queries for rows that appear in both results   \\ 
@@ -81,124 +120,76 @@ Queries with aggregation have as goal to perform a calculation on a specific col
    \hline
 \end{tabular}
 
- 
+By default SET commands remove duplicates in the SQL result. Nevertheless, we can have duplicates in the result by adding the optional ‘ALL’ keyword for any of the commands above.  
 
-
-Aggregate commands can be used both in SELECT and HAVING Clause with a combination with the existence of GROUP BY clause in the SQL query. The below example illustrates the proper use of aggregate commands.
-
-
-\noindent\textbf{\underline{Example: :} }
-\begin{mdframed}[backgroundcolor=gray!20] 
-\begin{lstlisting}
-SELECT COUNT(St.student_id), St.Country
-FROM Students AS St 
-GROUP BY St.Students
-HAVING COUNT(St.student_id)  >  3
-\end{lstlisting}
-\end{mdframed}
-
-The above query makes proper uses of the aggregation commands. The concrete query list the number of students in each country where there are more than three students in a specific Country. 
-
- 
-\begin{table}[h]
-\centering
-\caption{My caption}
-\label{my-label}
-\begin{tabular}{|l|l|}
-\hline
-\multicolumn{2}{|l|}{\textbf{Commands}}                                                                                                \\ \hline
-\textbf{Command}                       & \textbf{Usage}                                                                                \\ \hline
-{\color[HTML]{333333} \textbf{EXISTS}} & {\color[HTML]{333333} Returns true if there is,at least one row in the subquery}              \\ \hline
-{\color[HTML]{333333} \textbf{Op ALL}} & {\color[HTML]{333333} Returns true if all the,comparisons using an operator OP are true}      \\ \hline
-{\color[HTML]{333333} \textbf{Op ANY}} & {\color[HTML]{333333} Returns true if at least,one comparison using an operator returns true} \\ \hline
-{\color[HTML]{333333} \textbf{Op IN}}  & {\color[HTML]{333333} Returns true if an,element exist in a given set}                        \\ \hline
-{\color[HTML]{333333} \textbf{LIKE}}   & {\color[HTML]{333333} Returns true if an,attribute matches with a pattern}                    \\ \hline
-\end{tabular}
-\end{table}
-
-
-
-\noindent\textbf{\underline{Example: :} }
-\begin{mdframed}[backgroundcolor=gray!20] 
-\begin{lstlisting}
-SELECT *
-FROM Students AS St 
-WHERE St.Country IN (‘UK’, ‘Netherland’)
-\end{lstlisting}
-\end{mdframed}
-The above query retrieves all the students who come from UK, Cyprus and Netherland.
-
- 
-\begin{table}[h]
-\centering
-\caption{My caption}
-\label{my-label}
-\begin{tabular}{|l|l|}
-\hline
-\multicolumn{2}{|l|}{\textbf{SET Commands}}                                                                                                                                \\ \hline
-\textbf{Command}                                    & \textbf{Usage}                                                                                                       \\ \hline
-{\color[HTML]{333333} \textbf{UNION {[}ALL{]}}}     & {\color[HTML]{333333} Returns the combination,of the results of two SQL queries}                                     \\ \hline
-{\color[HTML]{333333} \textbf{INTERSECT {[}ALL{]}}} & {\color[HTML]{333333} Return the combination of,the results of two SQL queries for rows that,appear in both,results} \\ \hline
-{\color[HTML]{333333} \textbf{EXCEPT {[}ALL{]}}}    & {\color[HTML]{333333} Return each row that,appear to the first query but does not appear to the second query}        \\ \hline
-\end{tabular}
-\end{table}
-
-By default SET commands remove duplicates in the SQL result. Nevertheless, if it is needed to have duplicates in the result then the ‘ALL’ keyword is used.  
-
-
-\noindent\textbf{\underline{Example: :} } 
-\begin{mdframed}[backgroundcolor=gray!20][h]
-\begin{lstlisting}
+\noindent\textbf{\underline{Example:}}
+\begin{mdframed}[backgroundcolor=lightgray!20] 
+\begin{lstlisting}[style=SQL]
 SELECT Country FROM Students 
 UNION
 SELECT Country  FROM  Professor
 \end{lstlisting}
 \end{mdframed}
-
 The above query retrieves the Countries where there both Students and professors. 
-
- 
-\begin{table}[]
-\centering
-\caption{My caption}
-\label{my-label}
-\begin{tabular}{|l|l|}
-\hline
-\multicolumn{2}{|l|}{\textbf{String Commands}}                                                                            \\ \hline
-\textbf{Command}                          & \textbf{Usage}                                                                \\ \hline
-{\color[HTML]{333333} \textbf{TRIM()}}    & {\color[HTML]{333333} Returns the string,without leading/trailing characters} \\ \hline
-{\color[HTML]{333333} \textbf{CONCAT()}}  & {\color[HTML]{333333} Concatenate two or more,strings}                        \\ \hline
-{\color[HTML]{333333} \textbf{REPLACE()}} & {\color[HTML]{333333} Replaces a subset of a,string with another string}      \\ \hline
-\end{tabular}
-\end{table}
-
-
-\noindent\textbf{\underline{Example: :} }
-\begin{mdframed}[backgroundcolor=lightgray!20][h]
-\begin{lstlisting}
-SELECT SUBSTRING (“SQLSTANDARD”, 1, 3 ) AS SQLExtraction  
-\end{lstlisting}
-\end{mdframed}
-
-The above SQL query extract from the string which is given as parameter to the SUBSTRING function the first three characters starting from the position 1. Thus, the results is: “SQL”
 
 \begin{table}[h]
 \centering
 \caption{My caption}
 \label{my-label}
-\begin{tabular}{ll}
+\begin{tabular}{|p{2cm}|p{11.5cm}| }
 \hline
-\multicolumn{2}{|l|}{\textbf{Data Types}}                                                                                                                                      \\ \hline
-\multicolumn{1}{|l|}{\textbf{Types}}                           & \multicolumn{1}{l|}{\textbf{Description}}                                                                     \\ \hline
-\multicolumn{1}{|l|}{{\color[HTML]{333333} \textbf{SMALLINT}}} & \multicolumn{1}{l|}{{\color[HTML]{333333} Returns the string,without leading/trailing characters}}            \\ \hline
-\multicolumn{1}{|l|}{{\color[HTML]{333333} \textbf{INT}}}      & \multicolumn{1}{l|}{{\color[HTML]{333333} Concatenate two or more,strings}}                                   \\ \hline
-\multicolumn{1}{|l|}{{\color[HTML]{333333} \textbf{BIGINT}}}   & \multicolumn{1}{l|}{{\color[HTML]{333333} Replaces a subset of a,string with another string}}                 \\ \hline
-\multicolumn{1}{|l|}{\textbf{VARCHAR}}                         & \multicolumn{1}{l|}{Takes as input the length,of a variable string which can contains up to 255 characters}   \\ \hline
-\multicolumn{1}{|l|}{\textbf{CHAR}}                            & \multicolumn{1}{l|}{Takes as input the length,of a fixed size string which can contains up to 255 characters} \\ \hline
-                                                               &                                                                                                              
+\textbf{Operator} & \textbf{Usage}                                         \\ \hline
+TRIM()            & Returns the string without leading/trailing characters \\ \hline
+SUBSTRING()       & Retrieves a subset of the initial string               \\ \hline
+CONCAT()          & Concatenate two or more strings                        \\ \hline
+REPLACE()         & Replaces a subset of a string with another string      \\ \hline
+LIKE              & Returns true, if an attribute matches with a pattern   \\ \hline
 \end{tabular}
 \end{table}
 
+
+\noindent\textbf{\underline{Example:}}
+\begin{mdframed}[backgroundcolor=lightgray!20] 
+\begin{lstlisting}[style=SQL]
+SELECT SUBSTRING (“SQLSTANDARD”, 1, 3 ) AS SQLExtraction 
+\end{lstlisting}
+\end{mdframed}
+
+The SQL query above extract from a string which is given as parameter to the SUBSTRING function the first three characters starting from the position 1. Thus, the results is: “SQL”
+
+\begin{table}[h]
+\centering
+\caption{Data Type}
+\begin{tabular}{|p{2cm}|p{11.5cm}| }
+\hline
+\textbf{Types} & \textbf{Description}                                                                     \\ \hline
+SMALLINT       & Can store a number from a range between -32768 and 32767                                 \\ \hline
+INT            & Can store a number from a range between -2147483648 and 2147483647                       \\ \hline
+BIGINT         & Can store a number from a range between -9223372036854775808 and 9223372036854775807     \\ \hline
+VARCHAR        & Takes as input the length of a variable string which can contains up to 255 characters   \\ \hline
+CHAR           & Takes as input the length of a fixed size string which can contains up to 255 characters \\ \hline
+\end{tabular}
+\end{table}
+
+
+\textbf{Operator Precedence}
+
+Operator precedence is an important concept for understanding how an SQL query is evaluated and it is also important for determining if major DBMSs follow the same operator precedence. There are cases where the expressions in the WHERE clause are quite complicated and operator precedence define in which order the expression should be evaluated. The sequence of operators is provided as follow, starting with higher priority and ending with lower priority: 
+
+\begin{itemize}
+\item  () 
+\item  +, - , ~
+\item  *, /, % 
+\item  = , > , < , >= , <= , <>
+\item   
+\item  NOT ,  AND
+\item  ALL , ANY , IN , LIKE
+\item  = - variable assignment. 
+\end{itemize}
+
+Operators that have the same priority are evaluated from left to the right. In addition, parenthesis abrogate the priority of the rest operators and as a result expressions that enclosed by a parenthesis are evaluated first.    
+ 
+ 
 \subsection{Missing values} 
 
 This section aims to provide a basic background regarding NULLs and introduce the problems that can be arised from having NULLs in a DBMS. In the section of experiments, it is illustrated that many problems can be appeared by using NULLs. SQL uses NULL marker for missing or unknown values in a database and for that reason NULL is a reserved word. It worthy mentioning that NULL should not be confused with a value of zero or an empty string. Nevertheless, Oracle treats the empty string as NULL [12].  An important consideration is that it cannot be tested if a value of a field is NULL using usual comparison operators such as $ <>, = $ and $<$ but instead IS NOT NULL and IS NULL commands are used. In general the existence of NULL is the fundamental source of issues and incompatibilities among current DBMS. For evaluating each comparison with the existence of NULLS a three-valued logic (3VL) is proposed which is an extension of common boolean logic. In boolean logic, there are two values that an expression can be evaluated, namely, TRUE AND FALSE, where the negation evaluate to the opposite values. On the contrary with 3VL, in 3VL there is an addition value called unknown and the opposite of it remains the same. In addition, all comparisons involving NULL should be resulted to be unknown according to SQL Standard. Below it is illustrated a truth table for the different comparisons with the suitable outcomes.    
@@ -223,12 +214,54 @@ Unknown    & Unknown    & Unknown         & Unknown          & Unknown        \\
 \end{tabular}
 \end{table}
 
+In an SQL query each tuple which is evaluated to true is returned in the result, and tuples that are evaluated to false or unknown are not returned. Comparisons that involving NULLs are considered as False in the WHERE Clause. Hence, If we take into consideration that only Oracle’s db treats empty string as NULL then it can be realized that many problem can be arised. 
+
+\textbf{Examples}
+
+\hfill\newline
+\begin{mdframed}[nobreak=true, backgroundcolor=lightgray!20] 
+\begin{lstlisting}[style=SQL]
+NULL  =  10  is evaluates to Unknown 
+\end{lstlisting}
+\end{mdframed}
+
+\hfill\newline
+\begin{mdframed}[nobreak=true, backgroundcolor=lightgray!20] 
+\begin{lstlisting}[style=SQL]
+NULL = NULL  is evaluates to Unknown 
+\end{lstlisting}
+\end{mdframed}
+
+\hfill\newline
+\begin{mdframed}[nobreak=true, backgroundcolor=lightgray!20] 
+\begin{lstlisting}[style=SQL]
+NULL <= 3 is evaluates to Unknown 
+\end{lstlisting}
+\end{mdframed}
+
+\hfill\newline
+\begin{mdframed}[nobreak=true, backgroundcolor=lightgray!20] 
+\begin{lstlisting}[style=SQL]
+SELECT St.Student_Name
+FROM Students AS St 
+WHERE NULL <= 20
+\end{lstlisting}
+\end{mdframed}
+
+The above query will result to an empty set as for each row the WHERE clause will be evaluated to Unknown and as a consequence none of the rows will be appeared in the result. 
+
+\hfill\newline
+\begin{mdframed}[nobreak=true, backgroundcolor=lightgray!20] 
+\begin{lstlisting}[style=SQL]
+SELECT St.Student_Name
+FROM Students AS St 
+WHERE NULL = NULL
+\end{lstlisting}
+\end{mdframed}
+Logically it is expected that the NULL equal NULL should be evaluate to true. Nevertheless, the WHERE clause is evaluate to Unknow for every row, and the result of this query is an empty set. 
 
 
-
-
-
-\subsection{SQL standard issues} 
+\section{SQL standard issues} 
 
 Below it is provided a few concrete examples which demonstrate that indeed some aspects of the Standard is implemented differently by each vendor. 
  
@@ -245,6 +278,28 @@ Q1:SELECT *
 While it is expected Q1 to return identical results independently on which systems is executed on, this is not the case. It can be observed that Q1 will output a table with two columns named “A” in PostgreSQL. On the other hand, in Oracle database, the SQL query will return an compile-time error. Ιndisputably, there are differences between current DBMSs [1]. 
 It can supposed that in most of the cases these differences are minor but if we take into account that these systems are used in many different fields, then we can quickly realise that small differences might be critical. The key idea is to be conducted an experimental evaluation of current DBMSs. 
 
+
+\section{The Database Management Systems} 
+
+Microsoft SQL Server: is a relational database management systems (RDBMS) developed by Microsoft. Microsoft offers different edition of its product such as Standard, Enterprise and Express. Express edition is a free edition of the SQL Server. It is mainly available on Windows. 
+
+MySQL: is an open-source RDBMS which if freely available which is owned by Oracle. MySQL is used by huge companies such as Google, Facebook and Youtube. It is freely available on MacOS, Linux and Microsoft Windows 
+
+PostgreSQL: is an open-source RDBMS which is trying to be SQL-Compliance and it focuses on portability.  It is freely available both on Microsoft Windows and Linux. 
+
+IBM DB2: is a RDBMS developed by IBM and it is available on Linux and Microsoft Windows. 
+
+Oracle Database: is a RDBMS developed by Oracle Corporation.  It available on MacOs, Linux and Microsoft Windows. 
+
+
+ \begin{figure} 
+      \centering
+      \includegraphics[width=\textwidth,height=6cm]{Images/db_engines_chart}
+      \caption{Popularity of modern DBMSs}
+      \label{fig: Popularity of modern DBMSs}
+    \end{figure}
+
+The Figure 2.1 illustrates the most popular DBMSs from 2013 to 2017 using a calculated score based on the Google Trend, number of mentions of DBMSs on the web and discussion of the systems in Stackoverflow and DBA Stack Exchange. It can be seen that the popularity of Oracle database, MySQL and Microsoft SQL Server remain constant over the years with a relatively high score. In addition, there is a stable rise for PostgreSQl in the last three years. Lastly, IBM DB2 popularity has decreased slightly in the last year. 
 
 
 
