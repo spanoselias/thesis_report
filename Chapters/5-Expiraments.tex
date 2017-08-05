@@ -3,7 +3,7 @@ This chapter presents the procedure that it is followed in order to provide the 
 
 \section{The experiment Set-Up}
 The evaluation is carried out on Windows 8 with i7 CPU, 12GB Ram and a solid state disk (SSD). Also, the  following versions of DBMSs have been installed: PostgreSQL Version 9.6, Microsoft SQL Server Express Edition 2016, IBM Db2 Express-C, Oracle Database 12c and  MySQL Community Edition 5.7. 
-Apart of generating huge numbers of SQL queries, it is also checked if new findings can be emerged by conducting the experiments in different schemas with different data types and numbers of relations. As a result, it is checked the following data types:  TEXT, CHAR, VARCHAR, INTEGER, SMALLINT, BIGINT. Moreover, the experiments are conducted in different schemas varying from two to ten relations with two to ten attributes. In addition, it is generated data using different rate of NULLs such as 5%, 10%, 20% and 40% for identify if differences can arise depending on the number of NULLs that a database contains.  Furthermore, the size of instances varied from two to one thousand rows which were generating using data fiiller. Having huge instances decrease the throughput of queries that can be executed per second and thus less queries will be checked. Taking into account that issues and different interpretations can be raised even in small instances, it is end up realized that small instances and schema can still reveal crucial differences. 
+Apart of generating huge numbers of SQL queries, it is also checked if new findings can be emerged by conducting the experiments in different schemas with different data types and numbers of relations. As a result, it is checked the following data types:  TEXT, CHAR, VARCHAR, INTEGER, SMALLINT, BIGINT. Moreover, the experiments are conducted in different schemas varying from two to ten relations with two to ten attributes. In addition, it is generated data using different rate of NULLs such as 5\%, 10\%, 20\% and 40\% for identify if differences can arise depending on the number of NULLs that a database contains.  Furthermore, the size of instances varied from two to one thousand rows which were generating using data fiiller. Having huge instances decrease the throughput of queries that can be executed per second and thus less queries will be checked. Taking into account that issues and different interpretations can be raised even in small instances, it is end up realized that small instances and schema can still reveal crucial differences. 
 
 \section{Experiment Results}
 The implemented architecture is used to conduct the experiments and in that way it is also checked whether the current implementation if is capable to detect any differences among modern DBMSs. The results are provided below with the following format: Firstly,  It is presented  the SQL query that cause an error or a semantic issue on one or more systems. Meaning that some features may not be implemented by all systems or use a different commands or interpret it differently.  Then, a table for each query is provided that demonstrates a raised error of any system, otherwise, the keyword ‘works’ meaning that the SQL query is executed without to raise any error. Thereafter, a comprehensive explanation is given for each problematic query by explaining about the source of the problem and giving an explanation according to the SQL standard.   
@@ -644,23 +644,5 @@ IBM DB2       & Works                   \\ \hline
 Q21 is executed on all DBMSs without to raise an error but it differs semantically.  This query will not return the same results on all DBMSs. More precisely, all the tested systems contain a database that stores a field with the word ‘STANDARD’ (in capital letters) in the attribute c3 of the relation r1. By executing this query, it can be observed that some of the DBMSs are case sensitive with the LIKE operator. PostgreSQL and Oracle are case-sensitive, resulting to return an empty set. On the contrary with the rest systems, which returns one row which is the row that contains the word ‘STANDARD’ in the attribute c3.  
 
 
-\section{Summarize features}
-The below table summarizes the main features of SQL language and illustrated which of them are not supported by all popular DBMSs. These findings have been discovered by conducting experiments using the random generator query tool and the comparison tool. We have generated a huge number of SQL queries in order to identify lot of cases where DBMSs behave differently. It is worthy mentioning that the process of conducting experiments is fully automated and in case where a difference is found, it is recorded in a log file with some useful explanation.    
-
-
-
-\begin{table}[h]
-\centering
-\caption{My caption}
-\label{my-label}
-\begin{tabular}{|l|l|l|l|l|l|}
-\hline
-Operation     & Mysql & PostgreSQL & MS Server & Oracle & IBM DB2 \\ \hline
-INTERSECT ALL &  \multicolumn{1}{c|}{\text{\sffamily X}}     &    \multicolumn{1}{c|}{\ding{52}}      &           &        &         \\ \hline
-AS in FROM    &       &            &           &        &         \\ \hline
-EXCEPT ALL    &       &            &           &        &         \\ \hline
-              &       &            &           &        &         \\ \hline
-\end{tabular}
-\end{table}
 
 

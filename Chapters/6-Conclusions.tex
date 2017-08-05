@@ -2,16 +2,64 @@
 
 \section{Conclusions}
 
-In this project an entire architecture is implemented and is used to evaluate the SQL-compliance for five DBMSs. Also, we verified the correctness and efficiency of implemented tools by conducting the experiments and we demonstrated from the experiment evaluation chapter that the implemented tools are competent to reveal crucial differences among current systems. It worthy mentioning that without a similar architecture, it would be almost impossible to detect some of the differences and issues. Further, as described in the related work, there is no a similar architecture except of some documentations provided by the vendors of such systems, and some other studies which presented some issues according to the Standard without having a systematic tool. In addition, we provide shortly a summarize table representing all the issues and incompatibilities between the most popular DBMSs which are of major importance for vendors, users and programmers of such systems.  
+In this project an entire framework is implemented composed by the random query generator tool and the comparison tool which are used to evaluate the SQL-compliance of five DBMSs. Also, we verified the correctness of the implemented tools by conducting the experiments and we demonstrated from the experiment evaluation chapter that the implemented tools are competent to reveal crucial differences and issues among current systems. Without a similar framework, it would be almost impossible to detect some of the differences and issues  by generating queries manually, or by testing all DBMSs empirically. Furthermore, as described in the related work, there is no similar framework, except of some documentations provided by the vendors of such systems and some other studies which presented some issues according to the Standard without having a systematic tool. 
 
-The goal of this project is achieved and more than twenty issues and incompatibilities have been disclosed which make clear that some parts of the Standard are implemented differently. In addition, the implemented tools can be major importance for future vendors or researchers.
+In addition, a summarized table is provided exposing all the issues and incompatibilities between the most popular DBMSs which are of major importance for vendors, users, programmers and researchers of such systems. We believe that this project has contributed in the database management systems research area by introducing a new way of testing the SQL-Compliance of any DBMS and reporting any issues and incompatibilities that may arise. In addition, the implemented tools can be major importance for future vendors or researchers.
 
-Furthermore, demonstrating and analyzing these incompatibilities make aware both users and programmers for these issues. We verified our assumptions that some parts of the Standard are implemented differently but it was somewhat surprisingly that so many differences have emerged which makes clear that the standard is difficult to be interpreted and implemented in exactly the same way by all DBMSs. In addition, awareness of these differences issues may cause irreversible consequences in companies if we take into account that such systems are utilized in almost every field.  
-
-Aside from the issues which have been detected, the implemented architecture is portable and they can extended efficiently. For example, although it is provided experimental evidences for numbers and strings data types, the random generator tool is implemented in such a way that can track any data type such as Date. In that way, it can be extended efficiently to generate queries with attributes of date as data type. 
-
+Furthermore, demonstrating and analyzing these incompatibilities makes users and programmers and researchers aware for these issues. We verified our assumptions that some parts of the Standard are implemented differently but it was somewhat surprising that so many differences have emerged. Lastly, the implemented framework is portable and can be extended efficiently. For example, although experimental evidences are provided for both numeric and alphanumeric data types, the random generator tool is implemented in such a way that can track any data types such as Date. In that way, it can be extended efficiently to generate queries with attributes of date as data type. 
 
 \section{Summary of the findings}
+ 
+The below table summarizes the main features of SQL language and illustrated which of them are not supported by all popular DBMSs. These findings have been discovered by conducting experiments using the random generator query tool and the comparison tool. We have generated a huge number of SQL queries in order to identify lot of cases where DBMSs behave differently. It is worthy mentioning that the process of conducting experiments is fully automated and in case where a difference is found, it is recorded in a log file with some useful explanation.    
+
+\begin{table}[h]
+\caption{My caption}
+\label{my-label}
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{|l|l|l|l|l|l|}
+\hline
+\textbf{Operation} & \textbf{Mysql} & \textbf{PostgreSQL} & \textbf{Microsoft SQL Server} & \textbf{Oracle} & \textbf{IBM DB2} \\ \hline
+\textbf{INTERSECT ALL} &  \multicolumn{1}{c|}{\text{\sffamily X}} & \multicolumn{1}{c|}{\ding{52}} & \multicolumn{1}{c|}{\text{\sffamily X}} &  \multicolumn{1}{c|}{\text{\sffamily X}} & \multicolumn{1}{c|}{\ding{52}} \\ \hline
+\textbf{INTERSECT}  &  \multicolumn{1}{c|}{\ding{52}} & \multicolumn{1}{c|}{\ding{52}}  & \multicolumn{1}{c|}{\ding{52}}  &   \multicolumn{1}{c|}{\text{\sffamily X}} & \multicolumn{1}{c|}{\ding{52}} \\ \hline
+\textbf{AS} in FROM Clause & \multicolumn{1}{c|}{\ding{52}} &\multicolumn{1}{c|}{\ding{52}} & \multicolumn{1}{c|}{\ding{52}} & \multicolumn{1}{c|}{\text{\sffamily X}} & \multicolumn{1}{c|}{\ding{52}} \\ \hline
+\textbf{EXCEPT ALL}  & \multicolumn{1}{c|}{\text{\sffamily X}} &\multicolumn{1}{c|}{\ding{52}} & \multicolumn{1}{c|}{\text{\sffamily X}} &{\begin{tabular}[c]{@{}c@{}}x\\ (MINUS ALL\\  is not supported)\end{tabular}} 
+       & \multicolumn{1}{c|}{\ding{52}} \\ \hline
+\textbf{EXCEPT} & \multicolumn{1}{c|}{\text{\sffamily X}} & \multicolumn{1}{c|}{\ding{52}} & \multicolumn{1}{c|}{\ding{52}} &  \multicolumn{1}{c|}{\text{\sffamily X}} & \multicolumn{1}{c|}{\ding{52}}\\ \hline
+
+GROUP BY contains columns not in SELECT list &\multicolumn{1}{c|}{\ding{52}} &  \multicolumn{1}{c|}{\text{\sffamily X}} &  \multicolumn{1}{c|}{\text{\sffamily X}} &  \multicolumn{1}{c|}{\text{\sffamily X}} &  \multicolumn{1}{c|}{\text{\sffamily X}} \\ \hline
+
+Arithmetic operations in WHERE Clause &\multicolumn{1}{c|}{\ding{52}} &  \multicolumn{1}{c|}{\text{\sffamily X}} &  \multicolumn{1}{c|}{\text{\sffamily X}}  &  \multicolumn{1}{c|}{\text{\sffamily X}} & \multicolumn{1}{c|}{\ding{52}} \\ \hline
+
+Support keyword True in WHERE clause & \multicolumn{1}{c|}{\ding{52}} & \multicolumn{1}{c|}{\ding{52}} &  \multicolumn{1}{c|}{\text{\sffamily X}} &  \multicolumn{1}{c|}{\text{\sffamily X}} & \multicolumn{1}{c|}{\ding{52}} \\ \hline
+
+Support of \% operator  & \multicolumn{1}{c|}{\ding{52}} & \multicolumn{1}{c|}{\ding{52}} & \multicolumn{1}{c|}{\ding{52}} & \multicolumn{1}{c|}{\begin{tabular}[c]{@{}c@{}}\ding{52}\\ (It uses mod function)\end{tabular}} & \multicolumn{1}{c|}{\ding{52}}\\ \hline
+
+Division by zero & \multicolumn{1}{c|}{\ding{52}} &  \multicolumn{1}{c|}{\text{\sffamily X}} &            \multicolumn{1}{c|}{\text{\sffamily X}} &  \multicolumn{1}{c|}{\text{\sffamily X}} & \multicolumn{1}{c|}{\text{\sffamily X}} \\ \hline
+
+Row comparison & \multicolumn{1}{c|}{\ding{52}} & \multicolumn{1}{c|}{\ding{52}} &  \multicolumn{1}{c|}{\text{\sffamily X}} & \multicolumn{1}{c|}{\ding{52}} & \multicolumn{1}{c|}{\ding{52}} \\ \hline
+
+\textbf{Identical names in the FROM Clause} &  \multicolumn{1}{c|}{\text{\sffamily X}} &  \multicolumn{1}{c|}{\text{\sffamily X}} &  \multicolumn{1}{c|}{\text{\sffamily X}} &  \multicolumn{1}{c|}{\text{\sffamily X}} & \multicolumn{1}{c|}{\ding{52}} \\ \hline
+
+SQL Query without FROM Clause &  \multicolumn{1}{c|}{\text{\sffamily X}}  & \multicolumn{1}{c|}{\ding{52}} & \multicolumn{1}{c|}{\ding{52}} &  \multicolumn{1}{c|}{\text{\sffamily X}} &  \multicolumn{1}{c|}{\text{\sffamily X}} \\ \hline
+
+$||$ operator in SELECT Clause  & \multicolumn{1}{c|}{\begin{tabular}[c]{@{}c@{}}\ding{52}\\ (But  It uses $||$ as logical OR), \\(Uses CONCAT function ) \end{tabular}} & \multicolumn{1}{c|}{\ding{52}} & \multicolumn{1}{c|}{\begin{tabular}[c]{@{}c@{}}\ding{52}\\ ( It uses $+$ )  \end{tabular}} & \multicolumn{1}{c|}{\ding{52}} & \multicolumn{1}{c|}{\ding{52}} \\ \hline
+
+
+TRIM function in SELECT Clause  & \multicolumn{1}{c|}{\ding{52}} & \multicolumn{1}{c|}{\ding{52}} &  \multicolumn{1}{c|}{\text{\sffamily X}}  & \multicolumn{1}{c|}{\ding{52}}      & \multicolumn{1}{c|}{\ding{52}} \\ \hline
+
+
+  operator in SELECT Clause  &  
+\multicolumn{1}{c|}{\begin{tabular}[c]{@{}c@{}}\ding{52}\\ (But it uses   \\ as logical OR) \end{tabular}} & \multicolumn{1}{c|}{\ding{52}} & \multicolumn{1}{c|}{\ding{52}}  & \multicolumn{1}{c|}{\ding{52}} & \multicolumn{1}{c|}{\ding{52}}  \\ \hline
+
+SUBSTRING function in SELECT Clause & \multicolumn{1}{c|}{\ding{52}} & \multicolumn{1}{c|}{\ding{52}} & \multicolumn{1}{c|}{\ding{52}} & \multicolumn{1}{c|}{\begin{tabular}[c]{@{}c@{}}{\text{\sffamily X}} (It uses SUBSTR \\function instead)\end{tabular}} &     \multicolumn{1}{c|}{\ding{52}}  \\ \hline
+
+Enclose Strings with “ instead of ‘  & \multicolumn{1}{c|}{\ding{52}} &  \multicolumn{1}{c|}{\text{\sffamily X}} &  \multicolumn{1}{c|}{\text{\sffamily X}} &  \multicolumn{1}{c|}{\text{\sffamily X}}  &  \multicolumn{1}{c|}{\text{\sffamily X}}  \\ \hline
+
+LIKE Operator  & \multicolumn{1}{c|}{\ding{52}} & \multicolumn{1}{c|}{\begin{tabular}[c]{@{}c@{}}\ding{52}\\ (Case- sensitive) \end{tabular}} & \multicolumn{1}{c|}{\ding{52}} & \multicolumn{1}{c|}{\begin{tabular}[c]{@{}c@{}}\ding{52}\\ (Case- sensitive) \end{tabular}}      & \multicolumn{1}{c|}{\ding{52}} \\ \hline
+
+\end{tabular}%
+}
+\end{table}
 
 
 \section{Suggestions for future work}
