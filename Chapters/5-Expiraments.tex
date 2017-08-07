@@ -1,16 +1,23 @@
 \chapter{Experimental Evaluation}
-This chapter presents the procedure that it is followed in order to provide the experimental evidences. Subsequently, It is presented the main findings with appropriate explanation according to the Standard. Also, it is described  the environment and the DBMSs that they have been tested. 
+This chapter presents the procedure that is followed in order to provide the experimental evidences. Subsequently, the main findings are presented with appropriate explanation according to the Standard. 
 
 \section{The experiment Set-Up}
-The evaluation is carried out on Windows 8 with i7 CPU, 12GB Ram and a solid state disk (SSD). Also, the  following versions of DBMSs have been installed: PostgreSQL Version 9.6, Microsoft SQL Server Express Edition 2016, IBM Db2 Express-C, Oracle Database 12c and  MySQL Community Edition 5.7. 
-Apart of generating huge numbers of SQL queries, it is also checked if new findings can be emerged by conducting the experiments in different schemas with different data types and numbers of relations. As a result, it is checked the following data types:  TEXT, CHAR, VARCHAR, INTEGER, SMALLINT, BIGINT. Moreover, the experiments are conducted in different schemas varying from two to ten relations with two to ten attributes. In addition, it is generated data using different rate of NULLs such as 5\%, 10\%, 20\% and 40\% for identify if differences can arise depending on the number of NULLs that a database contains.  Furthermore, the size of instances varied from two to one thousand rows which were generating using data fiiller. Having huge instances decrease the throughput of queries that can be executed per second and thus less queries will be checked. Taking into account that issues and different interpretations can be raised even in small instances, it is end up realized that small instances and schema can still reveal crucial differences. 
+The evaluation is carried out on Windows 8 with i7 CPU, 12GB Ram and a solid state disk (SSD). Also, the following versions of DBMSs had been installed: PostgreSQL Version 9.6, Microsoft SQL Server Express Edition 2016, IBM DB2 Express-C, Oracle Database 12c and MySQL Community Edition 5.7. 
+
+A very large number of SQL queries are generated using the random query generator tool. More precisely, more than 100,000 queries are generated. In addition, different schemas are used varying from two to ten relations and two to ten attributes. Since the data types of attributes may be important, the following data types are used: TEXT, CHAR, VARCHAR, INTEGER, SMALLINT, BIGINT. Furthermore,  we generated data with different NULL rate such as 5\%, 10\%, 20\% and 40\% for identify if differences can arise depending on the number of NULLs that a database contains.  Furthermore, for each schema a database instance is generated using the random data generator Datafiller. As an important consideration that needs to be checked with these experiments is whether various features of the Standard are implemented identically, thus the instances size was 100 rows per table. It will be aimless to use larger size of instances since issues and differences of the Standard can be still disclose with a smaller size. In that way, the throughput of generated queries is increased and more queries can be evaluated in less time. 
+
 
 \section{Experiment Results}
-The implemented architecture is used to conduct the experiments and in that way it is also checked whether the current implementation if is capable to detect any differences among modern DBMSs. The results are provided below with the following format: Firstly,  It is presented  the SQL query that cause an error or a semantic issue on one or more systems. Meaning that some features may not be implemented by all systems or use a different commands or interpret it differently.  Then, a table for each query is provided that demonstrates a raised error of any system, otherwise, the keyword ‘works’ meaning that the SQL query is executed without to raise any error. Thereafter, a comprehensive explanation is given for each problematic query by explaining about the source of the problem and giving an explanation according to the SQL standard.   
+The implemented framework is used to conduct the experiments. In that way, the current implementation is checked and tested whether is capable to detect differences and issues between the five DBMSs. The results which are illustrated below have the following format: Firstly,  the SQL query that causes an error or a semantic issue is presented ( As may some features of the Standard are not implemented at all, or they are implemented differently). Then, a table for each query is provided which demonstrates if any DBMS raises an error,  otherwise, the keyword ‘Executed’ meaning that the SQL query is executed. Afterwards, a comprehensive explanation is given for each query by explaining about the source of the problem and an explanation according to the SQL standard is provided.   
 
-\subsection{Dif 1}
+ \begin{figure}        
+      \includegraphics[width=\textwidth,height=8cm,width=10cm]{Images/performance_evaluation}
+      \caption{Performance Evaluation}
+      \label{fig:Performance Evaluation}
+ \end{figure}
 
-\textbf{Q1:}
+\hfill\newline\textbf{Difference 1:}
+\hfill\newline\textbf{Q1:}
 \begin{mdframed}[nobreak=true, backgroundcolor=lightgray!20] 
 \begin{lstlisting}[style=SQL]
 SELECT r41.A AS A0
@@ -35,9 +42,8 @@ IBM DB2       & Works                                                           
 
 According to the Standard each expression in the ‘WHERE’ clause is evaluated to a boolean type such as True, False and Unknown. Thus, each row is evaluated to a boolean type and rows that returned true are included in the result. The Q1 performs multiplication between two constants in the ‘WHERE’ clause and cannot be evaluated to a boolean type, instead it should return an integer type. It is expected that the Q1 will raise an error if it is executed, nevertheless, Mysql and IBM DB2 execute the query without to raise any error. Although the expression in the ‘WHERE’ clause should return a boolean type, these two DBMSs convert an integer type to a boolean type. On the contrary with the rest three DBMSs which throw an exception.  
 
-\subsection{Dif 2}
-  
-\textbf{Q2:}
+\hfill\newline\textbf{Difference 2:}
+\hfill\newline\textbf{Q2:}
 \begin{mdframed}[backgroundcolor=lightgray!20] 
 \begin{lstlisting}[style=SQL]
 SELECT r21.A AS A0 
@@ -65,9 +71,9 @@ IBM DB2       & Works                                                           
 As it is aforementioned, each expression in the ‘WHERE’ clause is evaluated to a boolean type. Thus, instead of having a specific expression, the keywords True/false can be specified which is the type that each expression is evaluated. As a consequence, it is reasonable to have the ‘True’ keyword in the WHERE clause indicating that each row selected in the ‘FROM’ clause will be included in the results. Nevertheless, Q2 raised an error if it is executed on Microsoft SQL  Server and Oracle DBMSs, in the contrast with the rest DBMS which the query is executed without to raise an error. With respect to SQL standard there is not explicit mention about the keyword true in the ‘WHERE’ Clause. 
 
 \hfill\newpage
-\subsection{Dif 3}
 
-\textbf{Q3:}
+\hfill\newline\textbf{Difference 3:}
+\hfill\newline\textbf{Q3:}
 \begin{mdframed}[backgroundcolor=lightgray!20]
 \begin{lstlisting}[style=SQL]
 SELECT  NULL/NULL, 1/2, NULL-NULL
@@ -94,9 +100,9 @@ IBM DB2       & Works                                                           
 Boolean data type comprises the distinct truth values True and False. Apart from these values, boolean data type supports also the truth value Unknown as the NULL value. As a result, the Standard does not make a distinction between NULL value of the boolean data type and the truth value Unknown and based on the Standard a division between NULL should result to a NULL. The evaluation of the NULL/NULL in the Q3 should result to Unknown value. Nevertheless, PostgresSQL raises an error when executes this query, in the contrary with the rest DBMSs which are executed the query without any error. 
 
 
-\subsection{Dif 4}
-  
-\textbf{Q4:}
+\hfill\newline\textbf{Difference 4:}
+\hfill\newline\textbf{Q4:}
+
 \begin{mdframed}[backgroundcolor=lightgray!20]
 \begin{lstlisting}[style=SQL]
 SELECT  r21.B/3
@@ -123,9 +129,9 @@ IBM DB2       & Works                   \\ \hline
 
 The Q4 is executed on Databases that contain smallint data type for the attribute r21.B. Thus, this query is executed without cause an error on any of five DBMSs. Nevertheless, the results differ slightly in terms of their return type. In DB2, PostgreSQL and MS Server the results for the column r21.B/3 are returned as integer type, on the contrary with MySQL and Oracle DBMSs where the results are returned as decimal data type. 
 
-\subsection{Dif 5}
-  
-\textbf{Q5:}
+\hfill\newline\textbf{Difference 5:}
+\hfill\newline\textbf{Q5:}
+
 \begin{mdframed}[backgroundcolor=lightgray!20]
 \begin{lstlisting}[style=SQL]
 SELECT (MIN(r41.B) % AVG(r41.A) ) 
@@ -153,9 +159,9 @@ IBM DB2       & Works                                                  \\ \hline
 An important consideration is that arithmetic operations such as addition, multiplications and  subtraction are supported in the SELECT clause. Another important arithmetic operation which is also supported in the ‘SELECT’ clause is the  (modulo). Nevertheless, the syntax of \% (modulo) operator differ in Oracle’s database. More precisely, Oracle database instead of using \% which is supported by the rest DBMSs, it uses a function called MOD. Thus, the Q5 needs to replace the operator \%  with function ‘mod’ in order to be syntactically correct in Oracle’s db, that is, MOD( MIN(r41.B), AVG(r41.A) ). 
 
 \hfill\newpage
-\subsection{Dif 6}
-  
-\textbf{Q6:}
+
+\hfill\newline\textbf{Difference 6:}
+\hfill\newline\textbf{Q6:}
 \begin{mdframed}[backgroundcolor=lightgray!20]
 \begin{lstlisting}[style=SQL]
 SELECT r41.A AS A0
@@ -181,9 +187,9 @@ IBM DB2       & Works                                                          \
 With respect to the Standard, alias feature is optional and it is not compulsory to be implemented in the modern DBMSs. The purpose of this feature is to rename tables or columns. Thus this feature can be used both with attributes in the ‘SELECT’ clause and for tables in the ‘FROM’ clause. Aliases are given using ‘AS’ keyword. In addition, it can be used to rename a subquery in the FROM clause and subsequently to access it using its alias. The Oracle’s database support to use ‘AS’ when defining column aliases, but it does not allow use ‘AS’ when defining table aliases (in the ‘FROM’ clause), on the contrary with the rest DBMSs which support the alias feature both to rename tables or columns. 
 
 
-\subsection{Dif 7}
-  
-\textbf{Q7:}
+\hfill\newline\textbf{Difference 7:}
+\hfill\newline\textbf{Q7:}
+
 \begin{mdframed}[backgroundcolor=lightgray!20]
 \begin{lstlisting}[style=SQL]
 (SELECT r41.A AS A0
@@ -213,9 +219,9 @@ IBM DB2       & Works                                                           
 EXCEPT ALL is an optional feature according to the Standard. The usage of this feature is to return all rows from the outer query which are not present in the inner query without removing the duplicates. Thus, this operator is fully supported by the Standard but it is optional meaning that it is not compulsory to be implemented by modern DBMSs. MySql and Oracle database do not support this operator. Nevertheless, Oracle, supports the same operator but with different name called ‘MINUS ALL’ keyword. As a result, MINUS ALL  has exactly the same behaviour on Oracle’s database with the EXCEPT ALL.  Lastly, PostgreSQL and IBM DB2 support the EXCEPT ALL operator. 
 
 
-\subsection{Dif 8}
-  
-\textbf{Q8:}
+\hfill\newline\textbf{Difference 8:}
+\hfill\newline\textbf{Q8:}
+
 \begin{mdframed}[backgroundcolor=lightgray!20]
 \begin{lstlisting}[style=SQL]
 (SELECT r41.A AS A0
@@ -247,9 +253,9 @@ IBM DB2       & Works                                                           
 ‘EXCEPT’ is a mandatory feature according to the Standard and all DBMSs must support this feature in order to comply to the Standard. The usage of this feature results to return all rows from the outer query which are not present in the inner query with removing the duplicates. Only MySQL does not support the ‘EXCEPT’ even though it is a compulsory feature according to the Standard.. Nevertheless, Oracle database instead of use  ‘EXCEPT’ as keyword, it uses ‘MINUS’ which has an identical behavior. The rest DBMSs support this operator. 
 
 
-\subsection{Dif 9}
-  
-\textbf{Q9:}
+\hfill\newline\textbf{Difference 9:}
+\hfill\newline\textbf{Q9:}
+
 \begin{mdframed}[backgroundcolor=lightgray!20]
 \begin{lstlisting}[style=SQL]
 (SELECT r41.A AS A0
@@ -282,9 +288,9 @@ IBM DB2       & Works                                                           
 With respect to the Standard INTERSECT ALL is an optional feature. The usage of this feature is to return all the rows which are presented in both inner and outer queries result, and without removing duplicates. MySQL, Microsoft SQL Server and oracle do not support this feature at all. On the contrary, PostgreSQL and IBM DB2 support this feature. 
 
  
-\subsection{Dif 10}
-  
-\textbf{Q10:}
+\hfill\newline\textbf{Difference 10:}
+\hfill\newline\textbf{Q10:}
+
 \begin{mdframed}[backgroundcolor=lightgray!20]
 \begin{lstlisting}[style=SQL]
 SELECT  7/0 AS ART0, 1%NULL AS ART1
@@ -313,9 +319,9 @@ A division with zero should not allowed  according to the Standard and it should
 
 
  
-\subsection{Dif 11}
+\hfill\newline\textbf{Difference 11:}
+\hfill\newline\textbf{Q11:}
 
-\textbf{Q11:}
 \begin{mdframed}[backgroundcolor=lightgray!20]
 \begin{lstlisting}[style=SQL]
 SELECT r11.a AS A1, r11.b AS A2
@@ -343,9 +349,9 @@ IBM DB2       & Works                                                           
 A division with zero should not allowed  according to the Standard and it should  always raise an error. Nevertheless, MySQL does not raise an error and the result of the division with zero is NULL. 
 
 
-\subsection{Dif 12}
- 
-\textbf{Q12:}
+\hfill\newline\textbf{Difference 12:}
+\hfill\newline\textbf{Q12:}
+
 \begin{mdframed}[backgroundcolor=lightgray!20]
 \begin{lstlisting}[style=SQL]
 SELECT  r31.b AS A1
@@ -375,9 +381,9 @@ According to the Standard, only columns that appear in the ‘GROUP BY’ clause
 
 
 \hfill\newline
-\subsection{Dif 13}
- 
-\textbf{Q13:}
+\hfill\newline\textbf{Difference 13:}
+\hfill\newline\textbf{Q13:}
+
 \begin{mdframed}[backgroundcolor=lightgray!20]
 \begin{lstlisting}[style=SQL]
 SELECT  NULL+NULL AS ART1
@@ -407,9 +413,9 @@ The Standard does not make a distinction between NULL value of the boolean data 
 
 
 \hfill\newpage
-\subsection{Dif 14}
+\hfill\newline\textbf{Difference 14:}
+\hfill\newline\textbf{Q14:}
 
-\textbf{Q14:}
 \begin{mdframed}[backgroundcolor=lightgray!20]
 \begin{lstlisting}[style=SQL]
 SELECT  'SQL' || 'STANDARD'
@@ -437,8 +443,9 @@ According to the Standard, concatenation is a mandatory feature and it should be
 
 
 
-\subsection{Dif 15}
-\textbf{Q15:}
+\hfill\newline\textbf{Difference 15:}
+\hfill\newline\textbf{Q15:}
+
 \begin{mdframed}[backgroundcolor=lightgray!20]
 \begin{lstlisting}[style=SQL]
 SELECT  *
@@ -464,9 +471,9 @@ IBM DB2       & Works                                                           
 Q15 should raise an error because it give the same alias on two tables. Thus, it will be unambiguous to which table it is referred. Nevertheless, the query is executed on IBM DB2 database, where on the rest DBMSs raise an error. 
 
 
-\subsection{Dif 16}
+\hfill\newline\textbf{Difference 16:}
+\hfill\newline\textbf{Q16:}
 
-\textbf{Q16:}
 \begin{mdframed}[backgroundcolor=lightgray!20]
 \begin{lstlisting}[style=SQL]
 SELECT TRIM('    SQLSTANDARD    ')
@@ -493,9 +500,9 @@ IBM DB2       & Works                                                           
 According to Standard trim function is a mandatory feature and it should be implemented by all DBMSs. The usage of trim feature is that it returns the string which is given as argument with leading and/or trailing pad character. This function is supported by most of DBMSs, except Microsoft SQL Server. 
 
 
-\subsection{Dif 17}
+\hfill\newline\textbf{Difference 17:}
+\hfill\newline\textbf{Q17:}
 
-\textbf{Q17:}
 \begin{mdframed}[backgroundcolor=lightgray!20]
 \begin{lstlisting}[style=SQL]
 SELECT  2 * 5 AS ART
@@ -524,10 +531,10 @@ The basic structure of an SQL query is ‘SELECT...FROM...WHERE’. The Q17 omit
 
 
 \hfill\newpage
-\subsection{Dif 18}
 
+\hfill\newline\textbf{Difference 18:}
+\hfill\newline\textbf{Q18:}
 
-\textbf{Q18:}
 \begin{mdframed}[backgroundcolor=lightgray!20]
 \begin{lstlisting}[style=SQL]
 SELECT  SUBSTRING ('Standard', 1, 4)
@@ -537,7 +544,7 @@ FROM  R1
 
 \begin{table}[h]
 \centering
-\caption{My caption}
+\caption{Difference 18}
 \label{my-label}
 \begin{tabular}{|p{2cm}|p{11.5cm}| }
 \hline
@@ -553,9 +560,9 @@ IBM DB2       & Works                                                           
 The substring function is a mandatory feature according to the Standard and as a result all DBMSs should implement this feature. The usage of substring is to return a part of the string which given as argument. Mysql, PostgreSQL, IBM DB2 and Microsoft Sql Server support this function. Oracle database use Substr instead of Substring which has a similar behaviour. The prototype of oracle’s function is as follow: $substr (column_name, start_pos , no_of_characters).$ 
 
 
-\subsection{Dif 19}
+\hfill\newline\textbf{Difference 19:}
+\hfill\newline\textbf{Q19:}
 
-\textbf{Q19:}
 \begin{mdframed}[backgroundcolor=lightgray!20]
 \begin{lstlisting}[style=SQL]
 SELECT "SQLSTANDARD"
@@ -583,9 +590,9 @@ IBM DB2       & {[}56098{]}{[}-727{]} An error occurred during implicit system a
 According to the SQL standard encompass by ‘. It is demonstrated in Q19 that MySQL allow a string to be encompassed by both ‘ and “ which make the SQL code less portable as the rest DBMSs raise an error if it is used “ instead if ‘. 
 
 
-\subsection{Dif 20}
+\hfill\newline\textbf{Difference 20:}
+\hfill\newline\textbf{Q20:}
 
-\textbf{Q20:}
 \begin{mdframed}[backgroundcolor=lightgray!20]
 \begin{lstlisting}[style=SQL]
 SELECT *
@@ -614,9 +621,9 @@ The Q20 is executed on all DBMSs without to raise an error, though the semantic 
 
 
 
-\subsection{Dif 21}
+\hfill\newline\textbf{Difference 21:}
+\hfill\newline\textbf{Q21:}
 
-\textbf{Q21:}
 \begin{mdframed}[backgroundcolor=lightgray!20]
 \begin{lstlisting}[style=SQL]
 SELECT *

@@ -12,11 +12,12 @@ Furthermore, demonstrating and analyzing these incompatibilities makes users and
  
 The below table summarizes the main features of SQL language and illustrated which of them are not supported by all popular DBMSs. These findings have been discovered by conducting experiments using the random generator query tool and the comparison tool. We have generated a huge number of SQL queries in order to identify lot of cases where DBMSs behave differently. It is worthy mentioning that the process of conducting experiments is fully automated and in case where a difference is found, it is recorded in a log file with some useful explanation.    
 
+
 \begin{table}[h]
-\caption{My caption}
+\caption{Summarize results}
 \label{my-label}
-\resizebox{\textwidth}{!}{%
-\begin{tabular}{|l|l|l|l|l|l|}
+\resizebox{\columnwidth}{!}{%
+\begin{tabular}{|l|l|l|l|l|l|}  
 \hline
 \textbf{Operation} & \textbf{Mysql} & \textbf{PostgreSQL} & \textbf{Microsoft SQL Server} & \textbf{Oracle} & \textbf{IBM DB2} \\ \hline
 \textbf{INTERSECT ALL} &  \multicolumn{1}{c|}{\text{\sffamily X}} & \multicolumn{1}{c|}{\ding{52}} & \multicolumn{1}{c|}{\text{\sffamily X}} &  \multicolumn{1}{c|}{\text{\sffamily X}} & \multicolumn{1}{c|}{\ding{52}} \\ \hline
@@ -40,7 +41,20 @@ Row comparison & \multicolumn{1}{c|}{\ding{52}} & \multicolumn{1}{c|}{\ding{52}}
 
 \textbf{Identical names in the FROM Clause} &  \multicolumn{1}{c|}{\text{\sffamily X}} &  \multicolumn{1}{c|}{\text{\sffamily X}} &  \multicolumn{1}{c|}{\text{\sffamily X}} &  \multicolumn{1}{c|}{\text{\sffamily X}} & \multicolumn{1}{c|}{\ding{52}} \\ \hline
 
-SQL Query without FROM Clause &  \multicolumn{1}{c|}{\text{\sffamily X}}  & \multicolumn{1}{c|}{\ding{52}} & \multicolumn{1}{c|}{\ding{52}} &  \multicolumn{1}{c|}{\text{\sffamily X}} &  \multicolumn{1}{c|}{\text{\sffamily X}} \\ \hline
+SQL Query without FROM Clause &  \multicolumn{1}{c|}{\text{\sffamily X}}  & \multicolumn{1}{c|}{\ding{52}} & \multicolumn{1}{c|}{\ding{52}} &  \multicolumn{1}{c|}{\text{\sffamily X}} &  \multicolumn{1}{c|}{\text{\sffamily X}} \\ \hline 
+
+\end{tabular}%
+}
+\end{table}
+
+
+\begin{table}[h]
+\caption{Summarize results}
+\label{my-label}
+\resizebox{\columnwidth}{!}{%
+\begin{tabular}{|l|l|l|l|l|l|}  
+\hline
+\textbf{Operation} & \textbf{Mysql} & \textbf{PostgreSQL} & \textbf{Microsoft SQL Server} & \textbf{Oracle} & \textbf{IBM DB2} \\ \hline
 
 $||$ operator in SELECT Clause  & \multicolumn{1}{c|}{\begin{tabular}[c]{@{}c@{}}\ding{52}\\ (But  It uses $||$ as logical OR), \\(Uses CONCAT function ) \end{tabular}} & \multicolumn{1}{c|}{\ding{52}} & \multicolumn{1}{c|}{\begin{tabular}[c]{@{}c@{}}\ding{52}\\ ( It uses $+$ )  \end{tabular}} & \multicolumn{1}{c|}{\ding{52}} & \multicolumn{1}{c|}{\ding{52}} \\ \hline
 
@@ -61,7 +75,7 @@ LIKE Operator  & \multicolumn{1}{c|}{\ding{52}} & \multicolumn{1}{c|}{\begin{tab
 }
 \end{table}
 
-
+\hfill\newpage
 \section{Suggestions for future work}
 Several issues arose when DBMSs are tested. The experiments are conducted in various databases that contained integers and strings. We expect that more issues can arise by generating also databases containing dates but by doing so, the generator tool should be extended in order to support this new data type. This should be an easy extension as there is the provision for supporting any data type. Yet another future extension could be to include a new DBMS for evaluation of its SQL-compliance. This extension also should not need a lot of effort as the architecture in implemented in such a way that a new system can be easily added.
 
